@@ -22,7 +22,7 @@ Los servicios usan imágenes de sus marcas guardadas localmente, tanto en las ta
 - `src/main.tsx`: páginas, tarjetas, filtros, detalle, resumen accesible con dialog nativo, FAQ y navegación.
 - `src/style.css`: sistema visual y adaptaciones móviles.
 - `src/commerce.test.ts`, `e2e/`: pruebas de negocio y navegador.
-- `public/favicon.svg`: símbolo de marca original; el encabezado usa el mismo concepto con Lucide.
+- La identidad comercial está pendiente: el encabezado y el pie muestran únicamente el texto provisional «marca», sin símbolo ni favicon.
 
 Para habilitar una modalidad, configurar un precio numérico mayor que cero y `available: true`; el producto debe tener `active: true`. Cambiar condiciones y características con información comercial comprobada. La moneda se centraliza en `business.currency`; todos los precios usan esa moneda. `previousPrice` solo produce una promoción si supera al precio actual y el producto tiene `offer: true` y la variante está disponible. Los precios desconocidos son `null`. No hay descuentos o beneficios inventados. Desactivar un producto con `active: false`. Nuevos juegos usan `category: 'gaming'` y variantes con `diamonds`; siguen el flujo de ID de jugador. Para otros tipos de identificador será necesario ampliar su validación.
 
