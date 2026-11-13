@@ -15,6 +15,8 @@ Ejecutar desde la raíz del repositorio. `npm run build` comprueba tipos y crea 
 
 ## Estructura y edición
 
+Los servicios usan imágenes de sus marcas guardadas localmente, tanto en las tarjetas como en el detalle. Consulta [procedencia y licencias de los logotipos](docs/LOGOTIPOS.md); el icono de Free Fire requiere revisar permisos antes de publicación pública. `src/ProductIdentity.tsx` centraliza las imágenes y muestra el nombre si falla su carga.
+
 - `src/catalog.ts`: productos, variantes, características, duración en meses, diamantes, disponibilidad, precios, promociones, condiciones; y objeto `business` con nombre, moneda, contacto, WhatsApp y políticas.
 - `src/commerce.ts`: validación, precios, promociones, resumen y enlaces oficiales `wa.me`.
 - `src/main.tsx`: páginas, tarjetas, filtros, detalle, resumen accesible con dialog nativo, FAQ y navegación.
