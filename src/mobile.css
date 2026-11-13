@@ -1,0 +1,90 @@
+.home-card-action-label{display:none}
+
+/* A mobile composition rather than a compressed desktop storefront. */
+@media(max-width:760px){
+ .home-page{width:calc(100% - 32px);padding-top:14px}
+ .home-hero{padding:24px 20px 0;gap:18px;border:1px solid #223040;border-radius:19px}
+ .home-hero h1{font-size:clamp(27px,7.7vw,32px);line-height:1.13;letter-spacing:-.85px;margin-bottom:12px}
+ .home-hero-copy>p{font-size:14px;line-height:1.55;margin-bottom:17px;color:#bac6d5}
+ .home-hero-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .home-hero-actions .button{width:100%;height:auto;min-height:46px;padding:11px 8px;font-size:12px;line-height:1.3;white-space:normal;text-align:center;gap:7px;border-radius:11px}
+ .home-hero-actions .button svg{width:17px;height:17px}
+ .home-platforms,.home-slide-2 .home-platforms{position:relative;inset:auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:9px;margin:0;width:100%;max-width:none;height:clamp(150px,38vw,250px);min-height:150px;padding:0;overflow:visible;transform:none}
+ .home-platform,.home-platform:nth-child(n),.home-platform.platform-free-fire{width:100%;height:100%;max-width:none;min-width:0;margin:0;transform:none;clip-path:none;border:1px solid #53667b70;border-radius:10px;overflow:hidden}
+ .home-panel-art,.platform-free-fire .home-panel-art{inset:0;transform:none;background-size:auto 200%}
+ .home-platform .home-identity{transform:none;margin:0;gap:2px}
+ .home-platform .product-logo{height:38px;width:67%;filter:none}
+ .home-platform .identity-netflix .product-logo{height:43px;width:49%}
+ .home-platform .identity-disney .product-logo{height:83px;width:100%}
+ .home-platform .identity-max .product-logo{height:40px;width:67%}
+ .home-platform .identity-crunchyroll .product-logo{height:30px;width:48%}
+ .home-platform .identity-spotify .product-logo{height:39px;width:60%}
+ .home-platform .home-service-name{font-size:8px;letter-spacing:0}
+ .home-platform.platform-free-fire .home-game-name{transform:none;align-self:center;margin:0;font-size:clamp(11px,3.2vw,15px);letter-spacing:-.55px}
+ .home-slide-controls{position:static;inset:auto;transform:none;align-self:center;min-height:44px;margin:-10px 0 0;padding:0;gap:0}
+ .home-slide-controls button,.home-slide-controls button[aria-pressed=true]{display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:9px;background:transparent;box-shadow:none;padding:0}
+ .home-slide-controls button:before{display:none}
+ .home-slide-controls button:after{content:'';display:block;width:7px;height:7px;border-radius:8px;background:#738398;transition:width .18s,background .18s}
+ .home-slide-controls button[aria-pressed=true]:after{width:20px;background:#199bff;box-shadow:inset 0 0 0 2px #85d0ff}
+ .home-process{padding:0 8px;margin-top:16px;gap:0;border-radius:15px;background:#111923}
+ .home-process-item{padding:14px 9px;min-height:78px;align-items:flex-start;gap:9px;justify-content:flex-start}
+ .home-process-item:after{display:none}
+ .home-process-item:nth-child(odd){border-right:1px solid #2b3746}
+ .home-process-item:nth-child(-n+2){border-bottom:1px solid #2b3746}
+ .home-process-item strong{font-size:12px;line-height:1.4;margin-bottom:4px}
+ .home-process-item span{font-size:11px;line-height:1.5;color:#aebccc}
+ .home-process-item>svg,.home-process-item>.whatsapp-icon{width:23px;height:25px;flex-shrink:0;margin-top:2px;color:#c0d0e3}
+ .home-section-heading{margin:23px 0 13px;gap:10px}
+ .home-section-heading h2{font-size:clamp(19px,5.4vw,22px);line-height:1.3;letter-spacing:-.4px}
+ .home-section-heading>a{font-size:12px;min-height:44px;gap:5px;flex-shrink:0}
+ .home-section-heading>a svg{width:16px}
+ .home-streaming-grid{gap:13px 12px;align-items:stretch}
+ .home-page .home-service-card{border-radius:13px}
+ .home-cover{aspect-ratio:1.8}
+ .home-card-details{padding:12px;min-height:0;display:flex;flex-direction:column;gap:0}
+ .home-card-details h3{font-size:16px;line-height:1.3;letter-spacing:-.25px;margin-bottom:5px}
+ .home-card-details>p{font-size:12px;line-height:1.45;margin:0 0 12px;color:#afbdce}
+ .home-card-action{position:static;display:flex;justify-content:space-between;align-items:center;gap:8px;width:100%;height:auto;min-height:44px;padding:10px 11px;margin-top:auto;border-radius:9px;background:#202c3b;border-color:#3c4e63;color:#edf4ff;font-size:12px;font-weight:600}
+ .home-card-action-label{display:inline}
+ .home-streaming-grid>.home-service-card:last-child:nth-child(odd){grid-column:1/-1;display:grid;grid-template-columns:43% minmax(0,1fr)}
+ .home-streaming-grid>.home-service-card:last-child:nth-child(odd) .home-cover{aspect-ratio:auto;height:100%;min-height:135px;background-size:auto 200%}
+ .home-streaming-grid>.home-service-card:last-child:nth-child(odd) .home-card-details{padding:15px}
+ .home-page .home-game-banner{grid-template-columns:minmax(0,1fr);gap:0;padding:0 18px 18px;border-radius:16px}
+ .home-game-art{grid-column:auto;margin:0 -18px 17px;height:155px;min-height:155px;padding:22px 24px;border-bottom:1px solid #68503b}
+ .home-game-art .home-game-name{font-size:34px;letter-spacing:-1px}
+ .home-game-copy{padding:0}
+ .home-game-copy h3{font-size:22px;line-height:1.25;margin-bottom:8px}
+ .home-game-copy p{font-size:13px;line-height:1.6;color:#b8c5d5;max-width:none;margin-bottom:14px}
+ .home-game-packages{font-size:11px;line-height:1.4;min-height:40px;padding:9px 12px;gap:7px;max-width:100%}
+ .home-game-action{display:flex;width:100%;height:auto;min-height:48px;margin-top:15px;padding:12px 18px;font-size:14px;border-radius:11px;justify-content:center;gap:12px}
+ .home-game-action span{display:inline}
+ .home-page .faq{margin-top:28px;padding-top:23px}
+ .home-page .faq h2{font-size:22px;line-height:1.3}
+ .home-page .faq summary{font-size:14px;line-height:1.5;min-height:52px;padding:16px 0}
+ .home-page .faq details p{font-size:13px;line-height:1.7}
+ .store-header .contact{width:44px;height:44px}
+ .nav-actions{gap:7px}
+ .store-header .nav{gap:10px}
+}
+@media(max-width:360px){
+ .home-hero{padding:22px 17px 0}
+ .home-hero-actions .button{font-size:11px;gap:6px;padding:11px 7px}
+ .home-process{padding:0 5px}
+ .home-process-item{padding:12px 6px;gap:7px}
+ .home-process-item strong{font-size:11px}
+ .home-process-item span{font-size:10px}
+ .home-process-item>svg,.home-process-item>.whatsapp-icon{width:20px}
+ .home-card-details{padding:11px}
+ .home-card-details h3{font-size:15px}
+ .home-card-details>p{font-size:11px}
+ .home-card-action{padding:10px 8px;font-size:11px}
+ .home-game-packages{font-size:10px}
+}
+@media(max-width:760px){
+ /* Center each tile inside its own scene, without leaking the adjacent artwork. */
+ .home-panel-art.art-netflix{background-position:5% top}
+ .home-panel-art.art-disney{background-position:50% top}
+ .home-panel-art.art-max{background-position:95% top}
+ .home-panel-art.art-crunchyroll{background-position:5% bottom}
+ .home-panel-art.art-spotify{background-position:50% bottom}
+}

@@ -34,7 +34,7 @@ function HomeServiceCard({p}:{p:Product}){
   </a>
   <div className="home-card-details"><h3><a href={`#/producto/${p.id}`}>{p.name}</a></h3>
    <p><span>{p.variants.length} modalidades</span><span>{prices.length?`Desde ${money(Math.min(...prices))}`:'Precio por definir'}</span></p>
-   <a className="home-card-action" href={`#/producto/${p.id}`} aria-label={`${action} de ${p.name}`}><ArrowRight size={19}/></a>
+   <a className="home-card-action" href={`#/producto/${p.id}`} aria-label={`${action} de ${p.name}`}><span className="home-card-action-label">{action}</span><ArrowRight size={19}/></a>
   </div>
  </article>;
 }

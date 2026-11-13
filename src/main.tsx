@@ -10,6 +10,7 @@ import {WhatsAppIcon} from './WhatsAppIcon';
 import './style.css';
 import './home.css';
 import './navigation.css';
+import './mobile.css';
 const products=catalog.filter(p=>p.active);
 function App(){
  const [route,setRoute]=useState(location.hash.slice(1)||'/');const [query,setQuery]=useState('');const [menu,setMenu]=useState(false);const [selected,setSelected]=useState('');const [duration,setDuration]=useState('');const [availability,setAvailability]=useState('');const [sort,setSort]=useState('name');const [max,setMax]=useState('');

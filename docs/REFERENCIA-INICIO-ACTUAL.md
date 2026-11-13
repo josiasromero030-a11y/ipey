@@ -18,3 +18,7 @@ Comparación visual realizada abriendo capturas de escritorio y móvil. Se igual
 Validación: compilación de producción, 6 pruebas comerciales, 12 pruebas de navegador y capturas con imágenes cargadas, sin errores HTTP/JavaScript ni desbordamiento entre 320 y 1448 px. Los indicadores del hero se prueban en escritorio y móvil.
 
 Archivos principales: `src/HomeDashboard.tsx`, `src/home.css`, `src/navigation.css`, `src/WhatsAppIcon.tsx`, cabecera de `src/main.tsx`, ilustraciones, logotipo de WhatsApp, capturas y pruebas.
+
+## Adaptación móvil
+
+Inicio utiliza dos filas de plataformas, tarjetas con botones de texto, una última tarjeta horizontal para evitar la celda vacía, franja informativa con texto ampliado y un botón de Free Fire a todo el ancho. Los indicadores y acciones principales tienen zonas de pulsación de al menos 44 px. El diseño de escritorio se comprobó idéntico mediante comparación de las capturas antes/después. Los ajustes se concentran en `src/mobile.css`; se conserva la navegación y la lógica comercial.

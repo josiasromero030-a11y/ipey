@@ -51,7 +51,7 @@ Inicio sigue la referencia del dashboard aportada por el usuario: hero compacto 
 
 La navegación sigue la última referencia aprobada: se conserva «marca» sin símbolo, con enlaces centrados, subrayado activo y búsqueda circular azul. Los filtros y las páginas de Streaming y Juegos mantienen su funcionamiento. `src/HomeDashboard.tsx` organiza el contenido de Inicio; `src/home.css` limita sus estilos a esa página. Las tarjetas exclusivas de Inicio se definen en `HomeDashboard.tsx`; `src/ProductCard.tsx` conserva las tarjetas de las otras páginas. El catálogo y la lógica comercial no cambian. Las preguntas frecuentes siguen al final.
 
-Inicio utiliza un atlas WebP con seis ilustraciones originales; las otras páginas conservan los SVG de `public/art/`. Estos recursos no son material oficial de las plataformas. El hero usa seis paneles diagonales continuos y tres indicadores que cambian su contenido y enlaces. Consulta la [comparación visual y validación](docs/FIDELIDAD-INICIO.md) y la [procedencia de las ilustraciones](public/art/home/README.md).
+Inicio utiliza un atlas WebP con seis ilustraciones originales; las otras páginas conservan los SVG de `public/art/`. Estos recursos no son material oficial de las plataformas. El hero usa seis paneles diagonales continuos en escritorio y una composición de dos filas en móvil, con tres indicadores que cambian su contenido y enlaces. `src/mobile.css` mejora la legibilidad y las áreas de pulsación sin cambiar la presentación de escritorio. Consulta la [comparación visual y validación](docs/FIDELIDAD-INICIO.md) y la [procedencia de las ilustraciones](public/art/home/README.md).
 
 ## Capturas reales
 
