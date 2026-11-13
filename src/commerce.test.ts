@@ -1,0 +1,11 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {catalog,type Product} from './catalog';
+import {orderMessage,purchasable,validPlayerId,whatsappUrl,promotion} from './commerce';
+const configured=(gaming=false):Product=>{const p=structuredClone(catalog.find(p=>p.category===(gaming?'gaming':'streaming'))!);p.variants[0].price=7.5;p.variants[0].available=true;return p};
+test('catálogo pendiente impide solicitudes y promociones ficticias',()=>{for(const p of catalog){assert.equal(promotion(p),false);for(const v of p.variants){assert.equal(purchasable(p,v),false);assert.throws(()=>orderMessage(p,v))}}});
+test('mensaje de streaming usa la opción y precio seleccionados',()=>{const p=configured();const m=orderMessage(p,p.variants[0]);assert.match(m,/Netflix/);assert.match(m,/mensual/);assert.match(m,/7[.,]50/);assert.match(m,/Duración: 1/);assert.doesNotMatch(m,/ID de jugador/)});
+test('ID requerido y normalizado para recargas',()=>{const p=configured(true);for(const id of ['', 'abc12345','12345','1234567890123456'])assert.throws(()=>orderMessage(p,p.variants[0],id));assert.equal(validPlayerId(' 12345678 '),true);assert.match(orderMessage(p,p.variants[0],' 12345678 '),/ID de jugador: 12345678/)});
+test('enlace codifica texto y rechaza números pendientes',()=>{const m='Hola\nPlan: música & más';assert.equal(whatsappUrl(m),null);assert.equal(whatsappUrl(m,'+50512345678'),null);const url=whatsappUrl(m,'50512345678')!;assert.equal(new URL(url).searchParams.get('text'),m);assert.equal(new URL(url).hostname,'wa.me')});
+test('precios inválidos, variantes ajenas e inactividad bloquean compra',()=>{const p=configured();for(const price of [0,-1,NaN,Infinity,null]){p.variants[0].price=price;assert.equal(purchasable(p,p.variants[0]),false)}p.variants[0].price=5;assert.equal(purchasable(p,{...p.variants[0]}),false);p.active=false;assert.equal(purchasable(p,p.variants[0]),false)});
+test('oferta exige precio anterior mayor y disponibilidad',()=>{const p=configured();p.offer=true;assert.equal(promotion(p),false);p.variants[0].previousPrice=10;assert.equal(promotion(p),true);p.variants[0].available=false;assert.equal(promotion(p),false)});
