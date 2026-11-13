@@ -1,6 +1,6 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import {ArrowRight,ArrowUpRight,Search,Gamepad2,MessageCircle,Menu,X,Check,ShieldCheck,SlidersHorizontal,ChevronRight,Diamond} from 'lucide-react';
+import {ArrowRight,ArrowUpRight,Search,Gamepad2,MessageCircle,Menu,X,Check,ShieldCheck,SlidersHorizontal,ChevronRight,Diamond,Home,MonitorPlay} from 'lucide-react';
 import {business,catalog,type Product} from './catalog';
 import {money,purchasable,validPlayerId,whatsappUrl,orderMessage,promotion} from './commerce';
 import {ProductIdentity} from './ProductIdentity';
@@ -15,8 +15,26 @@ function App(){
  useEffect(()=>{document.title=`${title} · ${business.name}`},[title]);
  const filtered=products.filter(p=>(!category||p.category===category)&&(!query||`${p.name} ${p.description}`.toLowerCase().includes(query.toLowerCase()))&&(!selected||p.id===selected)&&(!duration||p.variants.some(v=>v.duration===Number(duration)))&&(!availability||p.variants.some(v=>purchasable(p,v)))&&(!max||p.variants.some(v=>v.price!==null&&v.price<=Number(max)))).sort((a,b)=>{const price=(p:Product)=>Math.min(...p.variants.filter(v=>v.price!==null).map(v=>v.price!));return sort==='asc'?price(a)-price(b)||a.name.localeCompare(b.name):sort==='desc'?price(b)-price(a)||a.name.localeCompare(b.name):a.name.localeCompare(b.name)});
  function reset(){setQuery('');setSelected('');setDuration('');setAvailability('');setMax('');setSort('name')}
+ const searchDialog=useRef<HTMLDialogElement>(null);
  const contact=whatsappUrl('Hola, quisiera información sobre el catálogo.');
- return <><a className="skip" href="#contenido">Saltar al contenido</a><header><div className="nav wrap"><a className="brand" href="#/" aria-label="Inicio">marca</a><nav className={menu?'open':''} aria-label="Principal">{[['/','Inicio'],['/streaming','Streaming'],['/juegos','Juegos']].map(([path,label])=><a key={path} onClick={reset} className={route===path?'active':''} href={`#${path}`}>{label}</a>)}</nav><form className="nav-search" onSubmit={e=>{e.preventDefault();location.hash='/buscar'}}><Search size={17}/><input aria-label="Buscar en el catálogo" placeholder="¿Qué quieres disfrutar?" value={query} onChange={e=>setQuery(e.target.value)}/></form><a className="contact" aria-label="Contacto por WhatsApp" href={contact||'#/contacto'}><MessageCircle size={18}/><span>Hablemos</span><ArrowUpRight size={15}/></a><button className="menu-button" aria-label="Abrir menú" aria-expanded={menu} onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button></div></header>
+ return <><a className="skip" href="#contenido">Saltar al contenido</a>
+ <header className="store-header"><div className="nav wrap">
+  <a className="brand" href="#/" aria-label="Inicio">marca</a>
+  <div className="nav-center">
+   <nav id="main-navigation" className={menu?'open':''} aria-label="Principal">
+    {([['/','Inicio',Home],['/streaming','Streaming',MonitorPlay],['/juegos','Juegos',Gamepad2]] as const).map(([path,label,Icon])=><a key={path} onClick={reset} className={route===path?'active':''} aria-current={route===path?'page':undefined} href={`#${path}`}><Icon size={24} aria-hidden="true"/><span>{label}</span></a>)}
+   </nav>
+   <button className="search-toggle" aria-label="Abrir búsqueda" aria-haspopup="dialog" onClick={()=>searchDialog.current?.showModal()}><Search size={24}/></button>
+  </div>
+  <div className="nav-actions">
+   <a className="contact" aria-label="Contacto por WhatsApp" title="Contacto por WhatsApp" href={contact||'#/contacto'}><MessageCircle size={27}/></a>
+   <button className="menu-button" aria-label={menu?'Cerrar menú':'Abrir menú'} aria-controls="main-navigation" aria-expanded={menu} onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button>
+  </div>
+ </div></header>
+ <dialog className="search-dialog" ref={searchDialog} aria-labelledby="search-heading" onClick={e=>{if(e.target===e.currentTarget)searchDialog.current?.close()}}>
+  <div className="dialog-heading"><h2 id="search-heading">Busca tu próximo favorito</h2><button aria-label="Cerrar búsqueda" onClick={()=>searchDialog.current?.close()}><X/></button></div>
+  <form className="catalog-search" onSubmit={e=>{e.preventDefault();location.hash='/buscar';searchDialog.current?.close()}}><input autoFocus aria-label="Buscar en el catálogo" placeholder="¿Qué quieres disfrutar?" value={query} onChange={e=>setQuery(e.target.value)}/><button type="submit" aria-label="Buscar"><Search size={23}/></button></form>
+ </dialog>
  <main id="contenido" className="wrap">
  {route==='/'?<><section className="hero storefront-hero"><div className="hero-copy"><span className="eyebrow"><span className="blue-dot"/> STREAMING · MÚSICA · GAMING</span><h1>Elige qué<br/><span>disfrutar hoy.</span></h1><p>Tus historias. Tu música. Tu próxima partida.<br/>Encuentra tus favoritos en un solo lugar.</p><div className="actions"><a className="button" href="#/streaming" onClick={reset}>Explorar streaming <ArrowRight size={18}/></a><a className="button secondary" href="#/juegos" onClick={reset}><Gamepad2 size={19}/> Ver juegos</a></div></div><div className="hero-feature" aria-hidden="true"><div className="feature-orbit"/><div className="feature-screen screen-cinema"><ProductIdentity id="netflix" name="Netflix"/><span>UNA HISTORIA MÁS.</span></div><div className="feature-screen screen-sound"><ProductIdentity id="spotify" name="Spotify"/><div className="equalizer">{[28,50,38,76,58,92,43,65,34,54,24].map((h,i)=><i key={i} style={{height:`${h}%`}}/>)}</div></div><div className="feature-screen screen-play"><Gamepad2/><span>DALE PLAY<br/>A TU MUNDO.</span><Diamond/></div><span className="hero-edition">ENTRETENIMIENTO A TU MANERA</span></div></section>
  <nav className="service-strip" aria-label="Servicios del catálogo">{products.map(p=><a key={p.id} href={`#/producto/${p.id}`} aria-label={`Explorar ${p.name}`}><ProductIdentity id={p.id} name={p.name}/><span>{p.name}</span></a>)}</nav>

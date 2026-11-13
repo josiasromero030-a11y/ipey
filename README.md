@@ -46,7 +46,7 @@ No se requiere añadir credenciales al código. El workflow usa el `GITHUB_TOKEN
 
 ## Presentación
 
-La interfaz toma como referencia las capturas de Instant Gaming aportadas por el usuario: banner panorámico, cabecera fija, portadas horizontales y nombre/precio debajo. Se conserva la paleta negra, gris y azul. La franja de servicios permite abrir cada producto. Las tarjetas muestran el precio solo cuando la variante se puede contratar y las ofertas aparecen únicamente si hay promociones válidas. Los fondos de `public/art/` son ilustraciones vectoriales originales del proyecto; no son material oficial de las plataformas.
+La interfaz toma como referencia las capturas de Instant Gaming aportadas por el usuario: banner panorámico, cabecera fija, portadas horizontales y nombre/precio debajo. Se conserva la paleta negra, gris y azul. La navegación mantiene «marca» a la izquierda, Inicio/Streaming/Juegos con iconos en el centro y contacto a la derecha. El botón circular de búsqueda abre un cuadro accesible que se cierra con Escape; en móvil, los enlaces se despliegan desde el menú. La franja de servicios permite abrir cada producto. Las tarjetas muestran el precio solo cuando la variante se puede contratar y las ofertas aparecen únicamente si hay promociones válidas. Los fondos de `public/art/` son ilustraciones vectoriales originales del proyecto; no son material oficial de las plataformas.
 
 ## Capturas reales
 
