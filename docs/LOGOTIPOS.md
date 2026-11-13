@@ -13,6 +13,6 @@ Los recursos se sirven localmente desde `public/logos/`. Se conservan las propor
 
 Las licencias de Simple Icons y selfh.st están incluidas en `public/logos/LICENSE-CC0.txt` y `public/logos/LICENSE-selfhst.txt`. Las licencias de las colecciones no conceden derechos sobre las marcas ni acreditan autorización comercial de los servicios. Los recursos son reproducciones de su identidad, no diseños propios ni prueba de afiliación. Su incorporación no verifica que cada versión sea la más reciente del titular.
 
-## Referencia visual pendiente
+## Referencia visual utilizada
 
-Se intentó abrir la versión española de Instant Gaming con HTTP y Chromium. El proxy rechazó el acceso (`CONNECT 403` / `ERR_TUNNEL_CONNECTION_FAILED`). Por tanto, todavía no se ha inspeccionado la página ni se ha aplicado un rediseño basado en ella. Los dominios `instant-gaming.com` y `www.instant-gaming.com` se propusieron en el borrador de red del entorno.
+Se intentó abrir la versión española de Instant Gaming con HTTP y Chromium. El proxy rechazó el acceso (`CONNECT 403` / `ERR_TUNNEL_CONNECTION_FAILED`). El usuario aportó posteriormente dos capturas, utilizadas para adaptar la composición: banner panorámico, cabecera fija y portadas horizontales con nombre/precio debajo. No se copiaron imágenes de videojuegos ni la identidad de Instant Gaming. Los siete fondos de `public/art/` son SVG decorativos originales del proyecto. Los dominios `instant-gaming.com` y `www.instant-gaming.com` se propusieron en el borrador de red del entorno.

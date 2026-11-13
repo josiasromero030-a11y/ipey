@@ -1,6 +1,6 @@
 # Ipey · tienda digital
 
-Catálogo responsive de streaming y gaming con React 19, TypeScript, Vite y Lucide. Funciona sin backend, registro ni pagos. Los gráficos se crean localmente con CSS y tipografía: no requiere imágenes ni fuentes de terceros.
+Catálogo responsive de streaming y gaming con React 19, TypeScript, Vite y Lucide. Funciona sin backend, registro ni pagos. El diseño usa fondos SVG originales y logotipos de los servicios guardados localmente; no carga imágenes ni fuentes de terceros en tiempo de ejecución.
 
 ## Desarrollo
 
@@ -44,21 +44,31 @@ No se requiere añadir credenciales al código. El workflow usa el `GITHUB_TOKEN
 
 `base: './'` y rutas hash (`#/streaming`, `#/juegos`, `#/producto/netflix`) permiten recursos relativos y recargas bajo `/ipey/` sin reglas de reescritura. El contenido compilado se ha verificado localmente bajo ese prefijo; eso no equivale a verificar una URL pública.
 
+## Presentación
+
+La interfaz toma como referencia las capturas de Instant Gaming aportadas por el usuario: banner panorámico, cabecera fija, portadas horizontales y nombre/precio debajo. Se conserva la paleta negra, gris y azul. La franja de servicios permite abrir cada producto. Las tarjetas muestran el precio solo cuando la variante se puede contratar y las ofertas aparecen únicamente si hay promociones válidas. Los fondos de `public/art/` son ilustraciones vectoriales originales del proyecto; no son material oficial de las plataformas.
+
 ## Capturas reales
 
-Capturas generadas con Chromium a 1440 × 1000 desde la compilación de producción, sin alterar el catálogo. Se incluyen completas en `docs/capturas/`.
+Capturas generadas con Chromium a 1440 × 1000 y 390 × 844 desde la compilación de producción, sin alterar el catálogo. Se incluyen completas en `docs/capturas/`.
 
 ### Inicio
 
 ![Página Inicio de Ipey](docs/capturas/inicio.png)
 
+[Ver Inicio en móvil](docs/capturas/inicio-movil.png)
+
 ### Streaming
 
 ![Página Streaming de Ipey](docs/capturas/streaming.png)
 
+[Ver Streaming en móvil](docs/capturas/streaming-movil.png)
+
 ### Juegos
 
 ![Página Juegos de Ipey](docs/capturas/juegos.png)
+
+[Ver Juegos en móvil](docs/capturas/juegos-movil.png)
 
 Para regenerarlas, en una terminal ejecutar `npm run build` y `npm run preview -- --port 4173 --base /ipey/`; en otra, `npm run screenshots`. Puede ajustarse `CAPTURE_URL` si cambia el servidor y `CHROMIUM_PATH` para otro ejecutable. Sin Chromium del sistema, instalar el navegador con `npx playwright install chromium`.
 
@@ -66,8 +76,8 @@ Para regenerarlas, en una terminal ejecutar `npm run build` y `npm run preview -
 
 - `npm run build`: TypeScript y compilación de producción.
 - `npm test`: 6 pruebas comerciales.
-- `npm run test:e2e`: 6 pruebas de navegador, repartidas entre escritorio y tamaño móvil; búsquedas, filtros, navegación, planes, validación del ID, resumen y enlace WhatsApp.
-- `npm run screenshots`: verifica Inicio, Streaming y Juegos, recarga directa de rutas bajo `/ipey/`, número esperado de productos y ausencia de errores JavaScript antes de guardar las capturas.
+- `npm run test:e2e`: 8 pruebas de navegador, repartidas entre escritorio y tamaño móvil; búsquedas, filtros, navegación, planes, validación del ID, resumen y enlace WhatsApp.
+- `npm run screenshots`: verifica Inicio, Streaming y Juegos, recarga directa de rutas bajo `/ipey/`, número esperado de productos y carga de imágenes y ausencia de errores JavaScript antes de guardar las seis capturas.
 
 No se envían mensajes de WhatsApp en las pruebas. La prueba de contratación usa datos ficticios aislados; los precios y el número publicados siguen pendientes. La emulación móvil en Chromium no sustituye pruebas en dispositivos físicos Android o iPhone.
 
