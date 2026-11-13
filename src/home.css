@@ -88,3 +88,85 @@
 
 /* Narrow illustration windows must crop within the adventure panel of the atlas. */
 @media(min-width:761px) and (max-width:900px), (max-width:360px){.home-game-scene{width:auto;height:200%;left:auto;right:0;top:0;transform:translateY(-50%)}}
+
+/* Latest reference: continuous diagonal artwork instead of floating tiles. */
+.home-page{width:min(1528px,calc(100% - 92px));padding-top:25px}
+.home-hero{display:block;position:relative;min-height:290px;height:290px;padding:36px 48px;overflow:hidden;border:0;background:linear-gradient(115deg,#15202c,#0b121b 70%);border-radius:20px}
+.home-hero-copy{width:41%;height:100%;display:flex;flex-direction:column;justify-content:center;z-index:4}
+.home-hero h1{font-size:clamp(33px,3.1vw,46px);line-height:1.08;font-weight:780;letter-spacing:-1.25px;margin-bottom:13px}
+.home-hero-copy>p{font-size:17px;line-height:1.5;max-width:425px;margin-bottom:19px}
+.home-hero-actions{gap:18px;flex-wrap:nowrap}
+.home-hero-actions .button{border-radius:14px;height:45px;min-height:45px;font-size:14px;padding:10px 22px;white-space:nowrap;background:linear-gradient(110deg,#008fff,#0861ec);border:1px solid #1a86fa}
+.home-hero-actions .secondary{background:#0b121b80;border-color:#89919b}
+.home-platforms{position:absolute;left:39%;right:-56px;top:0;bottom:0;height:100%;padding:0;margin:0;display:flex;gap:0;transform:none;perspective:none;justify-content:stretch;z-index:2}
+.home-platform,.home-platform:nth-child(n),.home-platform.platform-free-fire{flex:1 1 0;min-width:0;max-width:none;width:auto;height:100%;margin:0;transform:skewX(-18deg);border:0;border-left:1px solid #63789580;border-radius:0;box-shadow:none;background:none;overflow:hidden;isolation:isolate}
+.home-platform:before{display:none}.home-platform:after{display:none}
+.home-panel-art{position:absolute;inset:0 -58px;transform:skewX(18deg);background-image:var(--home-art);background-size:auto 200%;z-index:-2}
+.home-panel-art:after{content:'';position:absolute;inset:0;background:linear-gradient(#050a100a,#050a1020 38%,#050a1070)}
+.home-panel-art.art-netflix{background-position:13% top}.home-panel-art.art-disney{background-position:50% top}.home-panel-art.art-max{background-position:87% top}.home-panel-art.art-crunchyroll{background-position:13% bottom}.home-panel-art.art-spotify{background-position:50% bottom}.home-panel-art.art-free-fire{background-position:91% bottom}
+.home-platform .home-identity{transform:skewX(18deg);margin-top:45px;max-width:100%;gap:3px}
+.home-platform .product-logo{width:75%;height:86px;filter:drop-shadow(0 2px 6px #0005)}
+.home-platform .identity-netflix .product-logo{width:61%;height:92px}
+.home-platform .identity-disney .product-logo{width:112%;height:147px;max-width:none}
+.home-platform .identity-max .product-logo{height:78px;width:83%}
+.home-platform .identity-crunchyroll .product-logo{height:61px}
+.home-platform .identity-spotify .product-logo{width:69%;height:73px}
+.home-platform .home-service-name{font-size:13px}
+.home-platform .home-game-name{transform:skewX(18deg);align-self:auto;margin:55px 0 0;font-size:26px;letter-spacing:-1px}
+.home-slide-controls{position:absolute;bottom:20px;left:50%;display:flex;align-items:center;justify-content:center;gap:8px;z-index:7}
+.home-slide-controls button{position:relative;display:block;width:10px;height:10px;border-radius:10px;background:#5e6a7d;padding:0;border:1px solid #7c8ca0;cursor:pointer}
+.home-slide-controls button:before{content:'';position:absolute;inset:-12px -7px}
+.home-slide-controls button[aria-pressed=true]{width:17px;background:#f6faff;border:3px solid #009dff;box-shadow:0 0 0 1px #003e6c}
+.home-slide-1 .home-panel-art{opacity:.72}.home-slide-2 .home-platforms{left:43%}.home-slide-2 .platform-free-fire{flex-grow:2}
+.home-process{margin-top:18px;padding:17px 25px;min-height:71px;border:1px solid #1d2936;border-radius:17px;background:linear-gradient(110deg,#121c27,#111923)}
+.home-process-item{min-height:35px;gap:22px}
+.home-process-item:not(:last-child):after{top:0;bottom:0}
+.home-process-item strong{font-size:14px;margin-bottom:2px}
+.home-process-item span{font-size:12px}
+.home-process-item>svg{width:32px;height:32px}
+.home-section-heading{margin:33px 0 21px}
+.home-section-heading h2{font-size:30px;letter-spacing:-.65px;font-weight:750}
+.home-section-heading>a{font-size:15px}
+.home-streaming-grid{gap:14px}
+.home-page .home-service-card{border-radius:15px}
+.home-cover{aspect-ratio:2.15}
+.home-card-details{padding:10px 51px 11px 18px;min-height:70px}
+.home-card-details h3{font-size:18px;margin-bottom:3px;letter-spacing:-.4px}
+.home-card-details>p{font-size:12px;line-height:1.35}
+.home-card-details>p span:first-child{display:none}
+.home-card-action{width:38px;height:37px;right:11px;bottom:18px;border-radius:11px}
+.home-page .home-game-banner{grid-template-columns:51% 1fr auto;min-height:173px;gap:30px;padding-right:25px;border-radius:18px}
+.home-game-art{min-height:173px;clip-path:polygon(0 0,100% 0,93% 100%,0 100%);padding-left:36px;border-right:3px solid #2563eb}
+.home-game-art .home-game-name{font-size:45px;letter-spacing:-1.2px}
+.home-game-copy h3{font-size:27px;margin-bottom:5px}
+.home-game-copy p{font-size:14px}
+.home-game-packages{font-size:12px;padding:8px 16px;border-radius:22px}
+.home-game-action{width:auto;min-width:145px;height:44px;border-radius:17px;padding:0 17px;display:flex;align-items:center;justify-content:center;gap:10px;font-size:14px;font-weight:650;white-space:nowrap;background:linear-gradient(100deg,#008fff,#0861ec)}
+@media(min-width:1600px){.home-hero{height:310px;min-height:310px}.home-platforms{transform:none}.home-cover{aspect-ratio:2.3}.home-card-details{min-height:76px}.home-card-details>p{font-size:13px}}
+@media(max-width:1200px){.home-page{width:calc(100% - 48px)}.home-hero{padding:30px 32px}.home-hero h1{font-size:34px}.home-hero-copy>p{font-size:14px}.home-hero-actions{gap:11px}.home-hero-actions .button{font-size:12px;padding:10px 15px}.home-platforms{left:41%;right:-45px}.home-platform .home-service-name{font-size:10px}.home-platform .home-game-name{font-size:21px}.home-platform .identity-disney .product-logo{height:124px}.home-platform .identity-max .product-logo{height:62px}.home-process{padding:17px 13px}.home-process-item{gap:11px}.home-process-item strong{font-size:12px}.home-process-item span{font-size:10px}.home-section-heading h2{font-size:27px}.home-card-details{padding-left:12px;min-height:74px}.home-card-details h3{font-size:16px}.home-card-details>p{font-size:11px}.home-card-action{width:32px;height:34px;right:9px}.home-page .home-game-banner{grid-template-columns:44% 1fr auto;gap:20px;padding-right:18px}.home-game-art .home-game-name{font-size:34px}.home-game-copy h3{font-size:23px}.home-game-copy p{font-size:12px}.home-game-action{min-width:115px;padding:0 13px;font-size:12px}.home-game-packages{font-size:10px}}
+@media(max-width:900px){.home-hero-copy{width:43%}.home-hero{padding:29px 24px}.home-hero h1{font-size:29px}.home-hero-copy>p{font-size:13px}.home-hero-actions .button{padding:10px 12px;font-size:11px}.home-platforms{left:46%}.home-platform .home-service-name{font-size:8px}.home-platform .home-game-name{font-size:17px}.home-platform .product-logo{height:57px}.home-platform .identity-netflix .product-logo{height:73px}.home-platform .identity-max .product-logo{height:55px}.home-platform .identity-disney .product-logo{height:98px}.home-platform .identity-crunchyroll .product-logo{height:44px}.home-platform .identity-spotify .product-logo{height:57px}.home-process-item{gap:9px;padding:0 7px}.home-process-item>svg{width:25px}.home-process-item strong{font-size:10px}.home-process-item span{font-size:9px}.home-cover{aspect-ratio:2.2}.home-card-details{min-height:70px}.home-page .home-game-banner{grid-template-columns:39% 1fr auto;gap:16px}.home-game-art{padding:18px}.home-game-art .home-game-name{font-size:28px}.home-game-action{min-width:44px;padding:0 12px}.home-game-action span{display:none}}
+@media(max-width:760px){.home-page{width:calc(100% - 32px);padding-top:16px}.home-hero{padding:25px 23px 0;height:auto;min-height:0;display:flex;flex-direction:column;gap:24px}.home-hero-copy{width:100%;height:auto;min-height:0}.home-hero h1{font-size:32px}.home-hero-copy>p{font-size:14px;max-width:440px;margin-bottom:19px}.home-hero-actions{gap:11px}.home-hero-actions .button{font-size:12px;height:44px;padding:10px 15px}.home-platforms,.home-slide-2 .home-platforms{position:relative;left:auto;right:auto;top:auto;bottom:auto;display:flex;max-width:none;margin:0 -23px;width:calc(100% + 46px);height:185px;min-height:185px;padding:0;transform:none;overflow:hidden;flex-shrink:0}.home-platform,.home-platform:nth-child(n),.home-platform.platform-free-fire{flex:1 1 0;height:100%;width:auto;max-width:none;min-width:0;margin:0;transform:skewX(-12deg);border-radius:0;border-left:1px solid #52627480}.home-panel-art{inset:0 -30px;transform:skewX(12deg)}.home-platform .home-identity{transform:skewX(12deg);margin-top:25px;gap:1px}.home-platform .product-logo{height:45px;width:84%}.home-platform .identity-netflix .product-logo{height:57px;width:70%}.home-platform .identity-disney .product-logo{height:80px;width:120%}.home-platform .identity-max .product-logo{height:43px;width:95%}.home-platform .identity-crunchyroll .product-logo{height:35px}.home-platform .identity-spotify .product-logo{height:41px;width:82%}.home-platform .home-service-name{font-size:6px}.home-platform .home-game-name{font-size:12px;margin-top:25px;transform:skewX(12deg);letter-spacing:-.5px}.home-slide-controls{bottom:13px;left:50%;transform:translateX(-50%)}.home-process{margin-top:16px;grid-template-columns:repeat(2,minmax(0,1fr));padding:19px 8px;gap:23px 0;min-height:0;border-radius:15px}.home-process-item{padding:0 7px;gap:9px}.home-process-item strong{font-size:10px}.home-process-item span{font-size:9px}.home-process-item>svg{width:24px;height:28px}.home-section-heading{margin:27px 0 16px}.home-section-heading h2{font-size:22px}.home-section-heading>a{font-size:11px}.home-streaming-grid{gap:14px 12px}.home-cover{aspect-ratio:1.8}.home-card-details{padding:12px 12px 53px;min-height:104px}.home-card-details h3{font-size:16px}.home-card-details>p{font-size:11px}.home-card-action{width:42px;height:40px;right:10px;bottom:10px}.home-page .home-game-banner{grid-template-columns:1fr auto;min-height:0;padding:0 17px 20px;gap:0 12px}.home-game-art{grid-column:1/-1;margin:0 -17px 18px;min-height:155px;height:155px;clip-path:none;border-right:0;border-bottom:2px solid #2563eb;padding:22px 25px}.home-game-art .home-game-name{font-size:37px}.home-game-copy h3{font-size:23px}.home-game-copy p{font-size:12px}.home-game-packages{font-size:10px;padding:8px 11px}.home-game-action{width:44px;min-width:44px;padding:0;border-radius:13px}.home-game-action span{display:none}}
+@media(max-width:360px){.home-hero{padding:24px 19px 0}.home-hero h1{font-size:28px}.home-hero-copy>p{font-size:13px}.home-hero-actions{gap:8px}.home-hero-actions .button{font-size:11px;padding:10px 11px}.home-platforms{margin:0 -19px;width:calc(100% + 38px);height:164px;min-height:164px}.home-section-heading h2{font-size:19px}.home-card-details h3{font-size:14px}.home-card-details>p{font-size:10px}.home-game-art .home-game-name{font-size:33px}}
+/* Keep the final character panel inside the rounded banner edge. */
+.home-platforms{right:0}
+.home-platform.platform-free-fire{transform:none;flex-grow:1.35;margin-left:-32px;clip-path:polygon(44px 0,100% 0,100% 100%,0 100%)}
+.platform-free-fire .home-panel-art{inset:0;transform:none;background-position:right bottom}
+.home-platform.platform-free-fire .home-game-name{transform:none;font-size:23px;margin-top:70px}
+.home-panel-art.art-disney{background-position:60% top}
+.home-panel-art.art-max{background-position:right top}
+.home-panel-art.art-crunchyroll{background-position:25% bottom}
+.home-game-art{border-right:0}
+.home-game-art:before{content:'';position:absolute;right:0;top:0;bottom:0;width:3px;background:#ff8500;transform:skewX(-14deg);transform-origin:top;z-index:3}
+.home-game-action{background:linear-gradient(100deg,#ff8a00,#ff6500);border-color:#ff941f}
+.home-game-action:hover{background:#ff8a00}
+@media(max-width:1200px){.home-platform.platform-free-fire .home-game-name{font-size:20px}}
+@media(max-width:760px){.home-platforms{right:auto}.home-platform.platform-free-fire{transform:none;margin-left:-11px;flex-grow:1.3;clip-path:polygon(16px 0,100% 0,100% 100%,0 100%)}.home-platform.platform-free-fire .home-game-name{transform:none;font-size:12px;margin-top:30px}.home-game-art{border-bottom-color:#ff8500}.home-game-art:before{display:none}}
+.home-game-name{text-transform:uppercase;font-weight:850;letter-spacing:-1.8px}
+.home-process-item>.whatsapp-icon{flex-shrink:0;width:32px;height:32px}
+@media(max-width:1200px){.home-process-item>.whatsapp-icon{width:28px;height:28px}}
+@media(max-width:900px){.home-process-item>.whatsapp-icon{width:25px;height:25px}}
+@media(max-width:760px){.home-process-item>.whatsapp-icon{width:24px;height:24px}}
+/* Frame the explorer from the top of the adventure illustration. */
+.home-game-scene{top:0;transform:translateY(-50%)}
+.home-cover.art-netflix:before{background:#2a02034d}
+.platform-netflix .home-panel-art:after{background:linear-gradient(#29020950,#18030860)}

@@ -1,9 +1,9 @@
-# Ilustraciones originales de Inicio
+# Ilustraciones de la última referencia de Inicio
 
-`editorial-atlas.webp` reúne seis composiciones originales generadas para este proyecto con la herramienta de imágenes, sin copiar imágenes de Instant Gaming ni extraer escenas de películas, anime o videojuegos. No es una captura de la interfaz. La interfaz, textos, botones y logotipos siguen siendo elementos HTML independientes.
+El atlas `editorial-atlas.webp` contiene seis ilustraciones originales generadas para el proyecto: reparto cinematográfico ficticio, castillo original, vigilante enmascarado original, aventurero de anime original, seda verde y explorador con chaqueta ocre ante un paisaje al atardecer.
 
-Orden: terciopelo cinematográfico; castillo original nocturno; escenario violeta; explorador de anime original; tocadiscos y auriculares; explorador en un paisaje de aventura original. Los exploradores y el castillo no representan personajes ni escenarios oficiales.
+No se usan escenas de películas ni personajes oficiales de las plataformas. Los textos, logotipos, controles y botones se construyen con HTML y CSS. No es una captura de una interfaz.
 
-La ilustración fuente se conserva en `/workspace/generated_images/exec-c5f854ab-8939-4877-8dba-eacfa8486337.png`. El recurso web se convirtió a WebP con calidad 88, sin alterar la composición (2172 × 724, 164.218 bytes). El atlas se carga una vez y se recorta mediante CSS. No hay imágenes de referencia completas colocadas como fondo de la interfaz.
+La fuente se conserva en `/workspace/generated_images/exec-926bfb5c-0f57-4c70-b01e-7233f5390e65.png`. El archivo público fue convertido a WebP con calidad 88. La imagen se comparte entre las seis portadas y las ilustraciones del banner para evitar descargas separadas.
 
-Los logotipos se cargan por separado desde `public/logos/`; su procedencia se documenta en `docs/LOGOTIPOS.md`.
+Los logotipos se cargan por separado desde `public/logos/`; véase `docs/LOGOTIPOS.md`.

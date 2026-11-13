@@ -1,5 +1,7 @@
 # Corrección visual de Inicio
 
+> Informe de la versión anterior. La [última referencia de Inicio](REFERENCIA-INICIO-ACTUAL.md) sustituye este diseño y autoriza adaptar la navegación, conservando «marca» sin símbolo.
+
 Estado: corrección visual completada y verificada antes de solicitar publicación. La publicación requiere autorización explícita; el propietario la autorizó posteriormente.
 
 ## Capturas reales

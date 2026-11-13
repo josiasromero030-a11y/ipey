@@ -1,13 +1,15 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import {ArrowRight,ArrowUpRight,Search,Gamepad2,MessageCircle,Menu,X,Check,ShieldCheck,SlidersHorizontal,ChevronRight,Home,MonitorPlay} from 'lucide-react';
+import {ArrowRight,ArrowUpRight,Search,Gamepad2,MessageCircle,Menu,X,Check,ShieldCheck,SlidersHorizontal,ChevronRight,Home,UserRound,Play} from 'lucide-react';
 import {business,catalog,type Product} from './catalog';
 import {money,purchasable,validPlayerId,whatsappUrl,orderMessage} from './commerce';
 import {ProductIdentity} from './ProductIdentity';
 import {ProductCard as Card} from './ProductCard';
 import {HomeDashboard} from './HomeDashboard';
+import {WhatsAppIcon} from './WhatsAppIcon';
 import './style.css';
 import './home.css';
+import './navigation.css';
 const products=catalog.filter(p=>p.active);
 function App(){
  const [route,setRoute]=useState(location.hash.slice(1)||'/');const [query,setQuery]=useState('');const [menu,setMenu]=useState(false);const [selected,setSelected]=useState('');const [duration,setDuration]=useState('');const [availability,setAvailability]=useState('');const [sort,setSort]=useState('name');const [max,setMax]=useState('');
@@ -25,12 +27,13 @@ function App(){
   <a className="brand" href="#/" aria-label="Inicio">marca</a>
   <div className="nav-center">
    <nav id="main-navigation" className={menu?'open':''} aria-label="Principal">
-    {([['/','Inicio',Home],['/streaming','Streaming',MonitorPlay],['/juegos','Juegos',Gamepad2]] as const).map(([path,label,Icon])=><a key={path} onClick={reset} className={route===path?'active':''} aria-current={route===path?'page':undefined} href={`#${path}`}><Icon size={24} aria-hidden="true"/><span>{label}</span></a>)}
+    {([['/','Inicio',Home],['/streaming','Streaming',Play],['/juegos','Juegos',Gamepad2]] as const).map(([path,label,Icon])=><a key={path} onClick={reset} className={route===path?'active':''} aria-current={route===path?'page':undefined} href={`#${path}`}><Icon size={24} aria-hidden="true"/><span>{label}</span></a>)}
    </nav>
    <button className="search-toggle" aria-label="Abrir búsqueda" aria-haspopup="dialog" onClick={()=>searchDialog.current?.showModal()}><Search size={24}/></button>
   </div>
   <div className="nav-actions">
-   <a className="contact" aria-label="Contacto por WhatsApp" title="Contacto por WhatsApp" href={contact||'#/contacto'}><MessageCircle size={27}/></a>
+   <a className="contact" aria-label="Contacto por WhatsApp" title="Contacto por WhatsApp" href={contact||'#/contacto'}><WhatsAppIcon size={27}/></a>
+   <a className="store-info" href="#/contacto" aria-label="Información de contacto" title="Información de contacto"><UserRound size={25}/></a>
    <button className="menu-button" aria-label={menu?'Cerrar menú':'Abrir menú'} aria-controls="main-navigation" aria-expanded={menu} onClick={()=>setMenu(!menu)}>{menu?<X/>:<Menu/>}</button>
   </div>
  </div></header>

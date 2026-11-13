@@ -1,4 +1,15 @@
 import {test,expect} from '@playwright/test';
+test('los indicadores del banner cambian el contenido y sus enlaces',async({page})=>{
+ await page.goto('/');
+ await page.getByRole('button',{name:'Ver diapositiva 2',exact:true}).click();
+ await expect(page.getByRole('heading',{level:1})).toContainText('Tus historias y música');
+ await expect(page.getByRole('button',{name:'Ver diapositiva 2',exact:true})).toHaveAttribute('aria-pressed','true');
+ await page.getByRole('button',{name:'Ver diapositiva 3',exact:true}).click();
+ await expect(page.getByRole('heading',{level:1})).toContainText('Tu próxima partida');
+ await expect(page.locator('.home-hero-actions').getByRole('link',{name:'Ver paquetes',exact:true})).toHaveAttribute('href','#/producto/free-fire');
+ await page.getByRole('button',{name:'Ver diapositiva 1',exact:true}).click();
+ await expect(page.getByRole('heading',{level:1})).toContainText('Streaming y juegos');
+});
 test('inicio separa streaming y recargas y abre los productos existentes',async({page})=>{
  await page.goto('/');
  const streaming=page.getByRole('region',{name:'Servicios de streaming'});

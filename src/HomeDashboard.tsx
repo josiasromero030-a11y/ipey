@@ -1,7 +1,8 @@
 import {useState,type CSSProperties} from 'react';
-import {ArrowRight,Gamepad2,Play,Search,Layers,MessageCircle,ClipboardCheck,Diamond} from 'lucide-react';
+import {ArrowRight,Gamepad2,Play,Zap,Layers,ShieldCheck,Diamond} from 'lucide-react';
 import {catalog,type Product} from './catalog';
 import {ProductIdentity} from './ProductIdentity';
+import {WhatsAppIcon} from './WhatsAppIcon';
 import {money,purchasable,promotion,whatsappUrl} from './commerce';
 
 const products=catalog.filter(p=>p.active);
@@ -9,10 +10,10 @@ const streaming=products.filter(p=>p.category==='streaming');
 const game=products.find(p=>p.id==='free-fire');
 const atlas=new URL(`${import.meta.env.BASE_URL}art/home/editorial-atlas.webp`,document.baseURI).href;
 const process=[
- {Icon:Search,title:'Consulta servicios',text:'Explora nuestro catálogo'},
+ {Icon:Zap,title:'Consulta servicios',text:'Explora nuestro catálogo'},
  {Icon:Layers,title:'Compara modalidades',text:'Revisa opciones y condiciones'},
- {Icon:MessageCircle,title:'Atención por WhatsApp',text:whatsappUrl('Hola')?'Consulta antes de contratar':'Contacto pendiente de configurar'},
- {Icon:ClipboardCheck,title:'Revisa tu solicitud',text:'Confirma los detalles antes de enviar'},
+ {Icon:WhatsAppIcon,title:'Atención por WhatsApp',text:whatsappUrl('Hola')?'Consulta antes de contratar':'Contacto pendiente de configurar'},
+ {Icon:ShieldCheck,title:'Revisa tu solicitud',text:'Confirma los detalles antes de enviar'},
 ];
 
 // Only Inicio uses these wordmarks. Existing product identities stay unchanged elsewhere.
@@ -39,14 +40,22 @@ function HomeServiceCard({p}:{p:Product}){
 }
 
 export function HomeDashboard({onNavigate}:{onNavigate:()=>void}){
+ const [slide,setSlide]=useState(0);
+ const slides=[
+  {title:<>Streaming y juegos<br/>en <span>un solo lugar</span></>,description:'Explora tus plataformas favoritas y recargas de videojuegos desde un solo lugar.',primary:'/streaming',label:'Ver streaming',secondary:'/juegos',secondaryLabel:'Ver juegos'},
+  {title:<>Tus historias y música<br/>en <span>un solo lugar</span></>,description:'Explora las modalidades de Netflix, Disney+, HBO Max, Crunchyroll y Spotify.',primary:'/streaming',label:'Ver streaming',secondary:'/buscar',secondaryLabel:'Explorar catálogo'},
+  {title:<>Tu próxima partida<br/><span>empieza aquí</span></>,description:game?.description||'Explora los juegos del catálogo.',primary:'/producto/free-fire',label:'Ver paquetes',secondary:'/juegos',secondaryLabel:'Ver juegos'},
+ ];
+ const active=slides[slide];
  return <div className="home-dashboard" style={{'--home-art':`url(${atlas})`} as CSSProperties}>
-  <section className="home-hero" aria-labelledby="home-heading">
+  <section className={`home-hero home-slide-${slide}`} aria-labelledby="home-heading" aria-roledescription="carrusel">
    <div className="home-hero-copy">
-    <h1 id="home-heading">Streaming y juegos<br/>en <span>un solo lugar</span></h1>
-    <p>Explora tus plataformas favoritas y recargas de videojuegos desde un solo lugar.</p>
-    <div className="home-hero-actions"><a className="button" href="#/streaming" onClick={onNavigate}><Play size={19}/>Ver streaming</a><a className="button secondary" href="#/juegos" onClick={onNavigate}><Gamepad2 size={20}/>Ver juegos</a></div>
+    <h1 id="home-heading">{active.title}</h1>
+    <p>{active.description}</p>
+    <div className="home-hero-actions"><a className="button" href={`#${active.primary}`} onClick={onNavigate}><Play size={19}/>{active.label}</a><a className="button secondary" href={`#${active.secondary}`} onClick={onNavigate}><Gamepad2 size={20}/>{active.secondaryLabel}</a></div>
    </div>
-   <div className="home-platforms" aria-hidden="true">{products.map((p,i)=><div className={`home-platform platform-${p.id} art-${p.id}`} key={p.id} style={{'--layer':i} as CSSProperties}><HomeIdentity p={p}/></div>)}</div>
+   <div className="home-platforms" aria-hidden="true">{products.map((p,i)=><div className={`home-platform platform-${p.id}`} key={p.id} style={{'--layer':i} as CSSProperties}><div className={`home-panel-art art-${p.id}`}/><HomeIdentity p={p}/></div>)}</div>
+   <div className="home-slide-controls" aria-label="Diapositivas del banner">{slides.map((_,i)=><button key={i} aria-label={`Ver diapositiva ${i+1}`} aria-pressed={slide===i} onClick={()=>setSlide(i)}/>)}</div>
   </section>
   <div className="home-process" aria-label="Cómo consultar y solicitar">{process.map(({Icon,title,text})=><div className="home-process-item" key={title}><Icon size={32} strokeWidth={1.5} aria-hidden="true"/><div><strong>{title}</strong><span>{text}</span></div></div>)}</div>
   <section className="home-streaming" aria-labelledby="streaming-heading">
@@ -61,7 +70,7 @@ export function HomeDashboard({onNavigate}:{onNavigate:()=>void}){
      <HomeIdentity p={game}/>
     </a>
     <div className="home-game-copy"><h3>{game.name}</h3><p>{game.description}</p><a className="home-game-packages" href={`#/producto/${game.id}`}><Diamond size={19}/>Consultar paquetes de diamantes</a></div>
-    <a className="home-game-action" href={`#/producto/${game.id}`} aria-label={`Ver paquetes de ${game.name}`}><ArrowRight size={24}/></a>
+    <a className="home-game-action" href={`#/producto/${game.id}`} aria-label={`Ver paquetes de ${game.name}`}><span>Ver paquetes</span><ArrowRight size={22}/></a>
    </article>
   </section>}
   {products.some(promotion)&&<section aria-labelledby="home-offers-heading"><div className="home-section-heading"><h2 id="home-offers-heading">Ofertas del catálogo</h2></div><div className="home-streaming-grid">{products.filter(promotion).map(p=><HomeServiceCard key={p.id} p={p}/>)}</div></section>}

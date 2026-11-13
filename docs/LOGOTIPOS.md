@@ -26,3 +26,7 @@ Se intentó abrir la versión española de Instant Gaming con HTTP y Chromium. E
 - Crunchyroll mantiene su símbolo existente junto al nombre como texto neutral, no una reproducción de su tipografía corporativa.
 - Free Fire se presenta mediante su nombre tipográfico y una escena de aventura original. Inicio deja de usar el PNG de terceros cuya licencia no se había confirmado. Las otras páginas y sus recursos se conservan por la restricción de alcance.
 - `public/art/home/editorial-atlas.webp`: ilustraciones originales creadas para el proyecto. No es arte oficial ni material promocional de Disney+, Crunchyroll o Free Fire. Véase `public/art/home/README.md`.
+
+## WhatsApp en la última navegación
+
+`public/logos/home/whatsapp.svg` procede de [Simple Icons 11.15.0](https://cdn.jsdelivr.net/npm/simple-icons@11.15.0/icons/whatsapp.svg), colección CC0 ya incluida en `public/logos/LICENSE-CC0.txt`. Se usa el símbolo en blanco, sin deformación. El enlace conserva el número configurado o dirige a la página de contacto mientras siga pendiente.

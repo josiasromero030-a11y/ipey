@@ -49,9 +49,9 @@ No se requiere añadir credenciales al código. El workflow usa el `GITHUB_TOKEN
 
 Inicio sigue la referencia del dashboard aportada por el usuario: hero compacto con seis plataformas, franja informativa del proceso, cinco tarjetas de streaming y un banner horizontal de Free Fire. Mantiene el negro profundo, superficies grises y acentos azules. No se añaden garantías de entrega, pagos ni precios ficticios.
 
-La navegación y su buscador se conservan intactos, igual que las páginas de Streaming y Juegos. `src/HomeDashboard.tsx` organiza el contenido de Inicio; `src/home.css` limita sus estilos a esa página. Las tarjetas exclusivas de Inicio se definen en `HomeDashboard.tsx`; `src/ProductCard.tsx` conserva las tarjetas de las otras páginas. El catálogo y la lógica comercial no cambian. Las preguntas frecuentes siguen al final.
+La navegación sigue la última referencia aprobada: se conserva «marca» sin símbolo, con enlaces centrados, subrayado activo y búsqueda circular azul. Los filtros y las páginas de Streaming y Juegos mantienen su funcionamiento. `src/HomeDashboard.tsx` organiza el contenido de Inicio; `src/home.css` limita sus estilos a esa página. Las tarjetas exclusivas de Inicio se definen en `HomeDashboard.tsx`; `src/ProductCard.tsx` conserva las tarjetas de las otras páginas. El catálogo y la lógica comercial no cambian. Las preguntas frecuentes siguen al final.
 
-Inicio utiliza un atlas WebP con seis ilustraciones originales; las otras páginas conservan los SVG de `public/art/`. Estos recursos no son material oficial de las plataformas. La composición del hero es estática y no muestra controles de carrusel. Consulta la [comparación visual y validación](docs/FIDELIDAD-INICIO.md) y la [procedencia de las ilustraciones](public/art/home/README.md).
+Inicio utiliza un atlas WebP con seis ilustraciones originales; las otras páginas conservan los SVG de `public/art/`. Estos recursos no son material oficial de las plataformas. El hero usa seis paneles diagonales continuos y tres indicadores que cambian su contenido y enlaces. Consulta la [comparación visual y validación](docs/FIDELIDAD-INICIO.md) y la [procedencia de las ilustraciones](public/art/home/README.md).
 
 ## Capturas reales
 
@@ -81,7 +81,7 @@ Para regenerarlas, en una terminal ejecutar `npm run build` y `npm run preview -
 
 - `npm run build`: TypeScript y compilación de producción.
 - `npm test`: 6 pruebas comerciales.
-- `npm run test:e2e`: 10 pruebas de navegador, repartidas entre escritorio y tamaño móvil; búsquedas, filtros, navegación, planes, validación del ID, resumen y enlace WhatsApp.
+- `npm run test:e2e`: 12 pruebas de navegador, repartidas entre escritorio y tamaño móvil; búsquedas, filtros, navegación, planes, validación del ID, resumen y enlace WhatsApp.
 - `npm run screenshots`: verifica Inicio, Streaming y Juegos, recarga directa de rutas bajo `/ipey/`, número esperado de productos y carga de imágenes y ausencia de errores JavaScript antes de guardar las seis capturas.
 
 No se envían mensajes de WhatsApp en las pruebas. La prueba de contratación usa datos ficticios aislados; los precios y el número publicados siguen pendientes. La emulación móvil en Chromium no sustituye pruebas en dispositivos físicos Android o iPhone.
