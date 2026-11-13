@@ -1,0 +1,72 @@
+/* These styles apply exclusively to Inicio. Header and catalog styles stay intact. */
+.home-page{width:min(1400px,calc(100% - 80px));position:relative;isolation:isolate;padding-top:22px}
+.home-page:before{content:'';position:absolute;z-index:-1;top:0;bottom:0;left:50%;width:100vw;transform:translateX(-50%);background:#080d13;pointer-events:none}
+.home-dashboard{padding-bottom:12px}
+.home-dashboard h1,.home-dashboard h2,.home-dashboard h3{color:#f3f5f8}
+.home-hero{display:grid;grid-template-columns:minmax(340px,.95fr) minmax(0,1.55fr);align-items:center;min-height:294px;gap:22px;border:1px solid #24303f;border-radius:18px;padding:34px 42px;background:linear-gradient(100deg,#101924d9,#0b111be8),url('../public/art/banner.svg') center/cover;overflow:hidden}
+.home-hero h1{font-size:clamp(30px,2.7vw,43px);font-weight:780;letter-spacing:-1.25px;line-height:1.13;margin:0 0 16px}
+.home-hero h1 span{color:#269cff}
+.home-hero-copy>p{font-size:15px;line-height:1.65;color:#b7c1d0;max-width:410px;margin:0 0 22px}
+.home-hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+.home-hero-actions .button{min-height:42px;padding:10px 18px;border-radius:10px;gap:9px;font-size:12px}
+.home-hero-actions .secondary{background:#090f16;border-color:#5c6878}
+.home-platforms{height:214px;display:flex;align-items:center;justify-content:center;gap:9px;padding:0 12px;perspective:1000px}
+.home-platform{flex:1;min-width:0;max-width:123px;height:174px;border:1px solid #56647970;border-radius:13px;background-size:cover;background-position:center;transform:rotate(13deg);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;box-shadow:0 12px 24px #0004}
+.home-platform:nth-child(even){transform:translateY(12px) rotate(13deg)}
+.home-platform .product-logo{width:72%;height:74px;filter:none}
+.home-platform .logo-free-fire{width:65px;height:65px;border-radius:14px}
+.home-platform>span{font-size:12px;font-weight:700;color:#edf1f9}
+.home-process{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding:23px 0;border-bottom:1px solid #2d3745;gap:0}
+.home-process-item{display:flex;align-items:center;justify-content:center;gap:15px;padding:0 18px;border-right:1px solid #354050}
+.home-process-item:last-child{border-right:0}
+.home-process-item>svg{color:#b8c7da;flex-shrink:0}
+.home-process-item strong{display:block;font-size:13px;line-height:1.4;font-weight:650;margin-bottom:4px}
+.home-process-item span{display:block;font-size:11px;line-height:1.5;color:#a9b4c4}
+.home-section-heading{display:flex;align-items:center;justify-content:space-between;gap:15px;margin:24px 0 16px}
+.home-section-heading h2{font-size:25px;letter-spacing:-.6px;margin:0;line-height:1.2}
+.home-section-heading>a{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:600;color:#45adff;white-space:nowrap;min-height:32px}
+.home-streaming-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
+.home-page .home-service-card{background:#111923;border:1px solid #354151;border-radius:13px;overflow:hidden;transition:border-color .2s,transform .2s}
+.home-page .home-service-card:hover{border-color:#647c9b;transform:translateY(-3px)}
+.home-page .home-service-card .product-visual{aspect-ratio:2.3;height:auto;border-radius:0;transform:none;box-shadow:none;background-color:#0a1019}
+.home-page .home-service-card .product-visual:before{background:linear-gradient(#080d1420,#080d1440)}
+.home-page .home-service-card .product-logo{height:58px;width:60%;filter:none}
+.home-page .home-service-card .card-body{position:relative;padding:12px 13px 11px}
+.home-page .home-service-card .card-title-row{display:block;padding-right:0}
+.home-page .home-service-card h3{font-size:15px;line-height:1.3;letter-spacing:-.2px;margin:0 0 4px}
+.home-page .home-service-card .card-price{display:block;font-size:10px;line-height:1.5;color:#a4afbf}
+.home-page .home-service-info{font-size:10px;line-height:1.5;margin:5px 0 6px;color:#a4afbf}
+.home-page .home-service-card .card-meta{margin:0;justify-content:flex-end}
+.home-page .home-service-card .card-meta>span{display:none}
+.home-page .home-service-card .card-meta a{font-size:10px;min-height:32px;padding:4px 8px;border:1px solid #3a4759;border-radius:7px;background:#202b39;color:#e6edf8;gap:10px}
+.home-page .home-game-banner{display:grid;grid-template-columns:40% 1fr auto;align-items:center;gap:28px;border:1px solid #354151;border-radius:15px;overflow:hidden;background:linear-gradient(110deg,#101c2b,#0c1119);min-height:142px;padding-right:24px}
+.home-game-art{height:100%;min-height:142px;display:flex;gap:22px;align-items:center;justify-content:center;background:linear-gradient(90deg,#0b152180,#0b152140),url('../public/art/free-fire.svg') center/cover;padding:20px}
+.home-game-art .product-logo{width:78px;height:78px;border-radius:16px;flex-shrink:0}
+.home-game-art>span{font-size:clamp(22px,2.5vw,35px);font-style:italic;font-weight:800;letter-spacing:-1px;color:#eef4fc;white-space:nowrap}
+.home-game-copy{padding:18px 0;min-width:0}
+.home-game-copy h3{font-size:21px;letter-spacing:-.4px;margin:0 0 6px}
+.home-game-copy p{font-size:12px;line-height:1.6;color:#b4bfd0;max-width:420px;margin:0 0 12px}
+.home-game-packages{display:inline-flex;align-items:center;gap:8px;border:1px solid #4c5b70;border-radius:9px;font-size:11px;padding:9px 12px;min-height:38px}
+.home-game-action{display:grid;place-items:center;width:44px;height:44px;border-radius:11px;color:white;background:#0677ec;border:1px solid #359cff}
+.home-game-action:hover{background:#168bf9;color:white}
+.home-page .faq{margin-top:32px;margin-bottom:48px;max-width:none;border-top:1px solid #26313f;padding-top:24px}
+.home-page .faq .eyebrow{display:none}
+.home-page .faq h2{font-size:23px;margin-bottom:10px}
+.home-page .faq summary{padding:16px 0;font-size:13px}
+@media(min-width:1600px){.home-hero{min-height:305px}.home-platform{height:190px}.home-platforms{gap:14px}.home-platform .product-logo{height:85px}.home-page .home-service-card .product-logo{height:66px}}
+@media(max-width:1100px){.home-page{width:calc(100% - 44px)}.home-hero{grid-template-columns:.95fr 1.05fr;padding:30px 28px;gap:16px}.home-hero h1{font-size:32px}.home-hero-copy>p{font-size:13px}.home-platforms{gap:6px;padding:0 3px}.home-platform{height:145px;border-radius:9px}.home-platform .product-logo{height:54px;width:80%}.home-platform .logo-free-fire{width:44px;height:44px;border-radius:10px}.home-platform>span{font-size:9px}.home-process-item{gap:10px;padding:0 12px}.home-process-item strong{font-size:11px}.home-process-item span{font-size:10px}.home-process-item>svg{width:24px}.home-streaming-grid{gap:10px}.home-page .home-service-card .card-body{padding:11px 10px}.home-page .home-service-card .product-logo{height:45px}.home-page .home-service-card h3{font-size:14px}.home-page .home-game-banner{gap:22px}.home-game-art{gap:15px}.home-game-art .product-logo{width:65px;height:65px}.home-game-art>span{font-size:25px}}
+@media(max-width:900px){.home-streaming-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.home-page .home-service-card .product-logo{height:55px}.home-page .home-game-banner{grid-template-columns:35% 1fr auto;gap:20px}.home-game-art{flex-direction:column;gap:8px}.home-game-art>span{font-size:23px}}
+@media(max-width:760px){.home-page{width:calc(100% - 32px);padding-top:16px}.home-hero{grid-template-columns:1fr;padding:27px 23px 22px;gap:12px;min-height:0;border-radius:15px}.home-hero h1{font-size:32px;letter-spacing:-1px;margin-bottom:12px}.home-hero-copy>p{font-size:13px;max-width:440px;margin-bottom:18px}.home-hero-actions{gap:9px}.home-hero-actions .button{font-size:11px;padding:10px 13px;min-height:42px}.home-platforms{height:135px;max-width:450px;width:100%;margin:0 auto;gap:7px;padding:0 4px}.home-platform{height:104px;max-width:67px;border-radius:8px;transform:rotate(10deg)}.home-platform:nth-child(even){transform:translateY(7px) rotate(10deg)}.home-platform .product-logo{width:80%;height:43px}.home-platform .logo-free-fire{width:32px;height:32px;border-radius:7px}.home-platform>span{font-size:7px}.home-process{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 0;padding:20px 0}.home-process-item{justify-content:flex-start;padding:0 12px;gap:10px}.home-process-item:nth-child(2){border:0}.home-process-item strong{font-size:11px}.home-process-item span{font-size:10px}.home-process-item>svg{width:22px}.home-section-heading{margin:23px 0 13px}.home-section-heading h2{font-size:21px;letter-spacing:-.4px}.home-section-heading>a{font-size:10px;gap:5px}.home-section-heading>a svg{width:15px}.home-streaming-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.home-page .home-service-card .product-visual{aspect-ratio:1.9}.home-page .home-service-card .product-logo{height:48px}.home-page .home-service-card .card-body{padding:10px}.home-page .home-service-card h3{font-size:14px}.home-page .home-service-info{font-size:9px;min-height:27px}.home-page .home-service-card .card-meta a{min-height:36px}.home-page .home-game-banner{grid-template-columns:1fr auto;gap:0 14px;padding:0 15px 16px}.home-game-art{grid-column:1/-1;min-height:110px;flex-direction:row;margin:0 -15px 16px;gap:24px}.home-game-art .product-logo{width:65px;height:65px}.home-game-art>span{font-size:30px}.home-game-copy{padding:0}.home-game-copy h3{font-size:19px}.home-game-copy p{font-size:11px}.home-game-packages{font-size:10px;gap:6px;padding:9px}.home-game-packages svg{width:16px}.home-game-action{width:42px;height:42px}.home-page .faq{margin-top:25px}.home-page .faq h2{font-size:21px}}
+@media(max-width:360px){.home-hero{padding:23px 17px 18px}.home-hero h1{font-size:28px}.home-platforms{gap:4px}.home-platform .logo-free-fire{width:26px;height:26px}.home-section-heading h2{font-size:18px}.home-process-item{padding:0 7px;gap:7px}.home-process-item strong{font-size:10px}.home-process-item span{font-size:9px}.home-streaming-grid{gap:10px}.home-page .home-service-card .card-body{padding:9px}.home-game-packages{font-size:9px;padding:8px}.home-page .home-game-banner{gap:0 9px}}
+
+.home-page .home-game-banner:hover{border-color:#647c9b;transform:none}
+
+/* Compact details and a clear, accessible action without oversized card bodies. */
+.home-page .home-service-card .card-body{padding-right:49px}
+.home-page .home-service-info{min-height:0;margin:3px 0 0}
+.home-page .home-service-card .card-meta a{position:absolute;right:11px;bottom:13px;min-width:34px;min-height:34px;padding:8px;justify-content:center}
+.home-page .home-service-card .card-meta a span{display:none}
+.home-page .home-service-card .card-meta a svg{width:16px;height:16px}
+.home-page{padding-bottom:40px}
+.home-page .faq{margin-bottom:0}
+@media(max-width:760px){.home-page .home-service-card .card-body{padding-right:44px}.home-page .home-service-card .card-meta a{right:8px;bottom:12px;min-width:32px;min-height:36px;padding:7px}.home-page .home-service-info{font-size:9px}.home-page{padding-bottom:32px}}

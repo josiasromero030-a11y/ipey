@@ -8,7 +8,7 @@ try {
   const page=await browser.newPage({viewport,deviceScaleFactor:1});
   const errors=[];
   page.on('pageerror',error=>errors.push(error.message));
-  for(const [name,route,heading] of [['inicio','/','Elige qué'],['streaming','/streaming','Dale play a tu mundo.'],['juegos','/juegos','Tu siguiente nivel.']]){
+  for(const [name,route,heading] of [['inicio','/','Streaming y juegos'],['streaming','/streaming','Dale play a tu mundo.'],['juegos','/juegos','Tu siguiente nivel.']]){
    await page.goto(`${base}#${route}`);
    await page.reload();
    await page.getByRole('heading',{level:1}).filter({hasText:heading}).waitFor();

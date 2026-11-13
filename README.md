@@ -46,7 +46,11 @@ No se requiere añadir credenciales al código. El workflow usa el `GITHUB_TOKEN
 
 ## Presentación
 
-La interfaz toma como referencia las capturas de Instant Gaming aportadas por el usuario: banner panorámico, cabecera fija, portadas horizontales y nombre/precio debajo. Se conserva la paleta negra, gris y azul. La navegación mantiene «marca» a la izquierda, Inicio/Streaming/Juegos con iconos en el centro y contacto a la derecha. El botón circular de búsqueda abre un cuadro accesible que se cierra con Escape; en móvil, los enlaces se despliegan desde el menú. La franja de servicios permite abrir cada producto. Las tarjetas muestran el precio solo cuando la variante se puede contratar y las ofertas aparecen únicamente si hay promociones válidas. Los fondos de `public/art/` son ilustraciones vectoriales originales del proyecto; no son material oficial de las plataformas.
+Inicio sigue la referencia del dashboard aportada por el usuario: hero compacto con seis plataformas, franja informativa del proceso, cinco tarjetas de streaming y un banner horizontal de Free Fire. Mantiene el negro profundo, superficies grises y acentos azules. No se añaden garantías de entrega, pagos ni precios ficticios.
+
+La navegación y su buscador se conservan intactos, igual que las páginas de Streaming y Juegos. `src/HomeDashboard.tsx` organiza el contenido de Inicio; `src/home.css` limita sus estilos a esa página. `src/ProductCard.tsx` reutiliza la tarjeta existente con una presentación compacta exclusiva de Inicio. El catálogo y la lógica comercial no cambian. Las preguntas frecuentes siguen al final.
+
+Los fondos de `public/art/` son ilustraciones vectoriales originales del proyecto; no son material oficial de las plataformas. La composición del hero es estática y no muestra controles de carrusel.
 
 ## Capturas reales
 
@@ -76,7 +80,7 @@ Para regenerarlas, en una terminal ejecutar `npm run build` y `npm run preview -
 
 - `npm run build`: TypeScript y compilación de producción.
 - `npm test`: 6 pruebas comerciales.
-- `npm run test:e2e`: 8 pruebas de navegador, repartidas entre escritorio y tamaño móvil; búsquedas, filtros, navegación, planes, validación del ID, resumen y enlace WhatsApp.
+- `npm run test:e2e`: 10 pruebas de navegador, repartidas entre escritorio y tamaño móvil; búsquedas, filtros, navegación, planes, validación del ID, resumen y enlace WhatsApp.
 - `npm run screenshots`: verifica Inicio, Streaming y Juegos, recarga directa de rutas bajo `/ipey/`, número esperado de productos y carga de imágenes y ausencia de errores JavaScript antes de guardar las seis capturas.
 
 No se envían mensajes de WhatsApp en las pruebas. La prueba de contratación usa datos ficticios aislados; los precios y el número publicados siguen pendientes. La emulación móvil en Chromium no sustituye pruebas en dispositivos físicos Android o iPhone.
