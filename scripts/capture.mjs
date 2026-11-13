@@ -12,7 +12,7 @@ try {
   for(const [name,route,heading] of [['inicio','/','Streaming y juegos'],['streaming','/streaming','Dale play a tu mundo.'],['juegos','/juegos','Tu siguiente nivel.']]){
    await page.goto(`${base}#${route}`);
    await page.reload();
-   await page.getByRole('heading',{level:1}).filter({hasText:heading}).waitFor();
+   await page.getByRole('heading',{level:1}).filter({hasText:suffix&&name!=='inicio'?(name==='streaming'?'Streaming':'Juegos'):heading}).waitFor();
    await page.evaluate(async()=>{
     await document.fonts.ready;
     await Promise.all([...document.images].map(img=>img.decode()));

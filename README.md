@@ -20,7 +20,8 @@ Los servicios usan imágenes de sus marcas guardadas localmente, tanto en las ta
 - `src/catalog.ts`: productos, variantes, características, duración en meses, diamantes, disponibilidad, precios, promociones, condiciones; y objeto `business` con nombre, moneda, contacto, WhatsApp y políticas.
 - `src/commerce.ts`: validación, precios, promociones, resumen y enlaces oficiales `wa.me`.
 - `src/main.tsx`: páginas, tarjetas, filtros, detalle, resumen accesible con dialog nativo, FAQ y navegación.
-- `src/style.css`: sistema visual y adaptaciones móviles.
+- `src/style.css`, `src/home.css`, `src/navigation.css`: presentación existente de escritorio.
+- `src/mobile.css`: adaptación exclusiva hasta 768 px; `src/MobileCatalogTools.tsx` contiene el panel de filtros móvil y `src/useMobileLayout.ts` sincroniza el breakpoint.
 - `src/commerce.test.ts`, `e2e/`: pruebas de negocio y navegador.
 - La identidad comercial está pendiente: el encabezado y el pie muestran únicamente el texto provisional «marca», sin símbolo ni favicon.
 
@@ -49,13 +50,13 @@ No se requiere añadir credenciales al código. El workflow usa el `GITHUB_TOKEN
 
 Inicio sigue la referencia del dashboard aportada por el usuario: hero compacto con seis plataformas, franja informativa del proceso, cinco tarjetas de streaming y un banner horizontal de Free Fire. Mantiene el negro profundo, superficies grises y acentos azules. No se añaden garantías de entrega, pagos ni precios ficticios.
 
-La navegación sigue la última referencia aprobada: se conserva «marca» sin símbolo, con enlaces centrados, subrayado activo y búsqueda circular azul. Los filtros y las páginas de Streaming y Juegos mantienen su funcionamiento. `src/HomeDashboard.tsx` organiza el contenido de Inicio; `src/home.css` limita sus estilos a esa página. Las tarjetas exclusivas de Inicio se definen en `HomeDashboard.tsx`; `src/ProductCard.tsx` conserva las tarjetas de las otras páginas. El catálogo y la lógica comercial no cambian. Las preguntas frecuentes siguen al final.
+La navegación de escritorio sigue la última referencia aprobada: se conserva «marca» sin símbolo, con enlaces centrados, subrayado activo y búsqueda circular azul. En móvil, los tres destinos principales permanecen visibles debajo de la primera fila de identidad y acciones. El menú adicional contiene información de contacto y políticas. Los filtros y las páginas de Streaming y Juegos mantienen su lógica. `src/HomeDashboard.tsx` organiza Inicio y exporta las tarjetas reutilizadas por los catálogos móviles; `src/ProductCard.tsx` conserva las tarjetas de escritorio. El catálogo y la lógica comercial no cambian. Las preguntas frecuentes siguen al final.
 
-Inicio utiliza un atlas WebP con seis ilustraciones originales; las otras páginas conservan los SVG de `public/art/`. Estos recursos no son material oficial de las plataformas. El hero usa seis paneles diagonales continuos en escritorio y una composición de dos filas en móvil, con tres indicadores que cambian su contenido y enlaces. `src/mobile.css` mejora la legibilidad y las áreas de pulsación sin cambiar la presentación de escritorio. Consulta la [comparación visual y validación](docs/FIDELIDAD-INICIO.md) y la [procedencia de las ilustraciones](public/art/home/README.md).
+Inicio utiliza un atlas WebP con seis ilustraciones originales; estos recursos no son material oficial de las plataformas. El hero conserva sus seis paneles diagonales y tres indicadores en escritorio. En móvil es estático y compacto: le siguen categorías, streaming en dos columnas, Free Fire y la información del proceso. Las pantallas de hasta 480 px descargan una copia de 88 KB del atlas, frente a los 212 KB originales. Consulta la [entrega móvil, capturas y verificación](docs/MOBILE-UX.md), la [comparación anterior de Inicio](docs/FIDELIDAD-INICIO.md) y la [procedencia de las ilustraciones](public/art/home/README.md).
 
 ## Capturas reales
 
-Capturas generadas con Chromium a 1440 × 1000 y 390 × 844 desde la compilación de producción, sin alterar el catálogo. Se incluyen completas en `docs/capturas/`.
+Capturas generadas con Chromium a 1440 × 1000 y 390 × 844 desde la compilación de producción, sin alterar el catálogo. Se incluyen completas en `docs/capturas/`. La [entrega móvil](docs/MOBILE-UX.md) añade los cinco anchos solicitados, detalles, filtros y resumen; este último usa exclusivamente datos ficticios aislados de prueba.
 
 ### Inicio
 
@@ -81,7 +82,7 @@ Para regenerarlas, en una terminal ejecutar `npm run build` y `npm run preview -
 
 - `npm run build`: TypeScript y compilación de producción.
 - `npm test`: 6 pruebas comerciales.
-- `npm run test:e2e`: 12 pruebas de navegador, repartidas entre escritorio y tamaño móvil; búsquedas, filtros, navegación, planes, validación del ID, resumen y enlace WhatsApp.
+- `npm run test:e2e`: 20 pruebas de navegador, repartidas entre escritorio y móvil; búsquedas, filtros con borrador/aplicar/limpiar, navegación, planes, validación del ID, resumen y enlace WhatsApp. Incluye capturas completas a 320, 360, 390, 430 y 768 px.
 - `npm run screenshots`: verifica Inicio, Streaming y Juegos, recarga directa de rutas bajo `/ipey/`, número esperado de productos y carga de imágenes y ausencia de errores JavaScript antes de guardar las seis capturas.
 
 No se envían mensajes de WhatsApp en las pruebas. La prueba de contratación usa datos ficticios aislados; los precios y el número publicados siguen pendientes. La emulación móvil en Chromium no sustituye pruebas en dispositivos físicos Android o iPhone.

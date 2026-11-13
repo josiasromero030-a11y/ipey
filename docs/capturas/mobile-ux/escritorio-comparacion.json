@@ -1,0 +1,208 @@
+{
+  "baseline_commit": "e41725b419fc206d5a55272a0332341031f9f255",
+  "widths": [
+    1024,
+    1440
+  ],
+  "pages": 7,
+  "comparisons": 14,
+  "identical": 14,
+  "results": [
+    {
+      "file": "buscar-1024.png",
+      "dimensions_before": [
+        1024,
+        1452
+      ],
+      "dimensions_after": [
+        1024,
+        1452
+      ],
+      "different_pixels": 0,
+      "sha256_before": "2a3199160ced82bb0fc267f2cf1a9cbcbed6ded07d909baff4ba386c951520c1",
+      "sha256_after": "2a3199160ced82bb0fc267f2cf1a9cbcbed6ded07d909baff4ba386c951520c1"
+    },
+    {
+      "file": "buscar-1440.png",
+      "dimensions_before": [
+        1440,
+        1549
+      ],
+      "dimensions_after": [
+        1440,
+        1549
+      ],
+      "different_pixels": 0,
+      "sha256_before": "12a3c06d5d1cb251fabbef7661adab8c0564545afb6babe1948b707ce2708e39",
+      "sha256_after": "12a3c06d5d1cb251fabbef7661adab8c0564545afb6babe1948b707ce2708e39"
+    },
+    {
+      "file": "contacto-1024.png",
+      "dimensions_before": [
+        1024,
+        1008
+      ],
+      "dimensions_after": [
+        1024,
+        1008
+      ],
+      "different_pixels": 0,
+      "sha256_before": "638e2447d07211447c3acdaab76aec638acfb8137c3bb528c8597c5b4d39269b",
+      "sha256_after": "638e2447d07211447c3acdaab76aec638acfb8137c3bb528c8597c5b4d39269b"
+    },
+    {
+      "file": "contacto-1440.png",
+      "dimensions_before": [
+        1440,
+        1008
+      ],
+      "dimensions_after": [
+        1440,
+        1008
+      ],
+      "different_pixels": 0,
+      "sha256_before": "8a241751b9c3a0d78bdd5d120649afca2e0c651164b9ea2b33b6d5f4cacf60fa",
+      "sha256_after": "8a241751b9c3a0d78bdd5d120649afca2e0c651164b9ea2b33b6d5f4cacf60fa"
+    },
+    {
+      "file": "free-fire-1024.png",
+      "dimensions_before": [
+        1024,
+        1827
+      ],
+      "dimensions_after": [
+        1024,
+        1827
+      ],
+      "different_pixels": 0,
+      "sha256_before": "4333397d63a7ba8f8f26ab2e046d7b2885aa475f633ba11a04c8f3f6d1c14fc5",
+      "sha256_after": "4333397d63a7ba8f8f26ab2e046d7b2885aa475f633ba11a04c8f3f6d1c14fc5"
+    },
+    {
+      "file": "free-fire-1440.png",
+      "dimensions_before": [
+        1440,
+        1806
+      ],
+      "dimensions_after": [
+        1440,
+        1806
+      ],
+      "different_pixels": 0,
+      "sha256_before": "982663a67018e3e6eb711bdd01246f944504cd43ca8af7e7a0364ecd4ce1755c",
+      "sha256_after": "982663a67018e3e6eb711bdd01246f944504cd43ca8af7e7a0364ecd4ce1755c"
+    },
+    {
+      "file": "inicio-1024.png",
+      "dimensions_before": [
+        1024,
+        1620
+      ],
+      "dimensions_after": [
+        1024,
+        1620
+      ],
+      "different_pixels": 0,
+      "sha256_before": "616a25beb8f362d4b2897ccc9cd3dcf7199312e2641576bd53dd4391a1f96630",
+      "sha256_after": "616a25beb8f362d4b2897ccc9cd3dcf7199312e2641576bd53dd4391a1f96630"
+    },
+    {
+      "file": "inicio-1440.png",
+      "dimensions_before": [
+        1440,
+        1662
+      ],
+      "dimensions_after": [
+        1440,
+        1662
+      ],
+      "different_pixels": 0,
+      "sha256_before": "30ed1378f62ec4a961fe4dfb2967f8845423462e350164061a0365499c7c09af",
+      "sha256_after": "30ed1378f62ec4a961fe4dfb2967f8845423462e350164061a0365499c7c09af"
+    },
+    {
+      "file": "juegos-1024.png",
+      "dimensions_before": [
+        1024,
+        1175
+      ],
+      "dimensions_after": [
+        1024,
+        1175
+      ],
+      "different_pixels": 0,
+      "sha256_before": "929d7f155fa8aa9099ac14dec4dfd6d40eb11754fd8833121d7141a487c85426",
+      "sha256_after": "929d7f155fa8aa9099ac14dec4dfd6d40eb11754fd8833121d7141a487c85426"
+    },
+    {
+      "file": "juegos-1440.png",
+      "dimensions_before": [
+        1440,
+        1224
+      ],
+      "dimensions_after": [
+        1440,
+        1224
+      ],
+      "different_pixels": 0,
+      "sha256_before": "183f5be126490e40b15002e0c5eedab46ef19b8fd98fcf3b9782bb25b3d65bd0",
+      "sha256_after": "183f5be126490e40b15002e0c5eedab46ef19b8fd98fcf3b9782bb25b3d65bd0"
+    },
+    {
+      "file": "netflix-1024.png",
+      "dimensions_before": [
+        1024,
+        1269
+      ],
+      "dimensions_after": [
+        1024,
+        1269
+      ],
+      "different_pixels": 0,
+      "sha256_before": "a768be7980157b05305371768101691e62f02f1be5823354f92f9c3262ed66b5",
+      "sha256_after": "a768be7980157b05305371768101691e62f02f1be5823354f92f9c3262ed66b5"
+    },
+    {
+      "file": "netflix-1440.png",
+      "dimensions_before": [
+        1440,
+        1249
+      ],
+      "dimensions_after": [
+        1440,
+        1249
+      ],
+      "different_pixels": 0,
+      "sha256_before": "aee9230750eaaa092f39d2e73b7c49d1f6a0ad01467ca2efbdfa5ae949d7ba74",
+      "sha256_after": "aee9230750eaaa092f39d2e73b7c49d1f6a0ad01467ca2efbdfa5ae949d7ba74"
+    },
+    {
+      "file": "streaming-1024.png",
+      "dimensions_before": [
+        1024,
+        1452
+      ],
+      "dimensions_after": [
+        1024,
+        1452
+      ],
+      "different_pixels": 0,
+      "sha256_before": "cb99a96db059aaa5c75327e43f5243fdbc1f68e9696adc12e442622e1350830e",
+      "sha256_after": "cb99a96db059aaa5c75327e43f5243fdbc1f68e9696adc12e442622e1350830e"
+    },
+    {
+      "file": "streaming-1440.png",
+      "dimensions_before": [
+        1440,
+        1549
+      ],
+      "dimensions_after": [
+        1440,
+        1549
+      ],
+      "different_pixels": 0,
+      "sha256_before": "6a82a4245781a081e5a43bf3476cc250ee385ca8cf2a89b1c3991e78e7c2348a",
+      "sha256_after": "6a82a4245781a081e5a43bf3476cc250ee385ca8cf2a89b1c3991e78e7c2348a"
+    }
+  ]
+}
