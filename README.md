@@ -1,6 +1,6 @@
 # Ipey · tienda digital
 
-Catálogo responsive de streaming y gaming con React 19, TypeScript, Vite y Lucide. Funciona sin backend, registro ni pagos. El diseño usa fondos SVG originales y logotipos de los servicios guardados localmente; no carga imágenes ni fuentes de terceros en tiempo de ejecución.
+Catálogo responsive de streaming y gaming con React 19, TypeScript, Vite y Lucide. Funciona sin backend, registro ni pagos. El diseño usa ilustraciones originales y logotipos de los servicios guardados localmente; no carga imágenes ni fuentes de terceros en tiempo de ejecución.
 
 ## Desarrollo
 
@@ -28,17 +28,18 @@ Para habilitar una modalidad, configurar un precio numérico mayor que cero y `a
 
 WhatsApp: sustituir `NUMERO_WHATSAPP_PENDIENTE` por el número internacional con código de país, solo dígitos, sin `+`, espacios o guiones (8–15 dígitos). El número no es una credencial. Mientras no sea válido, el contacto y el resumen muestran configuración pendiente. WhatsApp abre un borrador: el usuario confirma el envío. No hay API de envío ni verificación remota del ID de jugador.
 
-## Publicación en GitHub Pages (pendiente de autorización)
+## Publicación en GitHub Pages
 
-La publicación pública **no está activada por este proyecto**. Subir código a `main` no ejecuta el despliegue. El workflow `.github/workflows/pages.yml` tiene únicamente un disparador manual y requiere confirmar la opción `publicar`.
+GitHub Pages está configurado para desplegar con Actions. Las ediciones normales de código en `main` no ejecutan el despliegue. El workflow `.github/workflows/pages.yml` permite dos solicitudes explícitas: ejecutarlo desde la interfaz marcando `publicar`, o modificar `.github/pages-publication.json` en un commit dirigido a `main`. Cambiar ese archivo solicita publicar la revisión completa de ese commit.
 
 Una vez que el propietario autorice expresamente la publicación:
 
 1. En el repositorio, abrir Settings → Pages y elegir GitHub Actions como origen.
 2. En Actions, elegir **Publicar en GitHub Pages (manual)** → Run workflow, seleccionar `main` y marcar `publicar`.
-3. El workflow instala con `npm ci`, ejecuta las pruebas comerciales, compila, sube `dist/` y despliega en el entorno `github-pages`.
-4. Obtener la URL real del resultado del despliegue; abrir Inicio, Streaming y Juegos, recargar sus rutas y comprobar recursos y consola.
-5. Solo después de verificar esa URL, agregar al inicio de este README un enlace destacado **Ver la web** con la dirección real y guardar el cambio en `main`.
+3. Como alternativa desde Codex, tras la autorización del propietario y las verificaciones, actualizar `requested_at` y `reason` de `.github/pages-publication.json`, incluir los cambios aprobados en un commit y subirlo a `main`. La modificación de ese archivo dispara la publicación sin usar la API de GitHub.
+4. El workflow instala con `npm ci`, ejecuta las pruebas comerciales, compila, sube `dist/` y despliega en el entorno `github-pages`.
+5. Obtener la URL real del resultado del despliegue; abrir Inicio, Streaming y Juegos, recargar sus rutas y comprobar recursos y consola.
+6. Solo después de verificar esa URL, agregar al inicio de este README un enlace destacado **Ver la web** con la dirección real y guardar el cambio en `main`.
 
 No se requiere añadir credenciales al código. El workflow usa el `GITHUB_TOKEN` temporal administrado por Actions y permisos limitados al despliegue. La activación de Pages necesita permisos administrativos del repositorio; ejecutar el workflow necesita permisos de Actions. No se cambia la visibilidad del repositorio.
 
@@ -48,9 +49,9 @@ No se requiere añadir credenciales al código. El workflow usa el `GITHUB_TOKEN
 
 Inicio sigue la referencia del dashboard aportada por el usuario: hero compacto con seis plataformas, franja informativa del proceso, cinco tarjetas de streaming y un banner horizontal de Free Fire. Mantiene el negro profundo, superficies grises y acentos azules. No se añaden garantías de entrega, pagos ni precios ficticios.
 
-La navegación y su buscador se conservan intactos, igual que las páginas de Streaming y Juegos. `src/HomeDashboard.tsx` organiza el contenido de Inicio; `src/home.css` limita sus estilos a esa página. `src/ProductCard.tsx` reutiliza la tarjeta existente con una presentación compacta exclusiva de Inicio. El catálogo y la lógica comercial no cambian. Las preguntas frecuentes siguen al final.
+La navegación y su buscador se conservan intactos, igual que las páginas de Streaming y Juegos. `src/HomeDashboard.tsx` organiza el contenido de Inicio; `src/home.css` limita sus estilos a esa página. Las tarjetas exclusivas de Inicio se definen en `HomeDashboard.tsx`; `src/ProductCard.tsx` conserva las tarjetas de las otras páginas. El catálogo y la lógica comercial no cambian. Las preguntas frecuentes siguen al final.
 
-Los fondos de `public/art/` son ilustraciones vectoriales originales del proyecto; no son material oficial de las plataformas. La composición del hero es estática y no muestra controles de carrusel.
+Inicio utiliza un atlas WebP con seis ilustraciones originales; las otras páginas conservan los SVG de `public/art/`. Estos recursos no son material oficial de las plataformas. La composición del hero es estática y no muestra controles de carrusel. Consulta la [comparación visual y validación](docs/FIDELIDAD-INICIO.md) y la [procedencia de las ilustraciones](public/art/home/README.md).
 
 ## Capturas reales
 

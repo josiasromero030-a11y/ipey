@@ -8,6 +8,7 @@ try {
   const page=await browser.newPage({viewport,deviceScaleFactor:1});
   const errors=[];
   page.on('pageerror',error=>errors.push(error.message));
+  page.on('response',response=>{if(response.status()>=400)errors.push(`${response.status()}: ${response.url()}`)});
   for(const [name,route,heading] of [['inicio','/','Streaming y juegos'],['streaming','/streaming','Dale play a tu mundo.'],['juegos','/juegos','Tu siguiente nivel.']]){
    await page.goto(`${base}#${route}`);
    await page.reload();

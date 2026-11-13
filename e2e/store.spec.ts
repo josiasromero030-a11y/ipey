@@ -20,11 +20,14 @@ test('inicio separa streaming y recargas y abre los productos existentes',async(
 });
 test('logotipos locales en catálogo y detalle, con respaldo si falla la carga',async({page})=>{
  await page.goto('/');
- for(const name of ['Netflix','Disney+','HBO Max','Crunchyroll','Spotify','Free Fire']){
+ for(const name of ['Netflix','Disney+','HBO Max','Crunchyroll','Spotify']){
   const image=page.locator('.product-card').getByRole('img',{name,exact:true});
   await expect(image).toBeVisible();
   await expect.poll(()=>image.evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);
  }
+ const gameArt=page.getByRole('img',{name:'Ilustración original de un explorador en un paisaje de aventura'});
+ await expect(gameArt).toBeVisible();
+ await expect.poll(()=>gameArt.evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);
  await page.goto('/#/producto/disney');
  await expect(page.locator('.detail-art').getByRole('img',{name:'Disney+',exact:true})).toBeVisible();
  await page.route('**/logos/netflix.svg',route=>route.abort());

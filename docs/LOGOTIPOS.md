@@ -16,3 +16,13 @@ Las licencias de Simple Icons y selfh.st están incluidas en `public/logos/LICEN
 ## Referencia visual utilizada
 
 Se intentó abrir la versión española de Instant Gaming con HTTP y Chromium. El proxy rechazó el acceso (`CONNECT 403` / `ERR_TUNNEL_CONNECTION_FAILED`). El usuario aportó posteriormente dos capturas, utilizadas para adaptar la composición: banner panorámico, cabecera fija y portadas horizontales con nombre/precio debajo. No se copiaron imágenes de videojuegos ni la identidad de Instant Gaming. Los siete fondos de `public/art/` son SVG decorativos originales del proyecto. Los dominios `instant-gaming.com` y `www.instant-gaming.com` se propusieron en el borrador de red del entorno.
+
+## Corrección de fidelidad: recursos exclusivos de Inicio
+
+- `public/logos/home/netflix.svg`: wordmark completo de [gilbarbara/logos](https://github.com/gilbarbara/logos/blob/main/logos/netflix.svg), sin modificaciones.
+- `public/logos/home/spotify.svg`: símbolo y wordmark de [gilbarbara/logos](https://github.com/gilbarbara/logos/blob/main/logos/spotify.svg), sin modificaciones.
+- La colección declara [CC0](https://github.com/gilbarbara/logos/blob/main/LICENSE.txt); se conserva copia en `public/logos/home/LICENSE-logos.txt`. La licencia de la colección no concede derechos sobre las marcas ni acredita autorización comercial del proveedor.
+- HBO Max mantiene su recurso existente apilado; no se fabricó un wordmark horizontal para aparentar equivalencia con la referencia.
+- Crunchyroll mantiene su símbolo existente junto al nombre como texto neutral, no una reproducción de su tipografía corporativa.
+- Free Fire se presenta mediante su nombre tipográfico y una escena de aventura original. Inicio deja de usar el PNG de terceros cuya licencia no se había confirmado. Las otras páginas y sus recursos se conservan por la restricción de alcance.
+- `public/art/home/editorial-atlas.webp`: ilustraciones originales creadas para el proyecto. No es arte oficial ni material promocional de Disney+, Crunchyroll o Free Fire. Véase `public/art/home/README.md`.

@@ -1,7 +1,12 @@
 name: Publicar en GitHub Pages (manual)
 
-# No publica al subir código: requiere una ejecución manual explícita.
+# Publicación explícita desde la interfaz o modificando el archivo de solicitud.
+# Los cambios normales de código no despliegan la web.
 on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/pages-publication.json'
   workflow_dispatch:
     inputs:
       publicar:
@@ -19,7 +24,7 @@ concurrency:
 
 jobs:
   build:
-    if: ${{ inputs.publicar }}
+    if: ${{ github.event_name == 'push' || inputs.publicar }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
