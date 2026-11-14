@@ -1,6 +1,6 @@
 # Integración del sistema visual Ipey v3
 
-Rama de revisión: `review/visual-kit-v3`, basada en `1c0213b`. No se modificó `main` ni se solicitó un despliegue.
+La entrega se preparó en `review/visual-kit-v3`, basada en `1c0213b`, sin modificar `main` ni solicitar un despliegue durante la revisión. El propietario autorizó posteriormente publicar la revisión `cad02d5`; se integró en `main` y se actualizó el archivo de solicitud de GitHub Pages.
 
 ## Recursos y sistema visual
 
@@ -80,7 +80,7 @@ Se abrieron las capturas para compararlas directamente con las referencias del Z
 | Archivo del logo | Cambiar únicamente su `src` tampoco altera el fondo ni el nombre/acción HTML |
 | Tipografía y tokens | Inter cargada y variables verificadas contra el JSON del paquete |
 | Datos y reglas | Catálogo, comercio, pruebas comerciales y estado/filtros idénticos byte a byte a `1c0213b` |
-| GitHub Pages | Prefijo y recarga de rutas correctos; workflow y archivo de solicitud intactos |
+| GitHub Pages | Prefijo y recarga de rutas correctos; workflow y archivo de solicitud intactos durante la preparación de la revisión |
 
 Las solicitudes se prueban con datos ficticios aislados en el navegador. No se habilitan compras ficticias en el catálogo ni se envían mensajes de WhatsApp. Las pruebas de formato de ID, modalidades, filtros, búsquedas, resumen y enlaces se conservan.
 
@@ -97,4 +97,4 @@ El [manifiesto de cambios](ARCHIVOS-KIT-V3.txt) enumera los archivos añadidos, 
 
 Para revisar: cambiar a `review/visual-kit-v3`, ejecutar `npm ci` y `npm run dev`. Para producción local: `npm run build` y `npm run preview -- --port 4173 --base /ipey/`. Con ese preview activo, `npm run screenshots` regenera las capturas; `CAPTURE_DIR` permite otro destino.
 
-La comprobación en dispositivos físicos iPhone/Android sigue pendiente. No se ha publicado esta integración; queda preparada para revisión.
+La comprobación en dispositivos físicos iPhone/Android sigue pendiente. La publicación se solicitó únicamente después de recibir autorización expresa del propietario. Las evidencias de pruebas y recursos conservan el estado de la entrega durante la revisión.

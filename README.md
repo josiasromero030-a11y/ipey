@@ -2,7 +2,7 @@
 
 Catálogo responsive de streaming y gaming con React 19, TypeScript, Vite y Lucide. Funciona sin backend, registro ni pagos. Los fondos del kit visual, los logotipos y la fuente Inter se sirven localmente; no carga imágenes ni fuentes de terceros en tiempo de ejecución.
 
-Esta rama integra **Ipey Kit Visual Capas v3** sobre las dos plantillas aprobadas. [Entrega, comparación visual y capturas](docs/INTEGRACION-KIT-V3.md). Preparada para revisión; no solicita un despliegue. La [reconstrucción anterior](docs/RECONSTRUCCION-REFERENCIAS.md) se conserva como historial.
+Esta rama integra **Ipey Kit Visual Capas v3** sobre las dos plantillas aprobadas. [Entrega, comparación visual y capturas](docs/INTEGRACION-KIT-V3.md). Su publicación fue autorizada expresamente por el propietario. La [reconstrucción anterior](docs/RECONSTRUCCION-REFERENCIAS.md) se conserva como historial.
 
 ## Desarrollo
 
