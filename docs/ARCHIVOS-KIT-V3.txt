@@ -1,0 +1,105 @@
+Cambios respecto a 1c0213b en review/visual-kit-v3.
+M: modificado; D: eliminado; ??: añadido.
+
+ M README.md
+ M docs/LOGOTIPOS.md
+ M e2e/helpers.ts
+ M e2e/reference-layout.spec.ts
+ M index.html
+ M playwright.config.ts
+ M public/art/services/README.md
+ D public/art/services/crunchyroll.webp
+ D public/art/services/disney.webp
+ D public/art/services/free-fire.webp
+ D public/art/services/max.webp
+ D public/art/services/netflix.webp
+ D public/art/services/spotify.webp
+ M scripts/capture-references.mjs
+ M src/ProductIdentity.tsx
+ M src/components/desktop/HeroDesktop.tsx
+ D src/components/mobile/CategoryArtwork.tsx
+ M src/components/mobile/CategoryNavigationMobile.tsx
+ M src/components/mobile/HeroMobile.tsx
+ M src/components/shared/Brand.tsx
+ M src/components/shared/GamingContent.tsx
+ M src/components/shared/PlatformPanels.tsx
+ M src/components/shared/ServiceCard.tsx
+ M src/components/shared/ServiceIdentity.tsx
+ M src/data/presentation.ts
+ M src/layouts/StoreLayout.tsx
+ M src/main.tsx
+ M src/pages/DetailPage.tsx
+ M src/styles/base.css
+ M src/styles/desktop.css
+ M src/styles/mobile.css
+ M src/styles/pages.css
+ M src/styles/shared.css
+ M src/styles/tokens.css
+?? docs/ARCHIVOS-KIT-V3.txt
+?? docs/INTEGRACION-KIT-V3.md
+?? docs/capturas/kit-v3/ayuda-1440.png
+?? docs/capturas/kit-v3/ayuda-390.png
+?? docs/capturas/kit-v3/catalogo-1440.png
+?? docs/capturas/kit-v3/catalogo-390.png
+?? docs/capturas/kit-v3/comparacion-escritorio.png
+?? docs/capturas/kit-v3/comparacion-movil.png
+?? docs/capturas/kit-v3/condiciones-1440.png
+?? docs/capturas/kit-v3/condiciones-390.png
+?? docs/capturas/kit-v3/contacto-1440.png
+?? docs/capturas/kit-v3/contacto-390.png
+?? docs/capturas/kit-v3/free-fire-1440.png
+?? docs/capturas/kit-v3/free-fire-390.png
+?? docs/capturas/kit-v3/inicio-1024x900.png
+?? docs/capturas/kit-v3/inicio-1280x800.png
+?? docs/capturas/kit-v3/inicio-1440x900.png
+?? docs/capturas/kit-v3/inicio-1672x941.png
+?? docs/capturas/kit-v3/inicio-1920x1080.png
+?? docs/capturas/kit-v3/inicio-320x700.png
+?? docs/capturas/kit-v3/inicio-360x800.png
+?? docs/capturas/kit-v3/inicio-390x844.png
+?? docs/capturas/kit-v3/inicio-430x932.png
+?? docs/capturas/kit-v3/inicio-768x1024.png
+?? docs/capturas/kit-v3/inicio-820x1180.png
+?? docs/capturas/kit-v3/inicio-887x1774.png
+?? docs/capturas/kit-v3/juegos-1440.png
+?? docs/capturas/kit-v3/juegos-390.png
+?? docs/capturas/kit-v3/netflix-1440.png
+?? docs/capturas/kit-v3/netflix-390.png
+?? docs/capturas/kit-v3/privacidad-1440.png
+?? docs/capturas/kit-v3/privacidad-390.png
+?? docs/capturas/kit-v3/pruebas.json
+?? docs/capturas/kit-v3/recursos.json
+?? docs/capturas/kit-v3/streaming-1440.png
+?? docs/capturas/kit-v3/streaming-390.png
+?? docs/capturas/kit-v3/verificacion.json
+?? docs/visual-kit-v3/README.md
+?? docs/visual-kit-v3/design/Detalle_Capas.png
+?? docs/visual-kit-v3/design/Guia_Visual_Ipey.png
+?? docs/visual-kit-v3/design/tokens.css
+?? docs/visual-kit-v3/design/tokens.json
+?? docs/visual-kit-v3/docs/PROMPT_CODEX.md
+?? docs/visual-kit-v3/docs/manifest.json
+?? docs/visual-kit-v3/logos/LEEME.md
+?? docs/visual-kit-v3/logos/ipey-simbolo-propuesta.svg
+?? docs/visual-kit-v3/referencias/01_escritorio.png
+?? docs/visual-kit-v3/referencias/02_movil.png
+?? e2e/layer-composition.spec.ts
+?? public/fonts/inter/LICENSE
+?? public/fonts/inter/README.md
+?? public/fonts/inter/inter-latin-wght-normal.woff2
+?? public/visual/README.md
+?? public/visual/assets/backgrounds/hero-base.webp
+?? public/visual/assets/backgrounds/texture-sutil.webp
+?? public/visual/assets/banners/free-fire-banner.webp
+?? public/visual/assets/categories/juegos.webp
+?? public/visual/assets/categories/streaming.webp
+?? public/visual/assets/covers/crunchyroll.webp
+?? public/visual/assets/covers/disney.webp
+?? public/visual/assets/covers/free-fire.webp
+?? public/visual/assets/covers/hbo-max.webp
+?? public/visual/assets/covers/netflix.webp
+?? public/visual/assets/covers/spotify.webp
+?? scripts/compare-kit.mjs
+?? src/components/shared/ArtworkBackground.tsx
+?? src/data/visualAssets.ts
+?? src/styles/kit-tokens.css

@@ -1,0 +1,47 @@
+{
+  "project": "Ipey",
+  "type": "Kit de imágenes, paleta y capas",
+  "version": "3.0",
+  "assets": {
+    "netflix": {
+      "background": "assets/covers/netflix.webp",
+      "logo_repo": "public/logos/home/netflix.svg"
+    },
+    "disney": {
+      "background": "assets/covers/disney.webp",
+      "logo_repo": "public/logos/disney-plus.svg"
+    },
+    "max": {
+      "background": "assets/covers/hbo-max.webp",
+      "logo_repo": "public/logos/hbo-max.svg"
+    },
+    "crunchyroll": {
+      "background": "assets/covers/crunchyroll.webp",
+      "logo_repo": "public/logos/crunchyroll.svg"
+    },
+    "spotify": {
+      "background": "assets/covers/spotify.webp",
+      "logo_repo": "public/logos/home/spotify.svg"
+    },
+    "free-fire": {
+      "background": "assets/covers/free-fire.webp",
+      "logo_repo": "public/logos/free-fire.png"
+    }
+  },
+  "extra": {
+    "heroBase": "assets/backgrounds/hero-base.webp",
+    "freeFireBanner": "assets/banners/free-fire-banner.webp",
+    "categoriesStreaming": "assets/categories/streaming.webp",
+    "categoriesJuegos": "assets/categories/juegos.webp",
+    "texture": "assets/backgrounds/texture-sutil.webp"
+  },
+  "references": [
+    "referencias/01_escritorio.png",
+    "referencias/02_movil.png"
+  ],
+  "tokens": "design/tokens.json",
+  "styleGuide": "design/Guia_Visual_Ipey.png",
+  "nonFlattened": true,
+  "compositing": "background-WebP -> overlay CSS -> logo PNG/SVG independent -> title-price-actions HTML",
+  "warning": "Portadas reconstruidas a partir de imágenes conceptuales; no son fuentes originales, ni demuestran licencias comerciales de personajes y marcas."
+}

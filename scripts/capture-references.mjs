@@ -2,20 +2,19 @@ import {chromium} from '@playwright/test';
 import {existsSync} from 'node:fs';
 import {mkdir,writeFile} from 'node:fs/promises';
 
-const output=process.env.CAPTURE_DIR||'docs/capturas/reconstruccion';
+const output=process.env.CAPTURE_DIR||'docs/capturas/kit-v3';
 const base=process.env.CAPTURE_URL||'http://127.0.0.1:4173/ipey/';
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||(existsSync('/usr/bin/chromium')?'/usr/bin/chromium':undefined),args:['--no-sandbox']});
-const sizes=[[1280,800],[1440,900],[1672,941],[1920,1080],[320,700],[360,800],[390,844],[430,932],[768,1024],[820,1180],[887,1774]];
+const sizes=[[1280,800],[1440,900],[1672,941],[1920,1080],[320,700],[360,800],[390,844],[430,932],[768,1024],[820,1180],[887,1774],[1024,900]];
 const results=[];
 async function ready(page){
  await page.evaluate(async()=>{
   await document.fonts.ready;
   await Promise.all([...document.images].map(i=>i.decode()));
-  const urls=[...new Set([...document.querySelectorAll('.artwork')].map(e=>getComputedStyle(e).backgroundImage))];
-  await Promise.all(urls.map(async url=>{
-   if(url==='none')throw new Error('Portada sin recurso visual');
-   const img=new Image();img.src=url.slice(5,-2);await img.decode();
-  }));
+  for(const artwork of document.querySelectorAll('.artwork')){
+   const img=artwork.querySelector(':scope > img.visual-background');
+   if(!img?.naturalWidth||getComputedStyle(img).objectFit!=='cover')throw new Error('Portada sin fondo independiente correctamente cargado');
+  }
  });
 }
 await mkdir(output,{recursive:true});
@@ -44,3 +43,5 @@ try{
  }
  await writeFile(`${output}/verificacion.json`,JSON.stringify({base,results},null,2)+'\n');
 }finally{await browser.close()}
+
+await import('./compare-kit.mjs');

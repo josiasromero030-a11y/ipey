@@ -1,0 +1,24 @@
+/* Ipey: design tokens - light effects deliberately restrained. */
+:root {
+  --ipey-bg: #080B10;
+  --ipey-bg-secondary: #0B111B;
+  --ipey-surface: #111827;
+  --ipey-surface-raised: #1F2937;
+  --ipey-border: #2B3645;
+  --ipey-blue: #2563EB;
+  --ipey-blue-hover: #3B82F6;
+  --ipey-text: #F8FAFC;
+  --ipey-muted: #94A3B8;
+  --ipey-whatsapp: #10B981;
+  --ipey-font: Inter, ui-sans-serif, system-ui, sans-serif;
+  --ipey-radius-button: 10px;
+  --ipey-radius-card: 14px;
+  --ipey-radius-hero: 18px;
+}
+/* PRODUCT COVER: NEVER flatten the logo into the background. */
+.ipey-cover { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--ipey-radius-card); background: var(--ipey-surface); }
+.ipey-cover__background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+.ipey-cover__shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg,rgba(8,11,16,.32),transparent 70%); pointer-events: none; }
+.ipey-cover__logo { position: relative; z-index: 2; display: block; max-width: 76%; max-height: 58%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,.3)); }
+.ipey-card__content { position: relative; z-index: 3; }
+@media (max-width: 767px) { .ipey-cover__logo { max-width: 82%; } }

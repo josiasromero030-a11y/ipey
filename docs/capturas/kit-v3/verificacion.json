@@ -1,0 +1,233 @@
+{
+  "base": "http://127.0.0.1:4173/ipey/",
+  "results": [
+    {
+      "width": 1280,
+      "height": 800,
+      "scrollWidth": 1280,
+      "documentHeight": 1014,
+      "panels": 6,
+      "cards": 6,
+      "hero": {
+        "x": 76.796875,
+        "y": 71,
+        "width": 1126.390625,
+        "height": 236,
+        "top": 71,
+        "right": 1203.1875,
+        "bottom": 307,
+        "left": 76.796875
+      },
+      "errors": []
+    },
+    {
+      "width": 1440,
+      "height": 900,
+      "scrollWidth": 1440,
+      "documentHeight": 985,
+      "panels": 6,
+      "cards": 6,
+      "hero": {
+        "x": 86.40625,
+        "y": 71,
+        "width": 1267.1875,
+        "height": 236,
+        "top": 71,
+        "right": 1353.59375,
+        "bottom": 307,
+        "left": 86.40625
+      },
+      "errors": []
+    },
+    {
+      "width": 1672,
+      "height": 941,
+      "scrollWidth": 1672,
+      "documentHeight": 991,
+      "panels": 6,
+      "cards": 6,
+      "hero": {
+        "x": 102,
+        "y": 71,
+        "width": 1468,
+        "height": 242,
+        "top": 71,
+        "right": 1570,
+        "bottom": 313,
+        "left": 102
+      },
+      "errors": []
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "scrollWidth": 1920,
+      "documentHeight": 1080,
+      "panels": 6,
+      "cards": 6,
+      "hero": {
+        "x": 226,
+        "y": 71,
+        "width": 1468,
+        "height": 242.09375,
+        "top": 71,
+        "right": 1694,
+        "bottom": 313.09375,
+        "left": 226
+      },
+      "errors": []
+    },
+    {
+      "width": 320,
+      "height": 700,
+      "scrollWidth": 320,
+      "documentHeight": 2337,
+      "panels": 6,
+      "cards": 6,
+      "hero": {
+        "x": 16,
+        "y": 128,
+        "width": 288,
+        "height": 411.109375,
+        "top": 128,
+        "right": 304,
+        "bottom": 539.109375,
+        "left": 16
+      },
+      "errors": []
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "scrollWidth": 360,
+      "documentHeight": 2331,
+      "panels": 6,
+      "cards": 6,
+      "hero": {
+        "x": 16,
+        "y": 128,
+        "width": 328,
+        "height": 411.109375,
+        "top": 128,
+        "right": 344,
+        "bottom": 539.109375,
+        "left": 16
+      },
+      "errors": []
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "scrollWidth": 390,
+      "documentHeight": 2084,
+      "panels": 6,
+      "cards": 6,
+      "hero": {
+        "x": 16,
+        "y": 128,
+        "width": 358,
+        "height": 220,
+        "top": 128,
+        "right": 374,
+        "bottom": 348,
+        "left": 16
+      },
+      "errors": []
+    },
+    {
+      "width": 430,
+      "height": 932,
+      "scrollWidth": 430,
+      "documentHeight": 2059,
+      "panels": 6,
+      "cards": 6,
+      "hero": {
+        "x": 16,
+        "y": 128,
+        "width": 398,
+        "height": 220,
+        "top": 128,
+        "right": 414,
+        "bottom": 348,
+        "left": 16
+      },
+      "errors": []
+    },
+    {
+      "width": 768,
+      "height": 1024,
+      "scrollWidth": 768,
+      "documentHeight": 1903,
+      "panels": 6,
+      "cards": 6,
+      "hero": {
+        "x": 24,
+        "y": 128,
+        "width": 720,
+        "height": 270,
+        "top": 128,
+        "right": 744,
+        "bottom": 398,
+        "left": 24
+      },
+      "errors": []
+    },
+    {
+      "width": 820,
+      "height": 1180,
+      "scrollWidth": 820,
+      "documentHeight": 1903,
+      "panels": 6,
+      "cards": 6,
+      "hero": {
+        "x": 24,
+        "y": 128,
+        "width": 772,
+        "height": 270,
+        "top": 128,
+        "right": 796,
+        "bottom": 398,
+        "left": 24
+      },
+      "errors": []
+    },
+    {
+      "width": 887,
+      "height": 1774,
+      "scrollWidth": 887,
+      "documentHeight": 1919,
+      "panels": 6,
+      "cards": 6,
+      "hero": {
+        "x": 24,
+        "y": 128,
+        "width": 839,
+        "height": 270,
+        "top": 128,
+        "right": 863,
+        "bottom": 398,
+        "left": 24
+      },
+      "errors": []
+    },
+    {
+      "width": 1024,
+      "height": 900,
+      "scrollWidth": 1024,
+      "documentHeight": 1053,
+      "panels": 6,
+      "cards": 6,
+      "hero": {
+        "x": 61.4375,
+        "y": 71,
+        "width": 901.109375,
+        "height": 272.953125,
+        "top": 71,
+        "right": 962.546875,
+        "bottom": 343.953125,
+        "left": 61.4375
+      },
+      "errors": []
+    }
+  ]
+}

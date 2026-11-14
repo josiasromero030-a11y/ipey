@@ -9,6 +9,6 @@ export default defineConfig({
   {name:'desktop',testMatch:'**/store-flows.spec.ts',use:{viewport:{width:1440,height:900}}},
   {name:'mobile',testMatch:['**/store-flows.spec.ts','**/mobile-interactions.spec.ts'],use:{viewport:{width:390,height:844},isMobile:true,hasTouch:true}},
   {name:'tablet',testMatch:['**/store-flows.spec.ts','**/mobile-interactions.spec.ts'],use:{viewport:{width:820,height:1180},isMobile:true,hasTouch:true}},
-  {name:'visual',testMatch:'**/reference-layout.spec.ts'},
+  {name:'visual',testMatch:['**/reference-layout.spec.ts','**/layer-composition.spec.ts']},
  ],
 });

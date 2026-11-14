@@ -1,8 +1,8 @@
 # Ipey · tienda digital
 
-Catálogo responsive de streaming y gaming con React 19, TypeScript, Vite y Lucide. Funciona sin backend, registro ni pagos. El diseño usa ilustraciones originales y logotipos de los servicios guardados localmente; no carga imágenes ni fuentes de terceros en tiempo de ejecución.
+Catálogo responsive de streaming y gaming con React 19, TypeScript, Vite y Lucide. Funciona sin backend, registro ni pagos. Los fondos del kit visual, los logotipos y la fuente Inter se sirven localmente; no carga imágenes ni fuentes de terceros en tiempo de ejecución.
 
-Esta rama contiene la reconstrucción basada exclusivamente en las dos nuevas referencias. [Entrega, comparación visual y capturas](docs/RECONSTRUCCION-REFERENCIAS.md). Preparada para revisión; no solicita un despliegue.
+Esta rama integra **Ipey Kit Visual Capas v3** sobre las dos plantillas aprobadas. [Entrega, comparación visual y capturas](docs/INTEGRACION-KIT-V3.md). Preparada para revisión; no solicita un despliegue. La [reconstrucción anterior](docs/RECONSTRUCCION-REFERENCIAS.md) se conserva como historial.
 
 ## Desarrollo
 
@@ -17,7 +17,7 @@ Ejecutar desde la raíz del repositorio. `npm run build` comprueba tipos y crea 
 
 ## Estructura y edición
 
-Los servicios usan imágenes de sus marcas guardadas localmente, tanto en las tarjetas como en el detalle. Consulta [procedencia y licencias de los logotipos](docs/LOGOTIPOS.md). `src/ProductIdentity.tsx` centraliza las imágenes y muestra el nombre si falla su carga. Free Fire utiliza el nombre tipográfico y una ilustración original; el PNG de licencia no confirmada deja de cargarse.
+Los servicios usan imágenes de sus marcas guardadas localmente, tanto en las tarjetas como en el detalle. Consulta [procedencia de los logotipos](docs/LOGOTIPOS.md). `src/ProductIdentity.tsx` centraliza las imágenes y muestra el nombre neutral si falla su carga. Free Fire reutiliza su icono PNG como imagen independiente, según la elección del propietario. No se simulan wordmarks con texto CSS.
 
 - `src/catalog.ts`: productos, variantes, características, duración en meses, diamantes, disponibilidad, precios, promociones, condiciones; y objeto `business` con nombre, moneda, contacto, WhatsApp y políticas.
 - `src/commerce.ts`: validación, precios, promociones, resumen y enlaces oficiales `wa.me`.
@@ -26,6 +26,7 @@ Los servicios usan imágenes de sus marcas guardadas localmente, tanto en las ta
 - `src/hooks/usePresentation.ts`, `src/layouts/StoreLayout.tsx`: cambio de presentación desde 1024 px sin desmontar el contenido ni perder el ID o plan seleccionado.
 - `src/components/desktop/`, `src/components/mobile/`: header, hero, categorías, banner y footer de cada referencia; controles propios de cada presentación.
 - `src/components/shared/`, `src/data/presentation.ts`: tarjetas, marcas, recursos, FAQ, resumen y contenido común.
+- `src/data/visualAssets.ts`, `src/components/shared/ArtworkBackground.tsx`: mapa único de los fondos del kit y capas independientes de imagen/contraste.
 - `src/pages/`: Inicio, catálogo, detalle y páginas informativas.
 - `src/styles/`: tokens, base, componentes compartidos, páginas y composición independiente de escritorio/móvil.
 - `src/commerce.test.ts`, `e2e/`: pruebas de negocio y navegador.
@@ -58,25 +59,25 @@ Las dos imágenes adjuntas más recientes sustituyen las decisiones visuales ant
 
 Entre 768 y 1023 px la composición móvil se amplía para tablet. Hasta 379 px el hero coloca las seis tarjetas debajo del texto para conservar la legibilidad. Ambos heros son estáticos, sin carrusel. Los textos y estados comerciales salen del mismo catálogo.
 
-Las seis portadas WebP de `public/art/services/` suman aproximadamente 131 KB y se comparten entre hero, tarjetas, banner y detalle. Son recortes optimizados de las ilustraciones originales ya existentes; no son material promocional oficial. Consulta su [procedencia](public/art/services/README.md). Los informes de diseños anteriores se conservan como documentación histórica y no definen esta presentación.
+Los once WebP de `public/visual/assets/` suman aproximadamente 200 KB y se copian sin cambios desde el kit. Fondos `<img>` con `object-fit: cover`, contraste CSS y logos SVG/PNG con `object-fit: contain` son capas independientes. Netflix y Spotify usan sus wordmarks completos cuando corresponde. El hero, banner y categorías tienen recursos específicos. Inter se sirve como WOFF2 local con su licencia. Consulta la [procedencia de los recursos](public/visual/README.md). Los informes anteriores son documentación histórica.
 
 ## Capturas reales
 
-Capturas completas generadas desde la compilación de producción bajo `/ipey/`, sin alterar el catálogo. La [entrega de reconstrucción](docs/RECONSTRUCCION-REFERENCIAS.md) incluye los diez tamaños solicitados y las páginas funcionales.
+Capturas completas generadas desde la compilación de producción bajo `/ipey/`, sin alterar el catálogo. La [entrega del kit v3](docs/INTEGRACION-KIT-V3.md) incluye doce tamaños, páginas funcionales y comparaciones con las referencias.
 
 ### Inicio
 
-![Inicio de escritorio de Ipey](docs/capturas/reconstruccion/inicio-1672x941.png)
+![Inicio de escritorio de Ipey](docs/capturas/kit-v3/inicio-1440x900.png)
 
-[Ver Inicio en móvil](docs/capturas/reconstruccion/inicio-390x844.png) · [Ver composición ampliada a 887 px](docs/capturas/reconstruccion/inicio-887x1774.png)
+[Ver Inicio en móvil](docs/capturas/kit-v3/inicio-390x844.png) · [Comparación escritorio](docs/capturas/kit-v3/comparacion-escritorio.png) · [Comparación móvil](docs/capturas/kit-v3/comparacion-movil.png)
 
 ### Streaming
 
-[Escritorio](docs/capturas/reconstruccion/streaming-1440.png) · [Móvil](docs/capturas/reconstruccion/streaming-390.png)
+[Escritorio](docs/capturas/kit-v3/streaming-1440.png) · [Móvil](docs/capturas/kit-v3/streaming-390.png)
 
 ### Juegos
 
-[Escritorio](docs/capturas/reconstruccion/juegos-1440.png) · [Móvil](docs/capturas/reconstruccion/juegos-390.png)
+[Escritorio](docs/capturas/kit-v3/juegos-1440.png) · [Móvil](docs/capturas/kit-v3/juegos-390.png)
 
 Para regenerarlas, en una terminal ejecutar `npm run build` y `npm run preview -- --port 4173 --base /ipey/`; en otra, `npm run screenshots`. Puede ajustarse `CAPTURE_URL` si cambia el servidor y `CHROMIUM_PATH` para otro ejecutable. Sin Chromium del sistema, instalar el navegador con `npx playwright install chromium`.
 
@@ -84,8 +85,8 @@ Para regenerarlas, en una terminal ejecutar `npm run build` y `npm run preview -
 
 - `npm run build`: TypeScript y compilación de producción.
 - `npm test`: 6 pruebas comerciales.
-- `npm run test:e2e`: 43 pruebas de navegador en escritorio, móvil, tablet y diez tamaños de composición; navegación real, buscadores, filtros, modalidades, ID, resumen, enlace de WhatsApp y conservación del estado al cambiar de presentación.
-- `npm run screenshots`: genera 29 capturas de producción, verifica el prefijo `/ipey/`, recarga de rutas, portadas CSS, logotipos, errores de carga y desbordamiento; guarda las métricas en `docs/capturas/reconstruccion/verificacion.json`.
+- `npm run test:e2e`: 46 pruebas de navegador en escritorio, móvil, tablet y once tamaños de composición; incluye la independencia entre fondo y logo al cambiar sus medidas o su `src`, tokens e Inter real, además de los recorridos comerciales.
+- `npm run screenshots`: genera 30 capturas de producción y dos comparaciones con las referencias; verifica `/ipey/`, recarga de rutas, fondos `<img>`, logotipos, errores y desbordamiento. Guarda métricas en `docs/capturas/kit-v3/verificacion.json`.
 
 No se envían mensajes de WhatsApp en las pruebas. La prueba de contratación usa datos ficticios aislados; los precios y el número publicados siguen pendientes. La emulación móvil en Chromium no sustituye pruebas en dispositivos físicos Android o iPhone.
 

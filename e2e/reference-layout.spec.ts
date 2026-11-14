@@ -1,7 +1,7 @@
 import {test,expect} from '@playwright/test';
 import {imagesReady} from './helpers';
 
-for(const [width,height] of [[1280,800],[1440,900],[1672,941],[1920,1080],[320,700],[360,800],[390,844],[430,932],[768,1024],[820,1180]]){
+for(const [width,height] of [[1280,800],[1440,900],[1672,941],[1920,1080],[320,700],[360,800],[390,844],[430,932],[768,1024],[820,1180],[1024,900]]){
  test(`composición y recursos de las referencias a ${width} × ${height}`,async({page})=>{
   await page.setViewportSize({width,height});await page.goto('/');await imagesReady(page);
   const mobile=width<1024;

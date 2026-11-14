@@ -1,0 +1,68 @@
+{
+  "assets": [
+    {
+      "file": "public/visual/assets/backgrounds/texture-sutil.webp",
+      "bytes": 1814,
+      "sha256": "709ae2ca2a7bfba34cac02828c51fb0e3566b43451de286015d24fc9855c96a3"
+    },
+    {
+      "file": "public/visual/assets/backgrounds/hero-base.webp",
+      "bytes": 5286,
+      "sha256": "793fd46e53212c8a4c3aa39b30bd45a5f3c487ec0d30f4764a88fdb5a3f65092"
+    },
+    {
+      "file": "public/visual/assets/covers/hbo-max.webp",
+      "bytes": 24632,
+      "sha256": "78768dae39827d434cfa9eda6f1085b5e3969153fded12b27afba18587153195"
+    },
+    {
+      "file": "public/visual/assets/covers/free-fire.webp",
+      "bytes": 23422,
+      "sha256": "7ece768b1d7f8a30b390cdfa17257de8bc41e06724e1dca69cde76a6545f1756"
+    },
+    {
+      "file": "public/visual/assets/covers/spotify.webp",
+      "bytes": 18500,
+      "sha256": "58b13e934b22b6958b2e6884a4f6e871c5680a54e132fe6305dee9c11c7e8827"
+    },
+    {
+      "file": "public/visual/assets/covers/crunchyroll.webp",
+      "bytes": 25384,
+      "sha256": "b3ac50dc89a13a3dacb54ac439a91dd3f3b2dfeb67d2373135a9b06ed8b36d4d"
+    },
+    {
+      "file": "public/visual/assets/covers/netflix.webp",
+      "bytes": 22108,
+      "sha256": "ac2a85975ec3587a4ae56ee65d5638e0cf34c56daf93b077d914e13d7f5dfccd"
+    },
+    {
+      "file": "public/visual/assets/covers/disney.webp",
+      "bytes": 18996,
+      "sha256": "186ae01c9ba3eb3e6048df47dc2b327055081548e8b44088b9fb5e244f784f8e"
+    },
+    {
+      "file": "public/visual/assets/categories/juegos.webp",
+      "bytes": 14820,
+      "sha256": "10c7b827104be2da6c8db60467ad9fe4d005d91acd0200e7b346e52afdc722da"
+    },
+    {
+      "file": "public/visual/assets/categories/streaming.webp",
+      "bytes": 10532,
+      "sha256": "d399ebb5f1f80868b378caf9b54149cee66346758e330801e3a9b2aa4f4e6348"
+    },
+    {
+      "file": "public/visual/assets/banners/free-fire-banner.webp",
+      "bytes": 34262,
+      "sha256": "4464e8f5ac92948fc8410829cf437c01f3920dd56e304882ac25a182c97932bd"
+    }
+  ],
+  "unmodified_assets": true,
+  "unmodified_kit_tokens": true,
+  "business_unchanged": true,
+  "deployment_configuration_unchanged": true,
+  "archive": {
+    "filename": "Ipey_Kit_Visual_Capas_v3.zip",
+    "sha256": "5ac925ac982eaeb9b785f6d8c7f0034019e60dd3fe762ed095f5fe9de937d25f"
+  },
+  "kit_tokens_sha256": "41fc63e9b3d0e380d96281e61998834f20b4d74d362832ea644709a91fe40b4a"
+}

@@ -11,11 +11,11 @@ export async function imagesReady(page:Page){
  await page.evaluate(async()=>{
   await document.fonts.ready;
   await Promise.all([...document.images].map(img=>img.decode()));
-  const sources=[...new Set([...document.querySelectorAll('.artwork')].map(e=>getComputedStyle(e).backgroundImage))];
-  await Promise.all(sources.map(async value=>{
-   if(value==='none')throw new Error('Falta una portada');
-   const image=new Image();image.src=value.slice(5,-2);await image.decode();
-  }));
+  for(const artwork of document.querySelectorAll('.artwork')){
+   const image=artwork.querySelector<HTMLImageElement>(':scope > img.visual-background');
+   if(!image?.naturalWidth)throw new Error('Falta la imagen independiente de una portada');
+   if(getComputedStyle(image).objectFit!=='cover')throw new Error('El fondo debe usar object-fit: cover');
+  }
  });
  await expect.poll(()=>page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 }

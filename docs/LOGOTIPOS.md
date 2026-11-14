@@ -1,5 +1,9 @@
 # Identidad de los servicios
 
+## Integración vigente: kit visual v3
+
+Los fondos WebP y los logos permanecen como imágenes independientes. Netflix y Spotify reutilizan sus wordmarks completos de `public/logos/home/`; el símbolo N se conserva en el hero móvil. Crunchyroll utiliza solo el SVG existente, sin un nombre CSS que simule su wordmark. Free Fire vuelve a cargar `public/logos/free-fire.png`: el propietario eligió usar ese icono como imagen independiente tras conocer que no es un wordmark transparente. No se modifica ni se extrae una marca desde las capturas. Las limitaciones de procedencia documentadas a continuación se conservan como historial. Véase la [entrega actual](INTEGRACION-KIT-V3.md).
+
 ## Estado en la reconstrucción de las dos referencias
 
 La reconstrucción utiliza los logotipos locales documentados aquí. Netflix y Spotify usan también los wordmarks completos en las portadas; el símbolo de Netflix se conserva en el hero móvil. Disney+ y HBO Max mantienen sus SVG existentes y su atribución. Crunchyroll usa el símbolo y texto neutral. El PNG de Free Fire sin licencia confirmada deja de cargarse en todas las páginas: se emplean un nombre tipográfico y la ilustración de aventura original. No se fabrica un logotipo oficial ni se reproducen personajes de las referencias. La marca Ipey del encabezado/footer es un dibujo vectorial original compartido.

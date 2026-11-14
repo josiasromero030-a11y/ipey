@@ -1,6 +1,8 @@
 # Portadas compartidas de la reconstrucción
 
-Los seis WebP son recortes del atlas original del proyecto `../home/editorial-atlas.webp`, no imágenes oficiales de las plataformas. Cada celda original de 724 × 362 px se optimizó a 600 × 300 px con WebP de calidad 85. No se alteró el contenido de las ilustraciones.
+Esta sección corresponde a la fase anterior. Los seis recortes WebP se retiraron del árbol público al integrar el kit v3: ya no tenían referencias en la aplicación. Se conservan en Git en la revisión `1c0213b`. Los fondos vigentes están en `public/visual/assets/` y se documentan en `public/visual/README.md`.
+
+Los seis WebP anteriores eran recortes del atlas original del proyecto `../home/editorial-atlas.webp`, no imágenes oficiales de las plataformas. Cada celda original de 724 × 362 px se optimizó a 600 × 300 px con WebP de calidad 85. No se alteró el contenido de las ilustraciones.
 
 Orden de las celdas, de izquierda a derecha y de arriba abajo: Netflix, Disney+, HBO Max, Crunchyroll, Spotify y Free Fire. Escritorio y móvil usan exactamente estos mismos archivos con encuadres CSS distintos. El navegador reutiliza la descarga entre hero, tarjetas, banner y detalle.
 

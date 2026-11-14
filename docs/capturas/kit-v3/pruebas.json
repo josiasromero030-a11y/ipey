@@ -1,0 +1,36 @@
+{
+  "base": "1c0213b",
+  "branch": "review/visual-kit-v3",
+  "build": "passed",
+  "commerce_tests": {
+    "passed": 6,
+    "failed": 0
+  },
+  "browser_tests": {
+    "passed": 46,
+    "failed": 0
+  },
+  "final_visual_recheck": {
+    "passed": 13,
+    "failed": 0
+  },
+  "viewport_captures": 12,
+  "page_screenshots": 30,
+  "comparison_images": 2,
+  "protected_files_unchanged": [
+    "src/catalog.ts",
+    "src/commerce.ts",
+    "src/commerce.test.ts",
+    "src/hooks/useStore.ts",
+    ".github/pages-publication.json",
+    ".github/workflows/pages.yml"
+  ],
+  "all_existing_logo_files_unchanged": true,
+  "free_fire_owner_choice": "Usar el icono existente como imagen independiente",
+  "independent_background_and_logo": true,
+  "logo_resize_preserves_background": true,
+  "logo_source_change_preserves_background": true,
+  "local_inter_font_loaded": true,
+  "physical_devices_tested": false,
+  "deployment_requested": false
+}
