@@ -12,7 +12,7 @@ export async function imagesReady(page:Page){
   await document.fonts.ready;
   await Promise.all([...document.images].map(img=>img.decode()));
   for(const artwork of document.querySelectorAll('.artwork')){
-   const image=artwork.querySelector<HTMLImageElement>(':scope > img.visual-background');
+   const image=artwork.querySelector<HTMLImageElement>('img.visual-background');
    if(!image?.naturalWidth)throw new Error('Falta la imagen independiente de una portada');
    if(getComputedStyle(image).objectFit!=='cover')throw new Error('El fondo debe usar object-fit: cover');
   }

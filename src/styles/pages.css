@@ -14,9 +14,6 @@
 .detail-layout {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:50px}
 .detail-art {min-height:300px;aspect-ratio:1.6;border:1px solid var(--color-border);border-radius:var(--radius-large);display:flex;align-items:center;justify-content:center;overflow:hidden}
 .detail-art>.visual-shade {background:rgba(8,11,16,.32)}
-.detail-art .product-logo {max-width:260px;width:65%;height:140px}
-.detail-art .logo-netflix {height:160px}
-.detail-art .logo-free-fire {height:110px;width:110px;border-radius:var(--radius-card)}
 .privacy-reminder {display:flex;align-items:flex-start;gap:10px;margin-top:15px;font-size:12px;color:var(--color-muted);line-height:1.6}
 .detail-page .eyebrow {margin:0 0 12px}
 .variants {display:grid;gap:12px}
@@ -75,8 +72,6 @@
  .breadcrumb {font-size:12px;margin-bottom:20px}
  .detail-layout {grid-template-columns:minmax(0,1fr);gap:22px}
  .detail-art {min-height:0;aspect-ratio:2.3}
- .detail-art .product-logo {height:95px}
- .detail-art .logo-netflix {height:105px}
  .privacy-reminder {font-size:12px}
  .variant {grid-template-columns:20px minmax(0,1fr);gap:8px 10px;padding:15px}
  .variant>b {grid-column:2;text-align:left;max-width:none}

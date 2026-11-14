@@ -1,0 +1,237 @@
+{
+  "heroOrder": [
+    "hbo",
+    "disney",
+    "netflix",
+    "crunchyroll",
+    "spotify",
+    "free-fire"
+  ],
+  "catalog": [
+    {
+      "id": "netflix",
+      "brand": "Netflix",
+      "logo": "recursos/logos/netflix.svg",
+      "tone": "#39161b",
+      "service": {
+        "title": "Stranger Things 5",
+        "art": "recursos/servicios/netflix-escritorio.jpg",
+        "source": "https://www.netflix.com/tudum/articles/stranger-things-5-finale-trailer",
+        "focus": "64% center"
+      },
+      "hero": {
+        "title": "Wednesday",
+        "art": "recursos/hero/netflix.jpg",
+        "source": "https://www.netflix.com/tudum/articles/wednesday-season-2-teaser-photos",
+        "focus": "34% center"
+      }
+    },
+    {
+      "id": "disney",
+      "brand": "Disney+",
+      "logo": "recursos/logos/disney.webp",
+      "tone": "#192c48",
+      "service": {
+        "title": "Loki",
+        "art": "recursos/servicios/disney-escritorio.jpeg",
+        "source": "https://press.disneyplus.com/disney-plus/loki/images",
+        "focus": "63% center"
+      },
+      "hero": {
+        "title": "Andor",
+        "art": "recursos/hero/disney.jpeg",
+        "source": "https://press.disneyplus.com/disney-plus/andor/images",
+        "focus": "63% center"
+      }
+    },
+    {
+      "id": "hbo",
+      "brand": "HBO Max",
+      "logo": "recursos/logos/hbo.png",
+      "tone": "#2e243f",
+      "service": {
+        "title": "House of the Dragon",
+        "art": "recursos/servicios/hbo-escritorio.jpg",
+        "source": "https://press.wbd.com/media-release/hbo-releases-first-official-images-house-dragon",
+        "focus": "65% center"
+      },
+      "hero": {
+        "title": "The Last of Us",
+        "art": "recursos/hero/hbo.jpg",
+        "source": "https://press.wbd.com/us/image/louep207072324lh0205?language_content_entity=en",
+        "focus": "70% center"
+      }
+    },
+    {
+      "id": "crunchyroll",
+      "brand": "Crunchyroll",
+      "logo": "recursos/logos/crunchyroll.svg",
+      "tone": "#433225",
+      "service": {
+        "title": "Jujutsu Kaisen",
+        "art": "recursos/servicios/crunchyroll-escritorio.jpg",
+        "source": "https://www.crunchyroll.com/news/guides/2026/1/6/jujutsu-kaisen-season-3-where-to-watch-guide",
+        "focus": "62% center"
+      },
+      "hero": {
+        "title": "Naruto Shippuden · Arte oficial del anime",
+        "art": "recursos/hero/crunchyroll.webp",
+        "source": "https://naruto-official.com/es/special/anime-gallery",
+        "focus": "68% 30%"
+      }
+    },
+    {
+      "id": "spotify",
+      "brand": "Spotify",
+      "logo": "recursos/logos/spotify.png",
+      "tone": "#143529",
+      "service": {
+        "title": "Spotify Premium",
+        "art": "recursos/servicios/spotify-escritorio.jpg",
+        "source": "https://www.spotify.com/ni/premium/",
+        "focus": "67% center"
+      },
+      "hero": {
+        "title": "Viva Latino · Rauw Alejandro",
+        "art": "recursos/hero/spotify.jpg",
+        "source": "https://newsroom.spotify.com/2025-09-15/viva-latino-10th-anniversary-latin-music-growth/",
+        "focus": "50% center"
+      }
+    },
+    {
+      "id": "free-fire",
+      "brand": "Free Fire",
+      "logo": "recursos/logos/free-fire.png",
+      "tone": "#22344e",
+      "service": {
+        "title": "Portada oficial",
+        "art": "recursos/servicios/free-fire-escritorio.jpg",
+        "mobileArt": "recursos/servicios/free-fire-movil.jpg",
+        "source": "https://ff.garena.com/es",
+        "focus": "68% center"
+      },
+      "hero": {
+        "title": "Winterlands: Dreamspace",
+        "art": "recursos/hero/free-fire.jpeg",
+        "source": "https://ff.garena.com/en/article/1571",
+        "focus": "94% center"
+      }
+    }
+  ],
+  "assets": [
+    {
+      "path": "recursos/logos/netflix.svg",
+      "original": "https://occ.a.nflxso.net/dnmt/api/v6/iL4oJVDYZ8KLSrJ6eG2OwtghbfQ/AAAAAT4DsJqpLaLn4NdWj0hMqiS44NBBHsef6fJbMCXfInwFPyWRZWORRKIX6OoMypwFbV-skx1kkO0bw5qyPw4TGYECuHYwI_zw-n7CzjzEILCnaUNLQfmgkh-p1HzjExVEw9zDBrZd_di2.svg",
+      "source": "https://about.netflix.com/en/company-assets",
+      "type": "logo"
+    },
+    {
+      "path": "recursos/servicios/netflix-escritorio.jpg",
+      "original": "https://dnm.nflximg.net/api/v6/a01MIaQTUgSJoLaS_OCn68Eg3hU/AAAAQQRo6gQcJ3OvCV155wgPB9FuolZV1V0PFk879TL6kJALbh6GheSJkXwOb3QVXOskFD27O2hDd_dsrZDcVHUzti6r0j43kt-FWhT3v4zqPDIweXLO7ShSCrmAq3g_fLl_hrEL5fVZ-W7zPHldsURWRxsx.jpg?r=922",
+      "source": "https://www.netflix.com/tudum/articles/stranger-things-5-finale-trailer",
+      "type": "fondo de servicio"
+    },
+    {
+      "path": "recursos/hero/netflix.jpg",
+      "original": "https://dnm.nflximg.net/api/v6/a01MIaQTUgSJoLaS_OCn68Eg3hU/AAAAQWcoVnIWgBhBEG3YaILdVhl2H16IWmV2A5ryMMljViZ6QfUWPJ1tSt6Bwon8RUS31sESaIR_SQGEl_nKoQ2Az6tBjUQ7hA1NyyPDqolHv1VoKpF7jFoFsehO8MSNg1fx69heBgiCZoSu6oymWzicHPoo.jpg?r=df8",
+      "source": "https://www.netflix.com/tudum/articles/wednesday-season-2-teaser-photos",
+      "type": "fondo de hero"
+    },
+    {
+      "path": "recursos/logos/disney.webp",
+      "original": "https://disney.images.edge.bamgrid.com/ripcut-delivery/v2/variant/disney/C67C35CF0EB8C168A861956E743C6CCD26BFB17B93227234F3CD1A81BB728F35/compose?format=webp&width=960",
+      "source": "https://www.disneyplus.com/es-ni",
+      "type": "logo"
+    },
+    {
+      "path": "recursos/servicios/disney-escritorio.jpeg",
+      "original": "https://lumiere-a.akamaihd.net/v1/images/tra8660_105_trl_comp_v004_7f1c1cb3.jpeg?region=491%2C0%2C2858%2C1608",
+      "source": "https://press.disneyplus.com/disney-plus/loki/images",
+      "type": "fondo de servicio"
+    },
+    {
+      "path": "recursos/hero/disney.jpeg",
+      "original": "https://lumiere-a.akamaihd.net/v1/images/pgm-ff-000012_a_4b9711e4.jpeg?region=492%2C0%2C2856%2C1607",
+      "source": "https://press.disneyplus.com/disney-plus/andor/images",
+      "type": "fondo de hero"
+    },
+    {
+      "path": "recursos/logos/hbo.png",
+      "original": "https://www.hbomax.com/dotcom/img/hbomax/logo_nav_bar.png",
+      "source": "https://brand.hbomax.com/logos",
+      "type": "logo"
+    },
+    {
+      "path": "recursos/servicios/hbo-escritorio.jpg",
+      "original": "https://static.cdn.turner.com/styles/header_image_1500x500_cropped/s3/2021-05/Daemon_Rhaenyra.jpg?h=efe7297c&itok=EK4NHNEF",
+      "source": "https://press.wbd.com/media-release/hbo-releases-first-official-images-house-dragon",
+      "type": "fondo de servicio"
+    },
+    {
+      "path": "recursos/hero/hbo.jpg",
+      "original": "https://static.cdn.turner.com/styles/scale_792/s3/images/2025-05/bella-ramsey_15.jpg?itok=ffkRUXC3",
+      "source": "https://press.wbd.com/us/image/louep207072324lh0205?language_content_entity=en",
+      "type": "fondo de hero"
+    },
+    {
+      "path": "recursos/logos/crunchyroll.svg",
+      "original": null,
+      "source": "https://www.crunchyroll.com/es/premium",
+      "type": "logo"
+    },
+    {
+      "path": "recursos/servicios/crunchyroll-escritorio.jpg",
+      "original": "https://a.storyblok.com/f/178900/1504x846/d9c2127acc/jujutsu-kaisen-season-3-yuji-vs-yuta.jpg/m/1200x0/filters:quality(95)format(webp)",
+      "source": "https://www.crunchyroll.com/news/guides/2026/1/6/jujutsu-kaisen-season-3-where-to-watch-guide",
+      "type": "fondo de servicio"
+    },
+    {
+      "path": "recursos/hero/crunchyroll.webp",
+      "original": "https://naruto-official.com/special/anime_gallery/anime-gallery11.webp",
+      "source": "https://naruto-official.com/es/special/anime-gallery",
+      "type": "fondo de hero"
+    },
+    {
+      "path": "recursos/logos/spotify.png",
+      "original": "https://storage.googleapis.com/pr-newsroom-wp/1/2023/05/Spotify_Full_Logo_RGB_Green.png",
+      "source": "https://newsroom.spotify.com/media-kit/logo-and-brand-assets/",
+      "type": "logo"
+    },
+    {
+      "path": "recursos/servicios/spotify-escritorio.jpg",
+      "original": "https://wwwmarketing.scdn.co/static/images/premium/voyager/latam/hero-desktop-poster.jpg",
+      "source": "https://www.spotify.com/ni/premium/",
+      "type": "fondo de servicio"
+    },
+    {
+      "path": "recursos/hero/spotify.jpg",
+      "original": "https://storage.googleapis.com/pr-newsroom-wp/1/2025/09/viva-latino-rauw-alejandro-sticker-type-a-cover-2.jpg",
+      "source": "https://newsroom.spotify.com/2025-09-15/viva-latino-10th-anniversary-latin-music-growth/",
+      "type": "fondo de hero"
+    },
+    {
+      "path": "recursos/logos/free-fire.png",
+      "original": "https://cdn.wildflamestudio.com/common/web_event/official2/dist/client/img/full_logo.969f536.png",
+      "source": "https://ff.garena.com/en/brand/",
+      "type": "logo"
+    },
+    {
+      "path": "recursos/servicios/free-fire-escritorio.jpg",
+      "original": "https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/20269/6b0b45e2727f6314d49d4d50a9028c8f.jpg",
+      "source": "https://ff.garena.com/es",
+      "type": "fondo de servicio"
+    },
+    {
+      "path": "recursos/servicios/free-fire-movil.jpg",
+      "original": "https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/20269/53c120cc950c9ead6beb2f5f6d8aadff.jpg",
+      "source": "https://ff.garena.com/es",
+      "type": "fondo móvil de servicio"
+    },
+    {
+      "path": "recursos/hero/free-fire.jpeg",
+      "original": "https://cdn.wildflamestudio.com/common/web_event/official2.ff.garena.all/202512/3c34549cbf5100a82e53b3ffecbdbcb3.jpeg",
+      "source": "https://ff.garena.com/en/article/1571",
+      "type": "fondo de hero"
+    }
+  ]
+}

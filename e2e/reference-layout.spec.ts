@@ -16,7 +16,7 @@ for(const [width,height] of [[1280,800],[1440,900],[1672,941],[1920,1080],[320,7
    expect(rects[4].width).toBeGreaterThan(rects[0].width*1.9);
    for(const action of await cards.locator('.card-action').all())expect((await action.boundingBox())!.height).toBeGreaterThanOrEqual(44);
    const panelRows=await page.locator('.platform-panel').evaluateAll(es=>[...new Set(es.map(e=>Math.round(e.getBoundingClientRect().top)))]);
-   expect(panelRows).toHaveLength(2);
+   expect(panelRows).toHaveLength(1);
    await expect(page.getByRole('region',{name:'Preguntas frecuentes',exact:true})).toBeVisible();
   }else{
    expect(new Set(rects.map(r=>r.y)).size).toBe(1);

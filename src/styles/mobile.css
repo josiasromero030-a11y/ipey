@@ -12,29 +12,6 @@
 .mobile-menu {position:absolute;right:16px;top:62px;display:grid;gap:2px;z-index:20;width:min(290px,calc(100% - 32px));padding:8px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-card);box-shadow:0 8px 24px #0003}
 .mobile-menu a {display:flex;align-items:center;min-height:46px;padding:10px 12px;font-size:14px}
 .mobile-layout .home-page {padding:16px 0 28px}
-.hero-mobile {display:grid;grid-template-columns:53% 47%;position:relative;overflow:hidden;align-items:center;min-height:220px;padding:17px 14px;border:1px solid var(--color-border);border-radius:var(--radius-large);background:var(--ipey-bg-secondary)}
-.hero-mobile .hero-copy h1 {font-size:clamp(20px,5.2vw,30px);letter-spacing:-.8px;line-height:1.04}
-.hero-mobile .hero-description {font-size:13px;line-height:1.35;max-width:270px;margin-top:10px;padding-right:9px}
-.hero-mobile .hero-actions {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin-top:14px;padding-right:10px}
-.hero-mobile .button {padding:9px 5px;min-height:44px;gap:5px;font-size:11px;border-radius:var(--radius-small)}
-.hero-mobile .button svg {width:16px;height:17px}
-.panels-mobile {height:182px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:7px;padding-left:7px;transform:translateX(3px)}
-.panels-mobile .platform-panel {border:1px solid var(--color-border);border-radius:11px;transform:skewX(-10deg);padding:8px 3px;align-items:center}
-.panels-mobile .panel-illustration {inset:0 -12px;transform:skewX(10deg)}
-.panels-mobile .service-identity,.panels-mobile .service-wordmark {transform:skewX(10deg)}
-.panels-mobile .panel-free-fire .panel-illustration {inset:0 -4px}
-.panels-mobile .service-identity {width:100%}
-.panels-mobile .service-wordmark {width:95%;height:29px}
-.panels-mobile .identity-netflix .product-logo {width:26px;height:49px}
-.panels-mobile .identity-disney .product-logo {width:110%;height:78px;max-width:none}
-.panels-mobile .identity-max .product-logo {height:36px;width:100%}
-.panels-mobile .identity-crunchyroll {flex-direction:column;gap:3px}
-.panels-mobile .identity-crunchyroll .product-logo {width:23px;height:23px}
-.panels-mobile .panel-netflix {border-color:var(--color-border)}
-.panels-mobile .panel-disney {border-color:var(--color-border)}
-.panels-mobile .panel-max {border-color:var(--color-border)}
-.panels-mobile .panel-crunchyroll {border-color:var(--color-border)}
-.panels-mobile .panel-spotify {border-color:var(--color-border)}
 .categories-mobile {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
 .categories-mobile>a {position:relative;isolation:isolate;overflow:hidden;display:flex;align-items:center;gap:10px;min-height:82px;padding:14px 12px;background:var(--ipey-surface);border:1px solid var(--color-border);border-radius:var(--radius-card)}
 .category-icon {color:var(--color-accent);position:relative;z-index:1;width:25px}
@@ -60,18 +37,12 @@
 .mobile-layout .service-price {grid-column:1;font-size:12px}
 .mobile-layout .service-price.pending {font-size:11px}
 .mobile-layout .card-action {grid-column:2;min-height:44px;width:44px}
-.mobile-layout .service-cover .service-wordmark {height:67%;width:80%}
-.mobile-layout .service-cover .identity-disney .product-logo {height:100px}
-.mobile-layout .service-cover .identity-max .product-logo {height:47px}
-.mobile-layout .service-cover .identity-crunchyroll .product-logo {width:40px;height:40px}
 .mobile-layout .service-card-wide {grid-column:1/-1;display:grid;grid-template-columns:43% minmax(0,1fr)}
 .mobile-layout .service-card-wide .service-cover {aspect-ratio:auto;height:100%;min-height:98px;border-bottom:0;border-right:1px solid var(--color-border)}
 .mobile-layout .service-card-wide .service-card-body {padding:10px 12px}
-.mobile-layout .service-card-wide .service-wordmark {width:87%;height:60px}
 .mobile-layout .gaming-section {margin-top:21px}
 .gaming-banner-mobile {display:grid;grid-template-columns:47% minmax(0,1fr);min-height:174px}
 .gaming-banner-mobile .gaming-artwork {height:100%;min-height:174px;padding:14px 12px;clip-path:polygon(0 0,100% 0,92% 100%,0 100%)}
-.gaming-banner-mobile .gaming-artwork .service-identity {width:64px;height:64px}
 .gaming-mobile-content {padding:15px 12px 15px 7px;display:flex;flex-direction:column;justify-content:center;min-width:0}
 .gaming-banner-mobile .gaming-copy h3 {font-size:20px}
 .gaming-banner-mobile .gaming-copy p {font-size:12px;line-height:1.4;margin-top:5px}
@@ -106,14 +77,6 @@
  .header-mobile .brand {font-size:27px;gap:4px}
  .mobile-header-actions {gap:3px}
  .header-mobile .primary-navigation a {font-size:13px;gap:6px}
- .hero-mobile {grid-template-columns:1fr;gap:16px;padding:20px;min-height:0}
- .hero-mobile .hero-copy h1 {font-size:28px;line-height:1.04}
- .hero-mobile .hero-copy h1 br:first-child {display:none}
- .hero-mobile .hero-description {max-width:100%;font-size:14px;padding:0}
- .hero-mobile .hero-actions {padding:0;max-width:290px;gap:10px}
- .hero-mobile .button {font-size:12px}
- .panels-mobile {height:160px;width:100%;padding:0 7px;transform:none;gap:7px}
- .panels-mobile .service-wordmark {height:35px}
  .categories-mobile>a {gap:7px;padding:12px 9px;min-height:88px}
  .categories-mobile .category-icon {width:22px}
  .categories-mobile strong {font-size:14px}
@@ -124,8 +87,6 @@
  .mobile-layout .service-card-body {padding:9px;gap:4px 6px}
  .mobile-layout .service-card h3 {font-size:14px}
  .mobile-layout .service-card-copy p,.mobile-layout .service-price.pending {font-size:10.5px}
- .mobile-layout .service-cover .identity-crunchyroll {flex-direction:column;gap:2px}
- .mobile-layout .service-cover .identity-crunchyroll .product-logo {height:36px;width:36px}
  .gaming-banner-mobile {grid-template-columns:44% minmax(0,1fr)}
  .gaming-banner-mobile .gaming-copy h3 {font-size:19px}
  .gaming-banner-mobile .gaming-copy p {font-size:12px}
@@ -138,17 +99,6 @@
 }
 @media(min-width:600px) and (max-width:1023px) {
  .mobile-layout .shell {width:calc(100% - 48px);max-width:900px}
- .hero-mobile {padding:24px 28px;grid-template-columns:46% 54%;min-height:250px}
- .hero-mobile .hero-copy h1 {font-size:34px;letter-spacing:-1px}
- .hero-mobile .hero-description {font-size:15px;max-width:310px}
- .hero-mobile .hero-actions {gap:12px;max-width:310px}
- .hero-mobile .button {font-size:13px;gap:8px}
- .panels-mobile {height:220px;gap:10px;padding-left:10px}
- .panels-mobile .service-wordmark {height:45px}
- .panels-mobile .identity-netflix .product-logo {height:63px;width:34px}
- .panels-mobile .identity-disney .product-logo {height:110px}
- .panels-mobile .identity-max .product-logo {height:50px}
- .panels-mobile .identity-crunchyroll .product-logo {width:32px;height:32px}
  .categories-mobile {gap:16px;margin-top:16px}
  .categories-mobile>a {min-height:94px;padding:20px 26px;gap:16px}
  .categories-mobile strong {font-size:20px}
@@ -167,10 +117,6 @@
  .mobile-layout .service-price.pending {font-size:12px}
  .mobile-layout .card-action {grid-row:1/3}
  .mobile-layout .service-cover {aspect-ratio:4.1}
- .mobile-layout .service-cover .service-wordmark {height:70%;max-width:230px}
- .mobile-layout .service-cover .identity-disney .product-logo {height:130px;max-width:220px}
- .mobile-layout .service-cover .identity-max .product-logo {height:68px}
- .mobile-layout .service-cover .identity-crunchyroll .product-logo {width:56px;height:56px}
  .mobile-layout .service-card-wide {grid-template-columns:55% minmax(0,1fr)}
  .mobile-layout .service-card-wide .service-cover {min-height:76px}
  .mobile-layout .service-card-wide .service-card-body {padding:12px 20px}

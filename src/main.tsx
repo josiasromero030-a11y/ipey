@@ -8,5 +8,6 @@ import './styles/shared.css';
 import './styles/pages.css';
 import './styles/desktop.css';
 import './styles/mobile.css';
+import './styles/approved-visuals.css';
 
 createRoot(document.getElementById('root')!).render(<React.StrictMode><App/></React.StrictMode>);

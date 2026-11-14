@@ -1,8 +1,28 @@
-import {catalog} from '../../catalog';
-import {ServiceIdentity} from './ServiceIdentity';
-import {ArtworkBackground} from './ArtworkBackground';
-import {serviceCover} from '../../data/visualAssets';
+import type { CSSProperties } from 'react';
+import { heroPanels } from '../../data/visualAssets';
+import { ArtworkBackground } from './ArtworkBackground';
 
-export function PlatformPanels({composition}:{composition:'desktop'|'mobile'}){
- return <div className={`platform-panels panels-${composition}`} aria-hidden="true">{catalog.filter(p=>p.active).map(p=><div className={`platform-panel panel-${p.id}`} key={p.id}><div className={`panel-illustration artwork artwork-${p.id}`}><ArtworkBackground src={serviceCover(p.id)}/></div><ServiceIdentity id={p.id} name={p.name} symbol={p.id==='netflix'&&composition==='mobile'}/></div>)}</div>;
+export function PlatformPanels({ composition }: { composition: 'desktop' | 'mobile' }) {
+  const scrollable = composition === 'mobile';
+
+  return (
+    <div
+      className="hero-gallery"
+      role={scrollable ? 'region' : undefined}
+      aria-label={scrollable ? 'Galería del hero' : undefined}
+      tabIndex={scrollable ? 0 : undefined}
+    >
+      <div className="platform-panels" aria-hidden="true">
+        {heroPanels.map(({ id, art, focus, tone }, index) => (
+          <div
+            className={`platform-panel panel-${id}`}
+            key={id}
+            style={{ '--panel': index + 1, '--tone': tone, '--focus': focus } as CSSProperties}
+          >
+            <ArtworkBackground src={art} priority shade={false} />
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 }

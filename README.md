@@ -2,7 +2,9 @@
 
 Catálogo responsive de streaming y gaming con React 19, TypeScript, Vite y Lucide. Funciona sin backend, registro ni pagos. Los fondos del kit visual, los logotipos y la fuente Inter se sirven localmente; no carga imágenes ni fuentes de terceros en tiempo de ejecución.
 
-Esta rama integra **Ipey Kit Visual Capas v3** sobre las dos plantillas aprobadas. [Entrega, comparación visual y capturas](docs/INTEGRACION-KIT-V3.md). Su publicación fue autorizada expresamente por el propietario. La [reconstrucción anterior](docs/RECONSTRUCCION-REFERENCIAS.md) se conserva como historial.
+[**Ver la web de Ipey**](https://josiasromero030-a11y.github.io/ipey/) | [Streaming](https://josiasromero030-a11y.github.io/ipey/#/streaming) | [Juegos](https://josiasromero030-a11y.github.io/ipey/#/juegos)
+
+La tienda integra el hero y los fondos aprobados. La [integración del kit visual v3](docs/INTEGRACION-KIT-V3.md) se conserva como historial.
 
 ## Desarrollo
 
@@ -17,7 +19,7 @@ Ejecutar desde la raíz del repositorio. `npm run build` comprueba tipos y crea 
 
 ## Estructura y edición
 
-Los servicios usan imágenes de sus marcas guardadas localmente, tanto en las tarjetas como en el detalle. Consulta [procedencia de los logotipos](docs/LOGOTIPOS.md). `src/ProductIdentity.tsx` centraliza las imágenes y muestra el nombre neutral si falla su carga. Free Fire reutiliza su icono PNG como imagen independiente, según la elección del propietario. No se simulan wordmarks con texto CSS.
+Las tarjetas y fichas usan los fondos y logotipos locales de public/recursos. El manifiesto src/data/approvedVisuals.json registra el orden y los encuadres del hero, el fondo de cada servicio y sus fuentes. ServiceArtwork y ServiceIdentity componen el fondo, el degradado y el logotipo.
 
 - `src/catalog.ts`: productos, variantes, características, duración en meses, diamantes, disponibilidad, precios, promociones, condiciones; y objeto `business` con nombre, moneda, contacto, WhatsApp y políticas.
 - `src/commerce.ts`: validación, precios, promociones, resumen y enlaces oficiales `wa.me`.
@@ -26,7 +28,7 @@ Los servicios usan imágenes de sus marcas guardadas localmente, tanto en las ta
 - `src/hooks/usePresentation.ts`, `src/layouts/StoreLayout.tsx`: cambio de presentación desde 1024 px sin desmontar el contenido ni perder el ID o plan seleccionado.
 - `src/components/desktop/`, `src/components/mobile/`: header, hero, categorías, banner y footer de cada referencia; controles propios de cada presentación.
 - `src/components/shared/`, `src/data/presentation.ts`: tarjetas, marcas, recursos, FAQ, resumen y contenido común.
-- `src/data/visualAssets.ts`, `src/components/shared/ArtworkBackground.tsx`: mapa único de los fondos del kit y capas independientes de imagen/contraste.
+- `src/data/visualAssets.ts`, `src/components/shared/ArtworkBackground.tsx`: rutas de los recursos aprobados y capas independientes de imagen y contraste.
 - `src/pages/`: Inicio, catálogo, detalle y páginas informativas.
 - `src/styles/`: tokens, base, componentes compartidos, páginas y composición independiente de escritorio/móvil.
 - `src/commerce.test.ts`, `e2e/`: pruebas de negocio y navegador.
