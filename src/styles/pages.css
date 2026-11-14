@@ -1,0 +1,96 @@
+/* Functional pages share the commerce model; these styles do not redefine Home. */
+.catalog-page,.detail-page,.information-page {padding:30px 0 48px;min-height:65vh}
+.catalog-page h1,.detail-page h1,.information-page h1 {font-size:38px;line-height:1.1}
+.catalog-filters-desktop {display:flex;flex-wrap:wrap;align-items:center;gap:10px;background:var(--color-surface);border:1px solid var(--color-border);padding:15px;border-radius:var(--radius-card);margin-top:24px}
+.catalog-search-field {display:flex;align-items:center;gap:8px;flex:2;min-width:220px}
+.catalog-search-field input {width:100%}
+.catalog-filters-desktop>input,.catalog-filters-desktop>select {flex:1;min-width:100px;font-size:12px;min-height:44px;max-width:100%}
+.catalog-search-field input {font-size:14px}
+.catalog-results {display:flex;align-items:center;justify-content:space-between;gap:16px;margin:13px 0;font-size:13px;color:var(--color-muted)}
+.empty-state {padding:50px 20px;text-align:center}
+.empty-state h2 {font-size:25px;margin:14px 0 10px}
+.empty-state .button {margin-top:20px}
+.catalog-page>.notice {max-width:none}
+.detail-layout {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:50px}
+.detail-art {min-height:300px;aspect-ratio:1.6;border:1px solid var(--color-border);border-radius:var(--radius-large);display:flex;align-items:center;justify-content:center;overflow:hidden}
+.detail-art:before {content:"";position:absolute;inset:0;z-index:-1;background:#03091355}
+.detail-art .product-logo {max-width:260px;width:65%;height:140px}
+.detail-art .logo-netflix {height:160px}
+.privacy-reminder {display:flex;align-items:flex-start;gap:10px;margin-top:15px;font-size:12px;color:#a9bfd5;line-height:1.6}
+.detail-page .eyebrow {margin:0 0 12px}
+.variants {display:grid;gap:12px}
+.variant {display:grid;grid-template-columns:20px minmax(0,1fr) auto;align-items:start;gap:12px;padding:17px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-card);cursor:pointer}
+.variant.selected {border-color:var(--color-accent);background:#13243b}
+.variant input {accent-color:var(--color-action);width:18px;height:18px;margin:2px 0 0;padding:0}
+.variant strong {font-size:15px;line-height:1.35;display:block}
+.variant span,.variant small {display:block;font-size:12px;color:#b3c5da;line-height:1.5;margin-top:5px}
+.variant ul {padding:0;list-style:none;font-size:12px;line-height:1.6;color:#b3c5da;margin:9px 0}
+.variant li {display:flex;align-items:flex-start;gap:7px}
+.variant li svg {margin-top:3px}
+.variant>b {font-size:13px;line-height:1.5;max-width:110px;text-align:right}
+.player-label {display:grid;gap:10px;margin-top:24px;font-size:15px;scroll-margin-top:20px}
+.player-label input {font-size:16px;min-height:50px;scroll-margin-block:40px}
+.player-label small {font-size:12px;line-height:1.6;color:#afc2d9}
+.player-label input[aria-invalid=true] {border-color:#ff9ba3}
+.conditions {margin-top:24px;padding-top:20px;border-top:1px solid var(--color-border)}
+.conditions h2 {font-size:15px;letter-spacing:0;margin-bottom:10px}
+.conditions p {font-size:13px;line-height:1.6}
+.conditions summary {font-size:14px;cursor:pointer;min-height:44px;align-content:center}
+.review-button {margin-top:22px;min-height:50px}
+.checkout-note {font-size:12px;line-height:1.6;text-align:center;margin-top:14px;color:var(--color-subtle)}
+.order-dialog pre {white-space:pre-wrap;overflow-wrap:anywhere;font-family:inherit;font-size:14px;line-height:1.6;background:#080e17;border-radius:var(--radius-small);padding:17px;margin:0 0 16px}
+.order-dialog p,.order-dialog small {font-size:12px;line-height:1.6}
+.order-dialog .button {min-height:50px;margin:14px 0}
+.information-page {max-width:900px;margin-inline:auto}
+.information-page>.eyebrow {margin-bottom:14px}
+.information-page .faq {margin-top:25px}
+.information-page>.button {margin-top:24px}
+.mobile-catalog-tools {margin-top:20px}
+.mobile-catalog-search {display:flex;align-items:center;gap:9px;border:1px solid var(--color-border);border-radius:var(--radius-small);padding-left:12px;background:var(--color-surface);color:#b7cce4}
+.mobile-catalog-search input {border:0;background:none;width:100%;font-size:16px;min-height:48px}
+.mobile-catalog-toolbar {display:grid;grid-template-columns:.85fr 1.4fr;gap:12px;margin-top:12px}
+.mobile-filter-trigger {display:flex;align-items:center;justify-content:center;gap:8px;min-height:46px;border:1px solid var(--color-border);border-radius:var(--radius-small);background:var(--color-surface);font-size:14px}
+.mobile-filter-trigger>span {background:#284466;border-radius:5px;padding:2px 5px;font-size:11px}
+.mobile-sort {display:flex;align-items:center;gap:7px;min-width:0;color:var(--color-muted);font-size:11px}
+.mobile-sort select {min-width:0;width:100%;font-size:13px;min-height:46px;padding:10px 7px}
+.mobile-filter-chips {display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}
+.mobile-filter-chips button {display:flex;align-items:center;gap:8px;max-width:100%;overflow-wrap:anywhere;min-height:44px;padding:7px 11px;border:1px solid #375778;border-radius:22px;background:#152c45;font-size:12px}
+.mobile-filter-sheet {position:fixed;inset:auto 0 0;width:100%;max-width:560px;max-height:90dvh;margin:0 auto;padding:0;border-radius:var(--radius-large) var(--radius-large) 0 0}
+.mobile-filter-sheet[open] {display:flex;flex-direction:column}
+.mobile-sheet-heading {display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--color-border);flex-shrink:0}
+.mobile-sheet-heading h2 {font-size:21px}
+.mobile-sheet-heading button {display:grid;place-items:center;min-width:44px;min-height:44px;background:none}
+.mobile-filter-sheet form {display:flex;flex-direction:column;min-height:0}
+.mobile-filter-fields {display:grid;gap:17px;padding:18px 20px 22px;overflow:auto}
+.mobile-filter-fields label {display:grid;gap:8px;font-size:14px}
+.mobile-filter-fields input,.mobile-filter-fields select {width:100%;font-size:16px;min-height:48px;background:#080f18}
+.mobile-filter-actions {position:sticky;bottom:0;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px;background:var(--color-surface);border-top:1px solid var(--color-border);padding:14px 16px max(16px,env(safe-area-inset-bottom))}
+.mobile-filter-actions button {min-height:48px;border-radius:var(--radius-small);font-size:14px;background:#233449}
+.mobile-filter-actions .button {background:var(--color-action)}
+@media(max-width:1023px) {
+ .catalog-page,.detail-page,.information-page {padding:24px 0 32px}
+ .catalog-page h1,.detail-page h1,.information-page h1 {font-size:30px}
+ .lead {font-size:14px}
+ .breadcrumb {font-size:12px;margin-bottom:20px}
+ .detail-layout {grid-template-columns:minmax(0,1fr);gap:22px}
+ .detail-art {min-height:0;aspect-ratio:2.3}
+ .detail-art .product-logo {height:95px}
+ .detail-art .logo-netflix {height:105px}
+ .privacy-reminder {font-size:12px}
+ .variant {grid-template-columns:20px minmax(0,1fr);gap:8px 10px;padding:15px}
+ .variant>b {grid-column:2;text-align:left;max-width:none}
+ .conditions {padding:0;border:1px solid var(--color-border);border-radius:var(--radius-small);background:var(--color-surface)}
+ .conditions summary {padding:14px;min-height:50px}
+ .conditions p {padding:0 14px 14px}
+ .order-dialog {padding:20px;max-height:calc(100dvh - 32px - env(safe-area-inset-bottom))}
+ .order-dialog .dialog-heading {position:sticky;top:-20px;z-index:1;padding:8px 0 12px;background:var(--color-surface);margin:0}
+ .order-dialog .dialog-heading h2 {font-size:20px}
+ .search-dialog .global-search {flex-wrap:wrap;padding:10px;border-radius:12px}
+ .search-dialog .global-search input {flex:1;min-width:100px;font-size:16px;min-height:44px}
+ .search-dialog .global-search .button {width:100%;border-radius:8px}
+}
+@media(max-width:359px) {
+ .mobile-catalog-toolbar {gap:9px}
+ .mobile-sort {gap:5px;font-size:10px}
+ .mobile-sort select {font-size:12px;padding-inline:5px}
+}

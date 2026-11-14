@@ -2,6 +2,8 @@
 
 Catálogo responsive de streaming y gaming con React 19, TypeScript, Vite y Lucide. Funciona sin backend, registro ni pagos. El diseño usa ilustraciones originales y logotipos de los servicios guardados localmente; no carga imágenes ni fuentes de terceros en tiempo de ejecución.
 
+Esta rama contiene la reconstrucción basada exclusivamente en las dos nuevas referencias. [Entrega, comparación visual y capturas](docs/RECONSTRUCCION-REFERENCIAS.md). Preparada para revisión; no solicita un despliegue.
+
 ## Desarrollo
 
 Requisitos: Node.js 22.12 o superior (validado con 24.22.1), npm.
@@ -15,15 +17,19 @@ Ejecutar desde la raíz del repositorio. `npm run build` comprueba tipos y crea 
 
 ## Estructura y edición
 
-Los servicios usan imágenes de sus marcas guardadas localmente, tanto en las tarjetas como en el detalle. Consulta [procedencia y licencias de los logotipos](docs/LOGOTIPOS.md); el icono de Free Fire requiere revisar permisos antes de publicación pública. `src/ProductIdentity.tsx` centraliza las imágenes y muestra el nombre si falla su carga.
+Los servicios usan imágenes de sus marcas guardadas localmente, tanto en las tarjetas como en el detalle. Consulta [procedencia y licencias de los logotipos](docs/LOGOTIPOS.md). `src/ProductIdentity.tsx` centraliza las imágenes y muestra el nombre si falla su carga. Free Fire utiliza el nombre tipográfico y una ilustración original; el PNG de licencia no confirmada deja de cargarse.
 
 - `src/catalog.ts`: productos, variantes, características, duración en meses, diamantes, disponibilidad, precios, promociones, condiciones; y objeto `business` con nombre, moneda, contacto, WhatsApp y políticas.
 - `src/commerce.ts`: validación, precios, promociones, resumen y enlaces oficiales `wa.me`.
-- `src/main.tsx`: páginas, tarjetas, filtros, detalle, resumen accesible con dialog nativo, FAQ y navegación.
-- `src/style.css`, `src/home.css`, `src/navigation.css`: presentación existente de escritorio.
-- `src/mobile.css`: adaptación exclusiva hasta 768 px; `src/MobileCatalogTools.tsx` contiene el panel de filtros móvil y `src/useMobileLayout.ts` sincroniza el breakpoint.
+- `src/main.tsx`, `src/App.tsx`: entrada, composición de páginas y rutas.
+- `src/hooks/useStore.ts`: estado único de navegación, búsqueda, filtros y ordenación.
+- `src/hooks/usePresentation.ts`, `src/layouts/StoreLayout.tsx`: cambio de presentación desde 1024 px sin desmontar el contenido ni perder el ID o plan seleccionado.
+- `src/components/desktop/`, `src/components/mobile/`: header, hero, categorías, banner y footer de cada referencia; controles propios de cada presentación.
+- `src/components/shared/`, `src/data/presentation.ts`: tarjetas, marcas, recursos, FAQ, resumen y contenido común.
+- `src/pages/`: Inicio, catálogo, detalle y páginas informativas.
+- `src/styles/`: tokens, base, componentes compartidos, páginas y composición independiente de escritorio/móvil.
 - `src/commerce.test.ts`, `e2e/`: pruebas de negocio y navegador.
-- La identidad comercial está pendiente: el encabezado y el pie muestran únicamente el texto provisional «marca», sin símbolo ni favicon.
+- La identidad vuelve a ser Ipey, con una marca vectorial original compartida. El resto de la configuración comercial permanece pendiente.
 
 Para habilitar una modalidad, configurar un precio numérico mayor que cero y `available: true`; el producto debe tener `active: true`. Cambiar condiciones y características con información comercial comprobada. La moneda se centraliza en `business.currency`; todos los precios usan esa moneda. `previousPrice` solo produce una promoción si supera al precio actual y el producto tiene `offer: true` y la variante está disponible. Los precios desconocidos son `null`. No hay descuentos o beneficios inventados. Desactivar un producto con `active: false`. Nuevos juegos usan `category: 'gaming'` y variantes con `diamonds`; siguen el flujo de ID de jugador. Para otros tipos de identificador será necesario ampliar su validación.
 
@@ -48,33 +54,29 @@ No se requiere añadir credenciales al código. El workflow usa el `GITHUB_TOKEN
 
 ## Presentación
 
-Inicio sigue la referencia del dashboard aportada por el usuario: hero compacto con seis plataformas, franja informativa del proceso, cinco tarjetas de streaming y un banner horizontal de Free Fire. Mantiene el negro profundo, superficies grises y acentos azules. No se añaden garantías de entrega, pagos ni precios ficticios.
+Las dos imágenes adjuntas más recientes sustituyen las decisiones visuales anteriores. Desde 1024 px se muestran header horizontal, búsqueda visible, seis paneles diagonales continuos, categorías compactas, cinco tarjetas de streaming, banner horizontal y footer en columnas. En móvil se muestran header de dos filas, hero con seis tarjetas en dos filas, categorías ilustradas, streaming en distribución 2+2+Spotify horizontal, banner gaming, información, FAQ y footer propio.
 
-La navegación de escritorio sigue la última referencia aprobada: se conserva «marca» sin símbolo, con enlaces centrados, subrayado activo y búsqueda circular azul. En móvil, los tres destinos principales permanecen visibles debajo de la primera fila de identidad y acciones. El menú adicional contiene información de contacto y políticas. Los filtros y las páginas de Streaming y Juegos mantienen su lógica. `src/HomeDashboard.tsx` organiza Inicio y exporta las tarjetas reutilizadas por los catálogos móviles; `src/ProductCard.tsx` conserva las tarjetas de escritorio. El catálogo y la lógica comercial no cambian. Las preguntas frecuentes siguen al final.
+Entre 768 y 1023 px la composición móvil se amplía para tablet. Hasta 379 px el hero coloca las seis tarjetas debajo del texto para conservar la legibilidad. Ambos heros son estáticos, sin carrusel. Los textos y estados comerciales salen del mismo catálogo.
 
-Inicio utiliza un atlas WebP con seis ilustraciones originales; estos recursos no son material oficial de las plataformas. El hero conserva sus seis paneles diagonales y tres indicadores en escritorio. En móvil es estático y compacto: le siguen categorías, streaming en dos columnas, Free Fire y la información del proceso. Las pantallas de hasta 480 px descargan una copia de 88 KB del atlas, frente a los 212 KB originales. Consulta la [entrega móvil, capturas y verificación](docs/MOBILE-UX.md), la [comparación anterior de Inicio](docs/FIDELIDAD-INICIO.md) y la [procedencia de las ilustraciones](public/art/home/README.md).
+Las seis portadas WebP de `public/art/services/` suman aproximadamente 131 KB y se comparten entre hero, tarjetas, banner y detalle. Son recortes optimizados de las ilustraciones originales ya existentes; no son material promocional oficial. Consulta su [procedencia](public/art/services/README.md). Los informes de diseños anteriores se conservan como documentación histórica y no definen esta presentación.
 
 ## Capturas reales
 
-Capturas generadas con Chromium a 1440 × 1000 y 390 × 844 desde la compilación de producción, sin alterar el catálogo. Se incluyen completas en `docs/capturas/`. La [entrega móvil](docs/MOBILE-UX.md) añade los cinco anchos solicitados, detalles, filtros y resumen; este último usa exclusivamente datos ficticios aislados de prueba.
+Capturas completas generadas desde la compilación de producción bajo `/ipey/`, sin alterar el catálogo. La [entrega de reconstrucción](docs/RECONSTRUCCION-REFERENCIAS.md) incluye los diez tamaños solicitados y las páginas funcionales.
 
 ### Inicio
 
-![Página Inicio de Ipey](docs/capturas/inicio.png)
+![Inicio de escritorio de Ipey](docs/capturas/reconstruccion/inicio-1672x941.png)
 
-[Ver Inicio en móvil](docs/capturas/inicio-movil.png)
+[Ver Inicio en móvil](docs/capturas/reconstruccion/inicio-390x844.png) · [Ver composición ampliada a 887 px](docs/capturas/reconstruccion/inicio-887x1774.png)
 
 ### Streaming
 
-![Página Streaming de Ipey](docs/capturas/streaming.png)
-
-[Ver Streaming en móvil](docs/capturas/streaming-movil.png)
+[Escritorio](docs/capturas/reconstruccion/streaming-1440.png) · [Móvil](docs/capturas/reconstruccion/streaming-390.png)
 
 ### Juegos
 
-![Página Juegos de Ipey](docs/capturas/juegos.png)
-
-[Ver Juegos en móvil](docs/capturas/juegos-movil.png)
+[Escritorio](docs/capturas/reconstruccion/juegos-1440.png) · [Móvil](docs/capturas/reconstruccion/juegos-390.png)
 
 Para regenerarlas, en una terminal ejecutar `npm run build` y `npm run preview -- --port 4173 --base /ipey/`; en otra, `npm run screenshots`. Puede ajustarse `CAPTURE_URL` si cambia el servidor y `CHROMIUM_PATH` para otro ejecutable. Sin Chromium del sistema, instalar el navegador con `npx playwright install chromium`.
 
@@ -82,8 +84,8 @@ Para regenerarlas, en una terminal ejecutar `npm run build` y `npm run preview -
 
 - `npm run build`: TypeScript y compilación de producción.
 - `npm test`: 6 pruebas comerciales.
-- `npm run test:e2e`: 20 pruebas de navegador, repartidas entre escritorio y móvil; búsquedas, filtros con borrador/aplicar/limpiar, navegación, planes, validación del ID, resumen y enlace WhatsApp. Incluye capturas completas a 320, 360, 390, 430 y 768 px.
-- `npm run screenshots`: verifica Inicio, Streaming y Juegos, recarga directa de rutas bajo `/ipey/`, número esperado de productos y carga de imágenes y ausencia de errores JavaScript antes de guardar las seis capturas.
+- `npm run test:e2e`: 43 pruebas de navegador en escritorio, móvil, tablet y diez tamaños de composición; navegación real, buscadores, filtros, modalidades, ID, resumen, enlace de WhatsApp y conservación del estado al cambiar de presentación.
+- `npm run screenshots`: genera 29 capturas de producción, verifica el prefijo `/ipey/`, recarga de rutas, portadas CSS, logotipos, errores de carga y desbordamiento; guarda las métricas en `docs/capturas/reconstruccion/verificacion.json`.
 
 No se envían mensajes de WhatsApp en las pruebas. La prueba de contratación usa datos ficticios aislados; los precios y el número publicados siguen pendientes. La emulación móvil en Chromium no sustituye pruebas en dispositivos físicos Android o iPhone.
 

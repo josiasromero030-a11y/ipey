@@ -1,0 +1,106 @@
+Cambios respecto a 6b67b06 en review/two-reference-rebuild.
+M: modificado; D: eliminado; ??: añadido.
+
+ M README.md
+ M docs/LOGOTIPOS.md
+ D e2e/mobile-ux.spec.ts
+ D e2e/store.spec.ts
+ M index.html
+ M package.json
+ M playwright.config.ts
+ D scripts/capture.mjs
+ D src/HomeDashboard.tsx
+ D src/MobileCatalogTools.tsx
+ D src/ProductCard.tsx
+ M src/ProductIdentity.tsx
+ M src/catalog.ts
+ D src/home.css
+ M src/main.tsx
+ D src/mobile.css
+ D src/navigation.css
+ D src/style.css
+ D src/useMobileLayout.ts
+?? docs/ARCHIVOS-RECONSTRUCCION.txt
+?? docs/RECONSTRUCCION-REFERENCIAS.md
+?? docs/capturas/reconstruccion/ayuda-1440.png
+?? docs/capturas/reconstruccion/ayuda-390.png
+?? docs/capturas/reconstruccion/catalogo-1440.png
+?? docs/capturas/reconstruccion/catalogo-390.png
+?? docs/capturas/reconstruccion/condiciones-1440.png
+?? docs/capturas/reconstruccion/condiciones-390.png
+?? docs/capturas/reconstruccion/contacto-1440.png
+?? docs/capturas/reconstruccion/contacto-390.png
+?? docs/capturas/reconstruccion/free-fire-1440.png
+?? docs/capturas/reconstruccion/free-fire-390.png
+?? docs/capturas/reconstruccion/inicio-1280x800.png
+?? docs/capturas/reconstruccion/inicio-1440x900.png
+?? docs/capturas/reconstruccion/inicio-1672x941.png
+?? docs/capturas/reconstruccion/inicio-1920x1080.png
+?? docs/capturas/reconstruccion/inicio-320x700.png
+?? docs/capturas/reconstruccion/inicio-360x800.png
+?? docs/capturas/reconstruccion/inicio-390x844.png
+?? docs/capturas/reconstruccion/inicio-430x932.png
+?? docs/capturas/reconstruccion/inicio-768x1024.png
+?? docs/capturas/reconstruccion/inicio-820x1180.png
+?? docs/capturas/reconstruccion/inicio-887x1774.png
+?? docs/capturas/reconstruccion/juegos-1440.png
+?? docs/capturas/reconstruccion/juegos-390.png
+?? docs/capturas/reconstruccion/netflix-1440.png
+?? docs/capturas/reconstruccion/netflix-390.png
+?? docs/capturas/reconstruccion/privacidad-1440.png
+?? docs/capturas/reconstruccion/privacidad-390.png
+?? docs/capturas/reconstruccion/pruebas.json
+?? docs/capturas/reconstruccion/streaming-1440.png
+?? docs/capturas/reconstruccion/streaming-390.png
+?? docs/capturas/reconstruccion/verificacion.json
+?? e2e/helpers.ts
+?? e2e/mobile-interactions.spec.ts
+?? e2e/reference-layout.spec.ts
+?? e2e/store-flows.spec.ts
+?? public/art/services/README.md
+?? public/art/services/crunchyroll.webp
+?? public/art/services/disney.webp
+?? public/art/services/free-fire.webp
+?? public/art/services/max.webp
+?? public/art/services/netflix.webp
+?? public/art/services/spotify.webp
+?? scripts/capture-references.mjs
+?? src/App.tsx
+?? src/components/desktop/CatalogToolsDesktop.tsx
+?? src/components/desktop/CategoryNavigationDesktop.tsx
+?? src/components/desktop/FooterDesktop.tsx
+?? src/components/desktop/GamingBannerDesktop.tsx
+?? src/components/desktop/HeaderDesktop.tsx
+?? src/components/desktop/HeroDesktop.tsx
+?? src/components/mobile/CategoryArtwork.tsx
+?? src/components/mobile/CategoryNavigationMobile.tsx
+?? src/components/mobile/FooterMobile.tsx
+?? src/components/mobile/GamingBannerMobile.tsx
+?? src/components/mobile/HeaderMobile.tsx
+?? src/components/mobile/HeroMobile.tsx
+?? src/components/mobile/MobileCatalogTools.tsx
+?? src/components/shared/Brand.tsx
+?? src/components/shared/Faq.tsx
+?? src/components/shared/FooterContent.tsx
+?? src/components/shared/GamingContent.tsx
+?? src/components/shared/OrderSummary.tsx
+?? src/components/shared/PlatformPanels.tsx
+?? src/components/shared/PrimaryNavigation.tsx
+?? src/components/shared/ProcessStrip.tsx
+?? src/components/shared/SearchDialog.tsx
+?? src/components/shared/ServiceCard.tsx
+?? src/components/shared/ServiceIdentity.tsx
+?? src/data/presentation.ts
+?? src/hooks/usePresentation.ts
+?? src/hooks/useStore.ts
+?? src/layouts/StoreLayout.tsx
+?? src/pages/CatalogPage.tsx
+?? src/pages/DetailPage.tsx
+?? src/pages/HomePage.tsx
+?? src/pages/InformationPage.tsx
+?? src/styles/base.css
+?? src/styles/desktop.css
+?? src/styles/mobile.css
+?? src/styles/pages.css
+?? src/styles/shared.css
+?? src/styles/tokens.css

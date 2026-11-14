@@ -1,0 +1,104 @@
+/* Reference 1: horizontal bands. These selectors never style the mobile layout. */
+.desktop-layout .shell {width:min(var(--content-width),88%)}
+.header-desktop {border-bottom:1px solid #253345;background:linear-gradient(105deg,#090e17,#101a27,#080d14)}
+.desktop-header-row {display:flex;align-items:center;gap:22px;min-height:56px}
+.desktop-header-row .brand {font-size:31px;padding-right:50px;border-right:1px solid #6b7785}
+.desktop-header-row .brand-symbol {width:29px;height:33px}
+.header-desktop .primary-navigation {gap:26px;align-self:stretch}
+.header-desktop .primary-navigation a {padding-inline:9px;font-size:14px}
+.desktop-search {flex:1;max-width:450px;min-width:150px;margin-inline:auto;height:35px}
+.desktop-search input {font-size:12px}
+.whatsapp-contact {display:flex;align-items:center;gap:8px;border:1px solid #32915d;border-radius:22px;min-height:36px;padding:5px 14px;font-size:13px;font-weight:650;white-space:nowrap}
+.contact-info {display:flex;align-items:center;gap:10px;font-size:13px;white-space:nowrap;padding-left:22px;border-left:1px solid #6b7785;min-height:24px}
+.desktop-layout .home-page {padding:14px 0 16px}
+.hero-desktop {position:relative;isolation:isolate;overflow:hidden;min-height:236px;display:flex;align-items:center;padding:20px 56px;border:1px solid #334b65;border-radius:var(--radius-large);background:linear-gradient(110deg,#111c32,#09203b 40%,#080e17 70%)}
+.hero-desktop:before {content:"";position:absolute;inset:0;z-index:-1;clip-path:polygon(0 50%,20% 0,37% 0,14% 100%,0 100%);background:#16448533}
+.hero-desktop .hero-copy {width:calc(39% - 40px)}
+.hero-desktop .eyebrow {margin-bottom:8px;font-size:10px}
+.hero-desktop h1 {font-size:clamp(29px,2.15vw,36px);letter-spacing:-.8px}
+.hero-desktop .hero-description {font-size:15px;max-width:410px;width:calc(100% - 24px);margin-top:10px}
+.hero-desktop .hero-actions {margin-top:13px}
+.hero-desktop .button {min-height:38px;padding:7px 24px;border-radius:14px;font-size:12px}
+.panels-desktop {position:absolute;left:39%;right:-35px;top:0;bottom:0;display:flex;align-items:stretch}
+.panels-desktop .platform-panel {flex:1;min-width:0;border-left:1px solid #182c3f;transform:skewX(-14deg);padding:0 8px 32px}
+.panels-desktop .panel-illustration {inset:0 -36px;transform:skewX(14deg)}
+.panels-desktop .panel-free-fire .panel-illustration {inset:0 -12px;background-position:right center}
+.panels-desktop .service-identity,.panels-desktop .service-wordmark,.panels-desktop .game-wordmark {transform:skewX(14deg);position:relative;z-index:1}
+.panels-desktop .service-wordmark {width:88%;height:55px}
+.panels-desktop .service-identity {width:100%;height:65px}
+.panels-desktop .identity-disney .product-logo {height:112px;width:110%;max-width:none}
+.panels-desktop .identity-max .product-logo {height:62px;width:90%}
+.panels-desktop .identity-crunchyroll {flex-direction:column;gap:4px}
+.panels-desktop .identity-crunchyroll .product-logo {height:30px;width:30px}
+.panels-desktop .crunchyroll-name {font-size:15px}
+.panels-desktop .game-wordmark {font-size:22px;margin-bottom:12px}
+.categories-desktop {display:flex;align-items:center;gap:22px;min-height:65px}
+.categories-desktop>strong {font-size:17px;letter-spacing:-.3px;white-space:nowrap}
+.categories-desktop>div {display:flex;align-items:center;gap:16px}
+.categories-desktop>div>a {display:flex;align-items:center;justify-content:center;gap:10px;min-height:34px;padding:5px 22px;border:1px solid #2b3f56;border-radius:24px;background:linear-gradient(#142030,#0c1420);font-size:12px;white-space:nowrap}
+.categories-desktop>div>a.selected {background:var(--color-action);border-color:#219cff;color:white}
+.categories-desktop .catalog-link {margin-left:auto;font-size:12px}
+.desktop-layout .section-heading h2 {font-size:28px}
+.desktop-layout .service-grid {grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.desktop-layout .service-cover {height:90px}
+.desktop-layout .service-card-body {height:58px;padding:8px 11px;grid-template-columns:minmax(0,1fr) 50px 34px;gap:6px}
+.desktop-layout .service-price {padding:4px 5px;border-radius:6px;background:#233348}
+.desktop-layout .service-price.pending {background:none;padding:0}
+.desktop-layout .card-action {width:34px;min-height:34px}
+.desktop-layout .gaming-section {margin-top:22px}
+.gaming-banner-desktop {display:grid;grid-template-columns:49% minmax(0,1fr) auto;align-items:center;gap:24px;min-height:120px;padding-right:26px}
+.gaming-banner-desktop .gaming-artwork {height:100%;min-height:120px;clip-path:polygon(0 0,100% 0,94% 100%,0 100%);border-right:3px solid var(--color-accent);background-position:center top}
+.gaming-banner-desktop .game-wordmark {font-size:44px}
+.gaming-banner-desktop .gaming-copy {padding:12px 0}
+.gaming-banner-desktop .gaming-copy h3 {font-size:24px}
+.gaming-banner-desktop .gaming-copy p {font-size:14px}
+.gaming-banner-desktop .gaming-action {font-size:13px;min-height:40px;padding:10px 20px;border-radius:12px}
+.gaming-banner-desktop .gaming-action-icon {display:none}
+.desktop-layout .process-strip {grid-template-columns:repeat(4,minmax(0,1fr));padding:21px 0 5px}
+.desktop-layout .process-item {padding:0 22px;min-height:44px}
+.desktop-layout .process-item+.process-item {border-left:1px solid #53647b}
+.footer-desktop {border-top:1px solid #2c3b50;background:linear-gradient(100deg,#0d1725,#111c2c,#0b1420);padding:20px 0 14px}
+.footer-desktop .footer-columns {grid-template-columns:1.5fr .85fr 1.1fr 1fr 1.1fr;gap:32px}
+.footer-desktop .footer-identity .brand {font-size:29px}
+.footer-desktop .footer-contact-group {border-left:1px solid #3a4b62;padding-left:28px}
+.footer-desktop .footer-column>a {min-height:22px}
+.footer-desktop .footer-copyright {margin-top:12px;font-size:10px;line-height:1.5;color:var(--color-muted)}
+.desktop-layout .catalog-grid .gaming-banner {grid-column:1/-1}
+@media(min-width:1280px) and (max-width:1439px) {
+ .hero-desktop .button {padding-inline:12px;white-space:nowrap}
+ .hero-desktop .hero-actions {gap:10px}
+}
+@media(min-width:1024px) and (max-width:1279px) {
+ .desktop-header-row {gap:12px}
+ .desktop-header-row .brand {padding-right:16px;font-size:28px}
+ .header-desktop .primary-navigation {gap:10px}
+ .header-desktop .primary-navigation a {font-size:12px;gap:7px;padding-inline:5px}
+ .whatsapp-contact {padding:5px 10px;font-size:12px}
+ .contact-info {padding-left:12px}.contact-info span {display:none}
+ .hero-desktop {padding-inline:30px}
+ .hero-desktop h1 {font-size:29px}
+ .hero-desktop .hero-description {font-size:13px;max-width:340px}
+ .hero-desktop .button {padding:9px 12px;font-size:11px}
+ .hero-desktop .hero-actions {gap:10px}
+ .categories-desktop {gap:12px}
+ .categories-desktop>strong {font-size:14px}
+ .categories-desktop>div {gap:8px}
+ .categories-desktop>div>a {padding:5px 12px;font-size:11px;gap:7px}
+ .categories-desktop .catalog-link {font-size:10px;gap:5px}
+ .desktop-layout .service-card-body {grid-template-columns:minmax(0,1fr) 30px;gap:0 5px}
+ .desktop-layout .service-card-copy p {display:none}
+ .desktop-layout .service-card h3 {font-size:14px}
+ .desktop-layout .service-price {grid-column:1;grid-row:2;background:none;padding:0;font-size:10px}
+ .desktop-layout .card-action {grid-column:2;grid-row:1/3;width:30px;min-height:34px}
+ .gaming-banner-desktop {grid-template-columns:42% minmax(0,1fr) auto;gap:16px;padding-right:16px}
+ .gaming-banner-desktop .game-wordmark {font-size:32px}
+ .gaming-banner-desktop .gaming-copy h3 {font-size:21px}
+ .gaming-banner-desktop .gaming-copy p {font-size:12px}
+ .gaming-banner-desktop .gaming-action {font-size:11px;padding:10px 12px;gap:7px}
+ .gaming-facts {gap:6px}.gaming-facts>span {font-size:10px;padding:4px 8px}
+ .desktop-layout .process-item {gap:12px;padding:0 12px}
+ .desktop-layout .process-item strong {font-size:12px}
+ .desktop-layout .process-item span {font-size:11px}
+ .footer-desktop .footer-columns {gap:20px}
+ .footer-desktop .footer-contact-group {padding-left:20px}
+}

@@ -1,5 +1,11 @@
 # Identidad de los servicios
 
+## Estado en la reconstrucción de las dos referencias
+
+La reconstrucción utiliza los logotipos locales documentados aquí. Netflix y Spotify usan también los wordmarks completos en las portadas; el símbolo de Netflix se conserva en el hero móvil. Disney+ y HBO Max mantienen sus SVG existentes y su atribución. Crunchyroll usa el símbolo y texto neutral. El PNG de Free Fire sin licencia confirmada deja de cargarse en todas las páginas: se emplean un nombre tipográfico y la ilustración de aventura original. No se fabrica un logotipo oficial ni se reproducen personajes de las referencias. La marca Ipey del encabezado/footer es un dibujo vectorial original compartido.
+
+Las secciones siguientes conservan la procedencia y el historial de incorporación de recursos; las decisiones visuales vigentes se describen en [la entrega de reconstrucción](RECONSTRUCCION-REFERENCIAS.md).
+
 Los recursos se sirven localmente desde `public/logos/`. Se conservan las proporciones y no se aplican filtros de color. Si una imagen falla, se muestra el nombre del servicio en tipografía neutral.
 
 | Servicio | Fuente | Tratamiento y licencia de la colección |

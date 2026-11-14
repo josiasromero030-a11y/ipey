@@ -1,0 +1,29 @@
+{
+  "baseline_commit": "6b67b06",
+  "branch": "review/two-reference-rebuild",
+  "build": "passed",
+  "commerce_tests": {
+    "passed": 6,
+    "failed": 0
+  },
+  "browser_tests": {
+    "passed": 43,
+    "failed": 0,
+    "projects": [
+      "desktop",
+      "mobile",
+      "tablet",
+      "visual"
+    ]
+  },
+  "business_rules_unchanged": true,
+  "catalog_unchanged_except_business_name": true,
+  "deployment_configuration_unchanged": true,
+  "deployment_requested": false,
+  "physical_devices_tested": false,
+  "illustration_bytes": 130616,
+  "final_visual_recheck": {
+    "passed": 10,
+    "failed": 0
+  }
+}

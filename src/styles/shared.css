@@ -1,0 +1,90 @@
+/* Shared assets and controls. Device-specific composition lives in desktop/mobile.css. */
+.brand {display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font-size:32px;line-height:1;font-weight:780;letter-spacing:-1.4px;color:white}
+.brand-symbol {width:31px;height:36px;flex-shrink:0}
+.primary-navigation {display:flex;align-items:stretch}
+.primary-navigation a {display:flex;align-items:center;justify-content:center;gap:10px;position:relative;color:#d7e2f0;font-size:14px;font-weight:650;min-height:48px}
+.primary-navigation a.active {color:#00b9ff}
+.primary-navigation a.active:after {content:"";position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--color-accent);border-radius:3px 3px 0 0}
+.primary-navigation a.active svg {color:var(--color-accent)}
+.global-search {display:flex;align-items:center;gap:10px;min-width:0;border:1px solid #48596f;border-radius:24px;background:#182231;color:#dde7f5;padding:0 13px}
+.global-search input {border:0;background:none;width:100%;padding:8px 0;min-width:0;border-radius:0;font-size:13px}
+.global-search .button {border-radius:20px}
+.section-heading {display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.section-heading h2 {font-size:28px;line-height:1.15}
+.section-heading p {font-size:13px;margin-top:4px}
+.section-heading>a,.catalog-link {display:inline-flex;align-items:center;justify-content:flex-end;gap:9px;color:#00b9ff;font-size:13px;font-weight:600;min-height:44px;flex-shrink:0}
+.service-grid {display:grid;gap:12px}
+.service-card {min-width:0;background:linear-gradient(#14202e,#0e1823);border:1px solid var(--color-border);border-radius:var(--radius-card);overflow:hidden;transition:border-color var(--transition)}
+.service-card:hover {border-color:#5b829f}
+.artwork {position:relative;background-size:cover;background-position:center;isolation:isolate}
+.artwork-netflix {background-image:var(--art-netflix)}
+.artwork-disney {background-image:var(--art-disney)}
+.artwork-max {background-image:var(--art-max)}
+.artwork-crunchyroll {background-image:var(--art-crunchyroll)}
+.artwork-spotify {background-image:var(--art-spotify)}
+.artwork-free-fire {background-image:var(--art-free-fire)}
+.service-cover {display:flex;align-items:center;justify-content:center;border-bottom:1px solid #26364a;overflow:hidden}
+.service-cover:before {content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#03080f42,#03080f08)}
+.service-card-body {display:grid;align-items:center;gap:3px 8px;min-width:0}
+.service-card-copy {min-width:0}
+.service-card h3 {font-size:15px;line-height:1.25;letter-spacing:-.35px;font-weight:700}
+.service-card-copy p {font-size:11px;line-height:1.3;margin-top:3px}
+.service-price {display:block;min-width:0;font-size:12px;font-weight:650;line-height:1.1}
+.service-price small {display:block;font-size:9px;font-weight:400}
+.service-price.pending {font-size:10px;font-weight:400;color:#c0cfdf;line-height:1.3}
+.card-action {display:grid;place-items:center;background:linear-gradient(#2a3b51,#1c2a3e);border:1px solid #344a63;border-radius:var(--radius-small);color:white;min-height:36px;width:36px}
+.card-action:hover {border-color:var(--color-accent);background:#233f5d}
+.service-wordmark {width:73%;max-width:200px;height:65%;object-fit:contain}
+.wordmark-spotify {width:81%;max-width:215px}
+.service-identity {display:flex;align-items:center;justify-content:center;gap:7px;width:86%;position:relative}
+.product-logo {object-fit:contain;width:100%;height:66px;max-width:220px}
+.service-identity.identity-disney {height:100%}
+.identity-disney .product-logo {height:112%;width:100%;max-width:190px}
+.identity-max .product-logo {width:90%;height:56px;max-width:180px}
+.identity-crunchyroll .product-logo {width:30px;height:33px}
+.crunchyroll-name {color:#ff8c2e;font-weight:650;font-size:18px;letter-spacing:-.6px;white-space:nowrap}
+.game-wordmark {font-size:clamp(22px,3vw,46px);font-weight:900;letter-spacing:-1.7px;text-transform:uppercase;font-style:italic;line-height:1;white-space:nowrap;text-shadow:0 2px 8px #0008}
+.product-name-fallback {font-size:20px;font-weight:650;color:var(--color-text)}
+.offer-badge {position:absolute;left:9px;bottom:8px;background:var(--color-action);font-size:10px;padding:4px 7px;border-radius:5px}
+.platform-panels {min-width:0;pointer-events:none}
+.platform-panel {position:relative;overflow:hidden;isolation:isolate;display:flex;align-items:flex-end;justify-content:center}
+.panel-illustration {position:absolute;z-index:-1;background-size:cover}
+.panel-illustration:before {content:"";position:absolute;inset:0;background:linear-gradient(0deg,#03070edb,transparent 65%)}
+.panel-free-fire .panel-illustration {background-position:86% center}
+.panel-crunchyroll .panel-illustration {background-position:85% center}
+.panel-max .panel-illustration {background-position:75% center}
+.panel-disney .panel-illustration {background-position:60% center}
+.hero-copy {position:relative;z-index:2;min-width:0}
+.hero-copy h1 {font-weight:780;line-height:1.05}
+.hero-copy h1 span {color:var(--color-accent)}
+.hero-description {color:#c5d8eb;line-height:1.35}
+.hero-actions {display:flex;gap:16px}
+.gaming-banner {background:linear-gradient(105deg,#142236,#0f1824);border:1px solid var(--color-border);border-radius:var(--radius-large);overflow:hidden}
+.gaming-artwork {display:flex;align-items:center;justify-content:flex-start;overflow:hidden;padding:24px 40px;min-width:0}
+.gaming-artwork:before {content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,#040b1655,transparent)}
+.gaming-copy h3 {font-size:24px;line-height:1.15;font-weight:730}
+.gaming-copy p {font-size:14px;line-height:1.45;margin-top:6px;color:#c2d3e5}
+.gaming-facts {display:flex;gap:12px;margin-top:12px;flex-wrap:wrap}
+.gaming-facts>span {display:inline-flex;align-items:center;gap:8px;min-height:32px;padding:5px 12px;border:1px solid #40566d;border-radius:20px;font-size:12px;color:#c8daed}
+.gaming-action {white-space:nowrap;align-self:center}
+.process-strip {display:grid;gap:0}
+.process-item {display:flex;align-items:center;justify-content:center;gap:18px;min-width:0}
+.process-item>div {min-width:0;overflow-wrap:break-word}
+.process-item>svg {color:#61c4ff}
+.process-item strong {font-size:14px;line-height:1.25;font-weight:650;display:block}
+.process-item span {display:block;font-size:12px;line-height:1.35;color:#b4c6db;margin-top:4px}
+.faq h2 {font-size:25px;margin-bottom:12px}
+.faq-list {border:1px solid var(--color-border);border-radius:var(--radius-card);overflow:hidden;background:linear-gradient(110deg,#142030,#0e1722)}
+.faq details+details {border-top:1px solid var(--color-border)}
+.faq summary {display:flex;align-items:center;justify-content:space-between;gap:15px;padding:14px 18px;min-height:48px;cursor:pointer;font-size:14px;font-weight:550;list-style:none}
+.faq summary::-webkit-details-marker {display:none}
+.faq details[open] summary svg {transform:rotate(180deg)}
+.faq details p {padding:0 18px 18px;font-size:13px;line-height:1.6}
+.footer-columns {display:grid;gap:32px}
+.footer-identity p {font-size:13px;line-height:1.5;margin-top:11px}
+.footer-column h3 {font-size:14px;letter-spacing:0;margin-bottom:7px}
+.footer-column>a {display:flex;align-items:center;gap:10px;font-size:12px;line-height:1.4;color:#c7d4e4;min-height:26px}
+.footer-bottom {display:flex;justify-content:space-between;align-items:center;gap:16px;color:#adbed2;font-size:12px}
+.footer-bottom>div {display:flex;gap:24px}
+.trademark-note {font-size:10px;line-height:1.5;color:#8fa4bc;margin-top:12px}
+.trademark-note a {text-decoration:underline;text-underline-offset:2px}
