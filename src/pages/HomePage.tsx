@@ -2,8 +2,6 @@ import { ArrowRight } from 'lucide-react';
 import type { Store } from '../hooks/useStore';
 import { HeroDesktop } from '../components/desktop/HeroDesktop';
 import { HeroMobile } from '../components/mobile/HeroMobile';
-import { CategoryNavigationDesktop } from '../components/desktop/CategoryNavigationDesktop';
-import { CategoryNavigationMobile } from '../components/mobile/CategoryNavigationMobile';
 import { GamingBannerDesktop } from '../components/desktop/GamingBannerDesktop';
 import { GamingBannerMobile } from '../components/mobile/GamingBannerMobile';
 import { ServiceCard } from '../components/shared/ServiceCard';
@@ -23,7 +21,6 @@ export function HomePage({ store, presentation }: { store: Store; presentation: 
     <div className="home-page">
       {desktop ? <HeroDesktop store={store} /> : <HeroMobile store={store} />}
       <Trends />
-      {desktop ? <CategoryNavigationDesktop store={store} /> : <CategoryNavigationMobile store={store} />}
       <section className="streaming-section" aria-labelledby="streaming-heading">
         <div className="section-heading">
           <div>

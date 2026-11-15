@@ -8,6 +8,7 @@ for(const [width,height] of [[1280,800],[1440,900],[1672,941],[1920,1080],[320,7
   await expect(page.locator(mobile?'.hero-mobile':'.hero-desktop')).toBeVisible();
   await expect(page.locator('.platform-panel')).toHaveCount(6);
   await expect(page.getByRole('navigation',{name:'Principal',exact:true})).toHaveCount(1);
+  await expect(page.getByRole('navigation',{name:'Categorías',exact:true})).toHaveCount(0);
   const cards=page.locator('.streaming-section .service-card');
   await expect(cards.locator('h3')).toHaveText(['Netflix','Disney+','HBO Max','Crunchyroll','Spotify']);
   const rects=await cards.evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return {x:Math.round(r.x),y:Math.round(r.y),width:r.width}}));
@@ -20,8 +21,6 @@ for(const [width,height] of [[1280,800],[1440,900],[1672,941],[1920,1080],[320,7
   }else{
    expect(new Set(rects.map(r=>r.y)).size).toBe(1);
    expect(new Set(rects.map(r=>r.x)).size).toBe(5);
-   const categories=page.getByRole('navigation',{name:'Categorías',exact:true});
-   for(const name of ['Todos','Streaming','Juegos','Recargas','Free Fire'])await expect(categories.getByRole('link',{name,exact:true})).toBeVisible();
   }
   const clipped=await page.locator('.hero-copy h1,.service-card h3,.gaming-copy h3').evaluateAll(es=>es.filter(e=>e.scrollWidth>e.clientWidth+1).map(e=>e.textContent));
   expect(clipped).toEqual([]);

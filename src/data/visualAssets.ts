@@ -4,10 +4,6 @@ const asset = (path: string) => new URL(`${import.meta.env.BASE_URL}${path}`, do
 
 export const visualAssets = {
   texture: asset('visual/assets/backgrounds/texture-sutil.webp'),
-  categories: {
-    streaming: asset('visual/assets/categories/streaming.webp'),
-    gaming: asset('visual/assets/categories/juegos.webp'),
-  },
 };
 
 type ApprovedVisual = (typeof approvedVisuals.catalog)[number];

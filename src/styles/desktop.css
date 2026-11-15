@@ -11,12 +11,6 @@
 .whatsapp-contact {display:flex;align-items:center;gap:8px;border:1px solid var(--ipey-whatsapp);border-radius:22px;min-height:36px;padding:5px 14px;font-size:13px;font-weight:600;white-space:nowrap}
 .contact-info {display:flex;align-items:center;gap:10px;font-size:13px;white-space:nowrap;padding-left:22px;border-left:1px solid var(--color-border);min-height:24px}
 .desktop-layout .home-page {padding:14px 0 16px}
-.categories-desktop {display:flex;align-items:center;gap:22px;min-height:65px}
-.categories-desktop>strong {font-size:17px;letter-spacing:-.3px;white-space:nowrap}
-.categories-desktop>div {display:flex;align-items:center;gap:16px}
-.categories-desktop>div>a {display:flex;align-items:center;justify-content:center;gap:10px;min-height:34px;padding:5px 22px;border:1px solid var(--color-border);border-radius:24px;background:var(--ipey-surface);font-size:12px;white-space:nowrap}
-.categories-desktop>div>a.selected {background:var(--color-action);border-color:var(--color-border);color:white}
-.categories-desktop .catalog-link {margin-left:auto;font-size:12px}
 .desktop-layout .section-heading h2 {font-size:28px}
 .desktop-layout .service-grid {grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
 .desktop-layout .service-cover {height:90px}
@@ -51,11 +45,6 @@
  .header-desktop .primary-navigation a {font-size:12px;gap:7px;padding-inline:5px}
  .whatsapp-contact {padding:5px 10px;font-size:12px}
  .contact-info {padding-left:12px}.contact-info span {display:none}
- .categories-desktop {gap:12px}
- .categories-desktop>strong {font-size:14px}
- .categories-desktop>div {gap:8px}
- .categories-desktop>div>a {padding:5px 12px;font-size:11px;gap:7px}
- .categories-desktop .catalog-link {font-size:10px;gap:5px}
  .desktop-layout .service-card-body {grid-template-columns:minmax(0,1fr) 30px;gap:0 5px}
  .desktop-layout .service-card-copy p {display:none}
  .desktop-layout .service-card h3 {font-size:14px}

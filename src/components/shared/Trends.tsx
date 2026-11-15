@@ -1,5 +1,4 @@
-import { useEffect, useState, type CSSProperties } from 'react';
-import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
+import { useEffect, useState, type CSSProperties, type KeyboardEvent } from 'react';
 import { serviceVisual } from '../../data/visualAssets';
 import { ArtworkBackground } from './ArtworkBackground';
 import { ServiceIdentity } from './ServiceIdentity';
@@ -50,9 +49,13 @@ export function Trends() {
 
   const highlight = highlights[index];
   const visual = serviceVisual(highlight.product);
-  const changeSlide = (direction: number) => {
-    setIndex(current => (current + direction + highlights.length) % highlights.length);
-  };
+  const rotationAction = paused ? 'Reanudar rotación' : 'Pausar rotación';
+
+  function handleTitleKey(event: KeyboardEvent<HTMLButtonElement>) {
+    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
+    event.preventDefault();
+    setIndex(current => (current + (event.key === 'ArrowRight' ? 1 : -1) + highlights.length) % highlights.length);
+  }
 
   return (
     <section className="trends-section" aria-labelledby="trends-heading">
@@ -61,16 +64,19 @@ export function Trends() {
         <ArtworkBackground src={`${import.meta.env.BASE_URL}recursos/destacados/${highlight.art}`} />
         <ServiceIdentity key={highlight.product} name={highlight.brand} logo={visual?.logo} />
       </div>
-      <div className="trend-controls" role="group" aria-label="Controles de Tendencias">
-        <button type="button" className="trend-control" aria-label="Título anterior" onClick={() => changeSlide(-1)}><ChevronLeft size={20} /></button>
-        <p className="trend-caption" aria-live={rotating ? 'off' : 'polite'} aria-atomic="true">
-          {highlight.title} · {index + 1} de {highlights.length}
-        </p>
-        <button type="button" className="trend-control" aria-label="Título siguiente" onClick={() => changeSlide(1)}><ChevronRight size={20} /></button>
-        <button type="button" className="trend-control" aria-label={paused ? 'Reanudar rotación' : 'Pausar rotación'} onClick={() => setPaused(current => !current)}>
-          {paused ? <Play size={17} /> : <Pause size={17} />}
+      <p className="trend-caption" aria-live={rotating ? 'off' : 'polite'} aria-atomic="true">
+        <button
+          type="button"
+          className="trend-title"
+          title={rotationAction}
+          aria-label={`${highlight.title}. ${rotationAction}`}
+          aria-keyshortcuts="ArrowLeft ArrowRight"
+          onClick={() => setPaused(current => !current)}
+          onKeyDown={handleTitleKey}
+        >
+          {highlight.title}
         </button>
-      </div>
+      </p>
     </section>
   );
 }

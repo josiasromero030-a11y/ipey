@@ -25,14 +25,31 @@ for (const [width, height] of [[1440, 900], [390, 844]]) {
       if (index > 0) expect(await panel.evaluate(e => getComputedStyle(e).maskImage)).not.toBe('none');
     }
 
-    const gallery = page.locator('.hero-gallery');
-    if (width <= 680) {
-      const scroll = await gallery.evaluate(e => {
-        e.scrollLeft = e.scrollWidth;
-        return { offset: e.scrollLeft, pageWidth: document.documentElement.scrollWidth };
+    if (width === 390) {
+      const hero = page.locator('.hero-mobile');
+      const heroBox = (await hero.boundingBox())!;
+      const trendBox = (await page.locator('.trend-banner').boundingBox())!;
+      expect(heroBox.width).toBeCloseTo(trendBox.width, 0);
+      expect(heroBox.height).toBeCloseTo(trendBox.height, 0);
+
+      const coverage = await hero.evaluate(element => {
+        const bounds = element.getBoundingClientRect();
+        const panels = element.querySelector('.platform-panels')!;
+        element.scrollLeft = 700;
+        panels.scrollLeft = 700;
+        const visible = Array.from(panels.children).every(panel => {
+          const frame = panel.getBoundingClientRect();
+          return frame.left < bounds.right && frame.right > bounds.left;
+        });
+        const copy = element.querySelector('.hero-copy')!.getBoundingClientRect();
+        return {
+          visible,
+          heroOffset: element.scrollLeft,
+          panelsOffset: panels.scrollLeft,
+          copyInside: copy.top >= bounds.top && copy.bottom <= bounds.bottom,
+        };
       });
-      expect(scroll.offset).toBeGreaterThan(0);
-      expect(scroll.pageWidth).toBe(width);
+      expect(coverage).toEqual({ visible: true, heroOffset: 0, panelsOffset: 0, copyInside: true });
     }
 
     for (const visual of approved.catalog) {

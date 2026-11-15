@@ -1,19 +1,16 @@
 import {test,expect} from '@playwright/test';
 import {demoCatalog,imagesReady} from './helpers';
 
-test('categorías y las dos acciones del hero llevan a destinos reales',async({page},info)=>{
- const desktop=info.project.name==='desktop';
- const entries=desktop?[['Todos',6],['Streaming',5],['Juegos',1],['Recargas',1],['Free Fire',0]] as const:[['Streaming',5],['Juegos',1]] as const;
- for(const [name,count] of entries){
-  await page.goto('/');
-  await page.getByRole('navigation',{name:'Categorías',exact:true}).getByRole('link',{name:desktop?name:new RegExp('^'+name),exact:desktop}).click();
-  if(name==='Free Fire')await expect(page.getByRole('heading',{level:1,name:'Free Fire',exact:true})).toBeVisible();
-  else await expect(page.locator('.product-card')).toHaveCount(count);
- }
- for(const index of [0,1]){
-  await page.goto('/');await page.locator('.hero-actions a').nth(index).click();
-  await expect(page.locator('.product-card')).toHaveCount(index===0?5:1);
- }
+test('la navegación principal y las dos acciones del hero llevan a destinos reales', async ({ page }) => {
+  for (const [name, count] of [['Streaming', 5], ['Juegos', 1]] as const) {
+    await page.goto('/');
+    await page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name, exact: true }).click();
+    await expect(page.locator('.product-card')).toHaveCount(count);
+    await page.goto('/');
+    const hero = page.locator('.hero-desktop,.hero-mobile');
+    await hero.getByRole('link', { name: name === 'Streaming' ? /Streaming|Explorar servicios/ : /Juegos|Ver recargas/ }).click();
+    await expect(page.locator('.product-card')).toHaveCount(count);
+  }
 });
 
 test('catálogo único y enlaces reales a los seis productos',async({page})=>{

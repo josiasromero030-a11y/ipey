@@ -23,12 +23,13 @@ for (const width of [1440, 390]) {
     const trends = page.getByRole('region', { name: 'Tendencias' });
     const caption = trends.locator('.trend-caption');
     const banner = trends.locator('.trend-banner');
-    const next = trends.getByRole('button', { name: 'Título siguiente' });
-    const previous = trends.getByRole('button', { name: 'Título anterior' });
-    const pause = trends.getByRole('button', { name: 'Pausar rotación' });
-    const resume = trends.getByRole('button', { name: 'Reanudar rotación' });
-    const expectSlide = (index: number) =>
-      expect(caption).toHaveText(`${expectedTrends[index][0]} · ${index + 1} de 10`);
+    const title = trends.locator('.trend-title');
+    const next = () => title.press('ArrowRight');
+    const previous = () => title.press('ArrowLeft');
+    const pause = trends.getByRole('button', { name: /Pausar rotación/ });
+    const resume = trends.getByRole('button', { name: /Reanudar rotación/ });
+    const expectSlide = (index: number) => expect(caption).toHaveText(expectedTrends[index][0]);
+    await expect(trends.getByRole('button')).toHaveCount(1);
 
     expect(await trends.evaluate(section => section.previousElementSibling?.matches('.hero-desktop,.hero-mobile'))).toBe(true);
     await expectSlide(0);
@@ -42,7 +43,7 @@ for (const width of [1440, 390]) {
     await expectSlide(1);
 
     await page.clock.runFor(5000);
-    await next.click();
+    await next();
     await expectSlide(2);
     await page.clock.runFor(7999);
     await expectSlide(2);
@@ -52,7 +53,7 @@ for (const width of [1440, 390]) {
     await pause.click();
     await page.clock.runFor(9000);
     await expectSlide(3);
-    await previous.click();
+    await previous();
     await expectSlide(2);
     await resume.click();
 
@@ -70,7 +71,7 @@ for (const width of [1440, 390]) {
     await expectSlide(3);
 
     await pause.click();
-    for (let i = 0; i < 3; i++) await previous.click();
+    for (let i = 0; i < 3; i++) await previous();
     for (const [index, [, file, brand, focus]] of expectedTrends.entries()) {
       await expectSlide(index);
       const art = await banner.locator('.visual-background').evaluate(async (image: HTMLImageElement) => {
@@ -81,14 +82,14 @@ for (const width of [1440, 390]) {
       expect(art.width).toBeGreaterThan(0);
       expect(art.focus).toBe(focus === 'center' ? '50% 50%' : focus.replace('center', '50%'));
       await expect(banner.getByRole('img', { name: brand })).toBeVisible();
-      if (index < 9) await next.click();
+      if (index < 9) await next();
     }
     await resume.click();
     await page.clock.runFor(8000);
     await expectSlide(0);
-    await previous.click();
+    await previous();
     await expectSlide(9);
-    await next.click();
+    await next();
     await expectSlide(0);
   });
 }

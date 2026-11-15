@@ -14,7 +14,8 @@
   background: var(--ipey-bg-secondary);
 }
 
-.trend-banner {
+.trend-banner,
+.hero-mobile {
   aspect-ratio: 2 / 1;
   max-height: 215px;
 }
@@ -39,29 +40,81 @@
 
 .trend-max .service-wordmark { height: 36px; }
 
-.trend-controls {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto auto;
-  align-items: center;
-  gap: 6px;
-  margin-top: 8px;
-}
-
-.trend-control {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--color-border);
-  border-radius: 10px;
-  background: var(--ipey-surface-raised);
-  color: var(--color-text);
-}
-
 .trend-caption {
+  margin-block: 6px 0;
   text-align: center;
-  font-size: .85rem;
-  line-height: 1.25;
+}
+
+.trend-title {
+  position: relative;
+  min-height: 44px;
+  max-width: 100%;
+  padding: 6px 12px 12px;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-text);
+  font-size: clamp(1.06rem, 2.05vw, 1.65rem);
+  font-weight: 750;
+  line-height: 1.2;
+  letter-spacing: -.025em;
+  overflow-wrap: anywhere;
+}
+
+.trend-title::after {
+  position: absolute;
+  inset: auto 0 3px;
+  width: 28px;
+  height: 2px;
+  margin-inline: auto;
+  border-radius: 2px;
+  background: var(--color-accent);
+  content: "";
+}
+
+.desktop-layout .home-page > .streaming-section {
+  margin-top: 24px;
+}
+
+.hero-mobile {
+  align-items: flex-end;
+  overflow: clip;
+  min-height: 0;
+}
+
+.hero-mobile .platform-panels { overflow: clip; }
+
+.hero-mobile .platform-panels::after {
+  background: linear-gradient(0deg, #080d17f2, #080d17a6 37%, #080d1738 69%, transparent);
+}
+
+.hero-mobile .hero-copy {
+  width: 100%;
+  padding: clamp(10px, 3vw, 24px);
+}
+
+.hero-mobile .hero-copy h1 {
+  font-size: clamp(1.03rem, 4.9vw, 1.65rem);
+  line-height: 1.08;
+}
+
+.hero-mobile .hero-copy h1 span { color: #83adff; }
+
+.hero-mobile .hero-description {
+  margin: 5px 0 6px;
+  font-size: clamp(.72rem, 3.1vw, .95rem);
+  line-height: 1.2;
+}
+
+.hero-mobile .hero-actions {
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+.hero-mobile .hero-actions .button {
+  gap: 5px;
+  padding: 5px 10px;
+  white-space: nowrap;
+  font-size: .72rem;
 }
 
 .offer-row {
@@ -114,7 +167,8 @@
 .home-offer-prices strong { color: var(--color-text); }
 
 @media (min-width: 700px) {
-  .trend-banner { aspect-ratio: 3 / 1; max-height: none; }
+  .trend-banner,
+  .hero-mobile { aspect-ratio: 3 / 1; max-height: none; }
 
   .trend-banner .service-wordmark,
   .trend-banner .product-name-fallback {
