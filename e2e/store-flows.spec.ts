@@ -17,6 +17,12 @@ test('catálogo único y enlaces reales a los seis productos',async({page})=>{
  await page.goto('/');await imagesReady(page);
  const streaming=page.getByRole('region',{name:'Servicios de streaming',exact:true});
  await expect(streaming.locator('h3')).toHaveText(['Netflix','Disney+','HBO Max','Crunchyroll','Spotify']);
+ await expect(streaming.locator('.compact-service-link')).toHaveCount(5);
+ await expect(streaming.locator('.compact-service-price')).toHaveText(Array(5).fill('Precio por definir'));
+ const first=streaming.locator('.service-card').first();
+ await expect(first.getByRole('link')).toHaveCount(1);
+ const cover=(await first.locator('.service-cover').boundingBox())!;
+ expect(cover.width/cover.height).toBeCloseTo(16/9,1);
  await expect(page.locator('.product-card')).toHaveCount(6);
  for(const name of ['Netflix','Disney+','HBO Max','Crunchyroll','Spotify']){
   await streaming.getByRole('link',{name:`Ver planes de ${name}`,exact:true}).click();
