@@ -9,6 +9,7 @@
 :root {
  --color-background:var(--ipey-bg);
  --color-surface:var(--ipey-surface);
+ --color-card-neutral:#23262c;
  --color-raised:var(--ipey-surface-raised);
  --color-text:var(--ipey-text);
  --color-muted:var(--ipey-muted);

@@ -4,6 +4,7 @@ import { ArtworkBackground } from './ArtworkBackground';
 import { ServiceIdentity } from './ServiceIdentity';
 
 const rotationDelay = 8_000;
+const titlesPerView = 2;
 const reducedMotion = '(prefers-reduced-motion: reduce)';
 const highlights = [
   { title: 'Un trabajo maldito', product: 'netflix', brand: 'Netflix', art: 'trabajo-maldito.jpg', focus: 'center' },
@@ -18,8 +19,10 @@ const highlights = [
   { title: 'Black Clover · Temporada 2', product: 'crunchyroll', brand: 'Crunchyroll', art: 'clover.jpg', focus: 'center 37%' },
 ];
 
+const pairCount = Math.ceil(highlights.length / titlesPerView);
+
 export function Trends() {
-  const [index, setIndex] = useState(0);
+  const [pairIndex, setPairIndex] = useState(0);
   const [paused, setPaused] = useState(() => matchMedia(reducedMotion).matches);
   const [hidden, setHidden] = useState(() => document.hidden);
   const rotating = !paused && !hidden;
@@ -42,41 +45,48 @@ export function Trends() {
   useEffect(() => {
     if (!rotating) return;
     const advance = window.setTimeout(() => {
-      if (!document.hidden) setIndex(current => (current + 1) % highlights.length);
+      if (!document.hidden) setPairIndex(current => (current + 1) % pairCount);
     }, rotationDelay);
     return () => window.clearTimeout(advance);
-  }, [index, rotating]);
+  }, [pairIndex, rotating]);
 
-  const highlight = highlights[index];
-  const visual = serviceVisual(highlight.product);
+  const firstTitle = pairIndex * titlesPerView;
+  const visibleHighlights = highlights.slice(firstTitle, firstTitle + titlesPerView);
   const rotationAction = paused ? 'Reanudar rotación' : 'Pausar rotación';
 
   function handleTitleKey(event: KeyboardEvent<HTMLButtonElement>) {
     if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
     event.preventDefault();
-    setIndex(current => (current + (event.key === 'ArrowRight' ? 1 : -1) + highlights.length) % highlights.length);
+    setPairIndex(current => (current + (event.key === 'ArrowRight' ? 1 : -1) + pairCount) % pairCount);
   }
 
   return (
     <section className="trends-section" aria-labelledby="trends-heading">
       <div className="section-heading"><h2 id="trends-heading">Tendencias</h2></div>
-      <div className={`trend-banner trend-${highlight.product}`} style={{ '--trend-focus': highlight.focus } as CSSProperties}>
-        <ArtworkBackground src={`${import.meta.env.BASE_URL}recursos/destacados/${highlight.art}`} />
-        <ServiceIdentity key={highlight.product} name={highlight.brand} logo={visual?.logo} />
+      <div className="trend-grid" aria-live={rotating ? 'off' : 'polite'} aria-atomic="true">
+        {visibleHighlights.map((highlight, slot) => (
+          // Keep each title's button in place while the pair changes.
+          <div className="trend-card" key={slot}>
+            <div className={`trend-banner trend-${highlight.product}`} style={{ '--trend-focus': highlight.focus } as CSSProperties}>
+              <ArtworkBackground src={`${import.meta.env.BASE_URL}recursos/destacados/${highlight.art}`} />
+              <ServiceIdentity key={highlight.product} name={highlight.brand} logo={serviceVisual(highlight.product)?.logo} />
+            </div>
+            <p className="trend-caption">
+              <button
+                type="button"
+                className="trend-title"
+                title={rotationAction}
+                aria-label={`${highlight.title}. ${rotationAction}`}
+                aria-keyshortcuts="ArrowLeft ArrowRight"
+                onClick={() => setPaused(current => !current)}
+                onKeyDown={handleTitleKey}
+              >
+                {highlight.title}
+              </button>
+            </p>
+          </div>
+        ))}
       </div>
-      <p className="trend-caption" aria-live={rotating ? 'off' : 'polite'} aria-atomic="true">
-        <button
-          type="button"
-          className="trend-title"
-          title={rotationAction}
-          aria-label={`${highlight.title}. ${rotationAction}`}
-          aria-keyshortcuts="ArrowLeft ArrowRight"
-          onClick={() => setPaused(current => !current)}
-          onKeyDown={handleTitleKey}
-        >
-          {highlight.title}
-        </button>
-      </p>
     </section>
   );
 }

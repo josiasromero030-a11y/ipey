@@ -15,82 +15,94 @@ const expectedTrends = [
 ];
 
 for (const width of [1440, 390]) {
-  test(`Tendencias carga diez títulos en orden y conserva la rotación a ${width}px`, async ({ page }) => {
+  test(`Tendencias muestra cinco pares en orden a ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
-    await page.clock.install({ time: new Date('2026-01-01T00:00:00Z') });
-    await page.clock.pauseAt(new Date('2026-01-01T00:00:30Z'));
+    const start = new Date('2026-01-01T00:00:00Z');
+    await page.clock.install({ time: start });
+    await page.clock.pauseAt(new Date(start.getTime() + 30_000));
     await page.goto('/');
+
     const trends = page.getByRole('region', { name: 'Tendencias' });
-    const caption = trends.locator('.trend-caption');
-    const banner = trends.locator('.trend-banner');
-    const title = trends.locator('.trend-title');
-    const next = () => title.press('ArrowRight');
-    const previous = () => title.press('ArrowLeft');
+    const grid = trends.locator('.trend-grid');
+    const banners = trends.locator('.trend-banner');
+    const titles = trends.locator('.trend-title');
+    const next = () => titles.first().press('ArrowRight');
+    const previous = () => titles.first().press('ArrowLeft');
     const pause = trends.getByRole('button', { name: /Pausar rotación/ });
     const resume = trends.getByRole('button', { name: /Reanudar rotación/ });
-    const expectSlide = (index: number) => expect(caption).toHaveText(expectedTrends[index][0]);
-    await expect(trends.getByRole('button')).toHaveCount(1);
+    const expectPair = (index: number) =>
+      expect(titles).toHaveText(expectedTrends.slice(index * 2, index * 2 + 2).map(([name]) => name));
 
     expect(await trends.evaluate(section => section.previousElementSibling?.matches('.hero-desktop,.hero-mobile'))).toBe(true);
-    await expectSlide(0);
-    const rect = (await banner.boundingBox())!;
-    expect(rect.width / rect.height).toBeCloseTo(width === 390 ? 2 : 3, 1);
-    if (width === 390) expect(rect.height).toBeLessThanOrEqual(215);
+    await expectPair(0);
+    await expect(trends.getByRole('button')).toHaveCount(2);
+    const left = (await banners.nth(0).boundingBox())!;
+    const right = (await banners.nth(1).boundingBox())!;
+    expect(left.y).toBe(right.y);
+    expect(left.x + left.width).toBeLessThan(right.x);
+    expect(left.width).toBeCloseTo(right.width, 0);
+    const row = (await grid.boundingBox())!;
+    expect(left.x).toBeCloseTo(row.x, 0);
+    expect(right.x + right.width).toBeCloseTo(row.x + row.width, 0);
+    expect(left.height).toBeLessThanOrEqual(width === 390 ? 100 : 260);
 
     await page.clock.runFor(7999);
-    await expectSlide(0);
+    await expectPair(0);
     await page.clock.runFor(1);
-    await expectSlide(1);
+    await expectPair(1);
 
     await page.clock.runFor(5000);
     await next();
-    await expectSlide(2);
+    await expectPair(2);
     await page.clock.runFor(7999);
-    await expectSlide(2);
+    await expectPair(2);
     await page.clock.runFor(1);
-    await expectSlide(3);
+    await expectPair(3);
 
-    await pause.click();
+    await pause.last().click();
     await page.clock.runFor(9000);
-    await expectSlide(3);
+    await expectPair(3);
     await previous();
-    await expectSlide(2);
-    await resume.click();
+    await expectPair(2);
+    await resume.first().click();
 
     const setHidden = (value: boolean) => page.evaluate(hidden => {
       Object.defineProperty(document, 'hidden', { configurable: true, value: hidden });
       document.dispatchEvent(new Event('visibilitychange'));
     }, value);
     await setHidden(true);
-    await expect(caption).toHaveAttribute('aria-live', 'polite');
+    await expect(grid).toHaveAttribute('aria-live', 'polite');
     await page.clock.runFor(9000);
-    await expectSlide(2);
+    await expectPair(2);
     await setHidden(false);
-    await expect(caption).toHaveAttribute('aria-live', 'off');
+    await expect(grid).toHaveAttribute('aria-live', 'off');
     await page.clock.runFor(8000);
-    await expectSlide(3);
+    await expectPair(3);
 
-    await pause.click();
+    await pause.first().click();
     for (let i = 0; i < 3; i++) await previous();
-    for (const [index, [, file, brand, focus]] of expectedTrends.entries()) {
-      await expectSlide(index);
-      const art = await banner.locator('.visual-background').evaluate(async (image: HTMLImageElement) => {
-        await image.decode();
-        return { url: image.currentSrc, width: image.naturalWidth, focus: getComputedStyle(image).objectPosition };
-      });
-      expect(new URL(art.url).pathname.endsWith('/recursos/destacados/' + file)).toBe(true);
-      expect(art.width).toBeGreaterThan(0);
-      expect(art.focus).toBe(focus === 'center' ? '50% 50%' : focus.replace('center', '50%'));
-      await expect(banner.getByRole('img', { name: brand })).toBeVisible();
-      if (index < 9) await next();
+    for (let pair = 0; pair < 5; pair++) {
+      await expectPair(pair);
+      for (const [slot, [, file, brand, focus]] of expectedTrends.slice(pair * 2, pair * 2 + 2).entries()) {
+        const banner = banners.nth(slot);
+        const art = await banner.locator('.visual-background').evaluate(async (image: HTMLImageElement) => {
+          await image.decode();
+          return { url: image.currentSrc, width: image.naturalWidth, focus: getComputedStyle(image).objectPosition };
+        });
+        expect(new URL(art.url).pathname.endsWith('/recursos/destacados/' + file)).toBe(true);
+        expect(art.width).toBeGreaterThan(0);
+        expect(art.focus).toBe(focus === 'center' ? '50% 50%' : focus.replace('center', '50%'));
+        await expect(banner.getByRole('img', { name: brand })).toBeVisible();
+      }
+      if (pair < 4) await next();
     }
-    await resume.click();
+    await resume.last().click();
     await page.clock.runFor(8000);
-    await expectSlide(0);
+    await expectPair(0);
     await previous();
-    await expectSlide(9);
+    await expectPair(4);
     await next();
-    await expectSlide(0);
+    await expectPair(0);
   });
 }
 
@@ -101,7 +113,7 @@ test('movimiento reducido y fila táctil de Streaming', async ({ browser }) => {
   try {
     await page.goto('/');
     await imagesReady(page);
-    await expect(page.getByRole('button', { name: 'Reanudar rotación' })).toBeVisible();
+    await expect(page.getByRole('button', { name: /Reanudar rotación/ })).toHaveCount(2);
 
     const streaming = page.getByRole('region', { name: 'Servicios de streaming' });
     const row = streaming.locator('.home-service-row');

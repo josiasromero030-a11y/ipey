@@ -14,7 +14,19 @@
   background: var(--ipey-bg-secondary);
 }
 
-.trend-banner,
+.trend-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(10px, 1.2vw, 18px);
+}
+
+.trend-banner {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  max-height: 260px;
+  border-radius: var(--radius-card);
+}
+
 .hero-mobile {
   aspect-ratio: 2 / 1;
   max-height: 215px;
@@ -31,17 +43,18 @@
   position: absolute;
   z-index: 2;
   left: 5%;
-  bottom: 7%;
-  width: clamp(68px, 15vw, 106px);
-  height: 26px;
+  bottom: 8%;
+  width: 30%;
+  max-width: 105px;
+  height: 24%;
   object-fit: contain;
   object-position: left center;
 }
 
-.trend-max .service-wordmark { height: 36px; }
+.trend-max .service-wordmark { height: 32%; }
 
 .trend-caption {
-  margin-block: 6px 0;
+  margin-block: 2px 0;
   text-align: center;
 }
 
@@ -49,15 +62,16 @@
   position: relative;
   min-height: 44px;
   max-width: 100%;
-  padding: 6px 12px 12px;
+  padding: 4px 6px 10px;
   border-radius: 6px;
   background: transparent;
   color: var(--color-text);
-  font-size: clamp(1.06rem, 2.05vw, 1.65rem);
+  font-size: clamp(.93rem, 1.45vw, 1.25rem);
   font-weight: 750;
   line-height: 1.2;
   letter-spacing: -.025em;
   overflow-wrap: anywhere;
+  text-wrap: balance;
 }
 
 .trend-title::after {
@@ -167,18 +181,7 @@
 .home-offer-prices strong { color: var(--color-text); }
 
 @media (min-width: 700px) {
-  .trend-banner,
   .hero-mobile { aspect-ratio: 3 / 1; max-height: none; }
-
-  .trend-banner .service-wordmark,
-  .trend-banner .product-name-fallback {
-    left: 3%;
-    bottom: 9%;
-    width: 114px;
-    height: 44px;
-  }
-
-  .trend-max .service-wordmark { height: 58px; }
   .home-offer { min-height: 240px; }
 }
 
@@ -222,7 +225,7 @@
 }
 
 .home-page .service-card-compact {
-  background: #23262c;
+  background: var(--color-card-neutral);
   padding: 4px 4px 0;
   border: 0;
   border-radius: 10px;
