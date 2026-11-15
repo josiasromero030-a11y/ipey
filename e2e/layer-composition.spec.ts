@@ -62,6 +62,23 @@ for (const [width, height] of [[1440, 900], [390, 844]]) {
       await expect(logo).toHaveAttribute('src', new RegExp('/' + visual.logo + '$'));
       await expect(artwork.locator('.visual-shade')).toHaveCount(1);
       expect(await logo.evaluate(e => getComputedStyle(e).objectFit)).toBe('contain');
+
+      if (id !== 'free-fire') {
+        const placement = await artwork.evaluate(art => {
+          const logo = art.querySelector('.service-wordmark')!;
+          const shade = art.querySelector('.visual-shade')!;
+          const frame = art.getBoundingClientRect();
+          const bounds = logo.getBoundingClientRect();
+          return {
+            left: (bounds.left - frame.left) / frame.width,
+            top: (bounds.top - frame.top) / frame.height,
+            shade: getComputedStyle(shade).backgroundImage,
+          };
+        });
+        expect(placement.left).toBeCloseTo(.08, 2);
+        expect(placement.top).toBeCloseTo(.34, 2);
+        expect(placement.shade).toMatch(/^linear-gradient\(90deg,/);
+      }
     }
 
     expect(requests.every(url => new URL(url).origin === new URL(page.url()).origin)).toBe(true);

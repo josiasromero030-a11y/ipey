@@ -240,20 +240,6 @@
   border-radius: 7px;
 }
 
-.home-page .service-card-compact .service-artwork .visual-shade {
-  background: linear-gradient(180deg, #070a1499 0%, #070a142b 37%, transparent 65%);
-}
-
-.home-page .service-card-compact .service-artwork .service-wordmark,
-.home-page .service-card-compact .service-artwork .product-name-fallback {
-  inset: 9% auto auto 50%;
-  width: 38%;
-  height: 27%;
-  transform: translateX(-50%);
-  text-align: center;
-  object-position: center;
-}
-
 .compact-service-details {
   display: flex;
   align-items: baseline;
