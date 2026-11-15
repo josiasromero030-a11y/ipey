@@ -25,7 +25,10 @@
   --trend-width: calc((100cqw - var(--trend-gap)) / 2);
   container-type: inline-size;
   overflow: clip;
+  scrollbar-width: none;
 }
+
+.trend-strip::-webkit-scrollbar { display: none; }
 
 .trend-track {
   display: flex;
@@ -92,14 +95,19 @@
 .trend-motion-control:not(:focus-visible) { clip-path: inset(50%); }
 
 @media (min-width: 1024px) {
-  .trend-strip { --trend-width: calc((100cqw - 4 * var(--trend-gap)) / 5); }
+  .trend-strip { --trend-width: calc((100cqw - 2 * var(--trend-gap)) / 3); }
+  .trend-track { animation-duration: 90s; }
+}
+
+@media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
+  .trend-track { animation-duration: 120s; }
 }
 
 @media (max-width: 699px) {
   .trend-strip { --trend-width: calc((100cqw - var(--trend-gap)) * 2 / 3); }
 }
 
-@media (prefers-reduced-motion: reduce) {
+@media (width < 1024px) and (prefers-reduced-motion: reduce) {
   .trend-strip { overflow-x: auto; }
   .trend-track { animation: none; }
   .trend-cycle[aria-hidden],

@@ -40,5 +40,7 @@ main:focus {outline:none}
 .dialog-heading .icon-button {flex-shrink:0}
 .error {color:#ffb0b5;font-size:14px;line-height:1.6;margin:18px 0}
 @media(prefers-reduced-motion:reduce) {
- *,*:before,*:after {transition:none!important;animation:none!important;scroll-behavior:auto!important}
+ *,*:before,*:after {transition:none!important;scroll-behavior:auto!important}
+ /* Tendencias controls its motion in home-sections.css. */
+ *:not(.trend-track),*:before,*:after {animation:none!important}
 }

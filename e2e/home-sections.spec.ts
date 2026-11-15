@@ -17,6 +17,7 @@ const expectedTrends = [
 for (const width of [1440, 390]) {
   test(`Tendencias se mueve en bucle continuo a ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
+    if (width === 1440) await page.emulateMedia({ reducedMotion: 'reduce' });
     await page.goto('/');
     const trends = page.getByRole('region', { name: 'Tendencias' });
     const original = trends.locator('.trend-cycle').first();
@@ -28,12 +29,18 @@ for (const width of [1440, 390]) {
     const geometry = await trends.locator('.trend-track').evaluate(async track => {
       const animation = track.getAnimations()[0];
       await animation.ready;
-      const duration = Number(animation.effect!.getTiming().duration);
+      const timing = animation.effect!.getTiming();
+      const duration = Number(timing.duration);
+      const infinite = timing.iterations === Infinity;
       animation.pause();
       await animation.ready;
       const [first, duplicate] = Array.from(track.children, cycle => cycle.firstElementChild!);
       animation.currentTime = 0;
       const start = first.getBoundingClientRect();
+      const strip = track.parentElement!.getBoundingClientRect();
+      const third = track.firstElementChild!.children[2].getBoundingClientRect();
+      const fourth = track.firstElementChild!.children[3].getBoundingClientRect();
+      const fitsThree = Math.abs(third.right - strip.right) <= 1 && fourth.left > strip.right;
       animation.currentTime = duration / 4;
       const quarter = first.getBoundingClientRect().left;
       animation.currentTime = duration / 2;
@@ -42,18 +49,30 @@ for (const width of [1440, 390]) {
       const seam = duplicate.getBoundingClientRect().left;
       animation.currentTime = duration;
       const restart = first.getBoundingClientRect().left;
+      animation.currentTime = 2 * duration - 1;
+      const secondSeam = duplicate.getBoundingClientRect().left;
+      animation.currentTime = 2 * duration;
+      const secondRestart = first.getBoundingClientRect().left;
       const cover = first.querySelector('.trend-banner')!.getBoundingClientRect();
-      return { start: start.left, quarter, half, seam, restart, ratio: cover.width / cover.height };
+      return { start: start.left, quarter, half, seam, restart, secondSeam, secondRestart, infinite, fitsThree, ratio: cover.width / cover.height };
     });
     expect(geometry.quarter).toBeLessThan(geometry.start);
     expect(geometry.half).toBeLessThan(geometry.quarter);
     expect(geometry.start - geometry.quarter).toBeCloseTo(geometry.quarter - geometry.half, 0);
+    expect(geometry.infinite).toBe(true);
     expect(geometry.seam).toBeCloseTo(geometry.restart, 0);
+    expect(geometry.secondSeam).toBeCloseTo(geometry.secondRestart, 0);
     expect(geometry.ratio).toBeCloseTo(16 / 9, 1);
+    if (width === 1440) expect(geometry.fitsThree).toBe(true);
     const button = trends.getByRole('button', { name: 'Pausar movimiento' });
     await button.focus();
     await button.press('Enter');
-    await expect(trends.locator('.trend-strip')).toHaveAttribute('data-paused', 'true');
+    const strip = trends.locator('.trend-strip');
+    await expect(strip).toHaveAttribute('data-paused', 'true');
+    await expect(strip).toHaveCSS('scrollbar-width', 'none');
+    await trends.getByRole('button', { name: 'Reanudar movimiento' }).press('Enter');
+    await expect(strip).toHaveAttribute('data-paused', 'false');
+    await expect(trends.locator('.trend-track')).toHaveCSS('animation-play-state', 'running');
   });
 }
 
