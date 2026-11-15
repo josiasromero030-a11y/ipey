@@ -15,94 +15,45 @@ const expectedTrends = [
 ];
 
 for (const width of [1440, 390]) {
-  test(`Tendencias muestra cinco pares en orden a ${width}px`, async ({ page }) => {
+  test(`Tendencias se mueve en bucle continuo a ${width}px`, async ({ page }) => {
     await page.setViewportSize({ width, height: 900 });
-    const start = new Date('2026-01-01T00:00:00Z');
-    await page.clock.install({ time: start });
-    await page.clock.pauseAt(new Date(start.getTime() + 30_000));
     await page.goto('/');
-
     const trends = page.getByRole('region', { name: 'Tendencias' });
-    const grid = trends.locator('.trend-grid');
-    const banners = trends.locator('.trend-banner');
-    const titles = trends.locator('.trend-title');
-    const next = () => titles.first().press('ArrowRight');
-    const previous = () => titles.first().press('ArrowLeft');
-    const pause = trends.getByRole('button', { name: /Pausar rotación/ });
-    const resume = trends.getByRole('button', { name: /Reanudar rotación/ });
-    const expectPair = (index: number) =>
-      expect(titles).toHaveText(expectedTrends.slice(index * 2, index * 2 + 2).map(([name]) => name));
-
-    expect(await trends.evaluate(section => section.previousElementSibling?.matches('.hero-desktop,.hero-mobile'))).toBe(true);
-    await expectPair(0);
-    await expect(trends.getByRole('button')).toHaveCount(2);
-    const left = (await banners.nth(0).boundingBox())!;
-    const right = (await banners.nth(1).boundingBox())!;
-    expect(left.y).toBe(right.y);
-    expect(left.x + left.width).toBeLessThan(right.x);
-    expect(left.width).toBeCloseTo(right.width, 0);
-    const row = (await grid.boundingBox())!;
-    expect(left.x).toBeCloseTo(row.x, 0);
-    expect(right.x + right.width).toBeCloseTo(row.x + row.width, 0);
-    expect(left.height).toBeLessThanOrEqual(width === 390 ? 100 : 260);
-
-    await page.clock.runFor(7999);
-    await expectPair(0);
-    await page.clock.runFor(1);
-    await expectPair(1);
-
-    await page.clock.runFor(5000);
-    await next();
-    await expectPair(2);
-    await page.clock.runFor(7999);
-    await expectPair(2);
-    await page.clock.runFor(1);
-    await expectPair(3);
-
-    await pause.last().click();
-    await page.clock.runFor(9000);
-    await expectPair(3);
-    await previous();
-    await expectPair(2);
-    await resume.first().click();
-
-    const setHidden = (value: boolean) => page.evaluate(hidden => {
-      Object.defineProperty(document, 'hidden', { configurable: true, value: hidden });
-      document.dispatchEvent(new Event('visibilitychange'));
-    }, value);
-    await setHidden(true);
-    await expect(grid).toHaveAttribute('aria-live', 'polite');
-    await page.clock.runFor(9000);
-    await expectPair(2);
-    await setHidden(false);
-    await expect(grid).toHaveAttribute('aria-live', 'off');
-    await page.clock.runFor(8000);
-    await expectPair(3);
-
-    await pause.first().click();
-    for (let i = 0; i < 3; i++) await previous();
-    for (let pair = 0; pair < 5; pair++) {
-      await expectPair(pair);
-      for (const [slot, [, file, brand, focus]] of expectedTrends.slice(pair * 2, pair * 2 + 2).entries()) {
-        const banner = banners.nth(slot);
-        const art = await banner.locator('.visual-background').evaluate(async (image: HTMLImageElement) => {
-          await image.decode();
-          return { url: image.currentSrc, width: image.naturalWidth, focus: getComputedStyle(image).objectPosition };
-        });
-        expect(new URL(art.url).pathname.endsWith('/recursos/destacados/' + file)).toBe(true);
-        expect(art.width).toBeGreaterThan(0);
-        expect(art.focus).toBe(focus === 'center' ? '50% 50%' : focus.replace('center', '50%'));
-        await expect(banner.getByRole('img', { name: brand })).toBeVisible();
-      }
-      if (pair < 4) await next();
-    }
-    await resume.last().click();
-    await page.clock.runFor(8000);
-    await expectPair(0);
-    await previous();
-    await expectPair(4);
-    await next();
-    await expectPair(0);
+    const original = trends.locator('.trend-cycle').first();
+    const copy = trends.locator('.trend-cycle[aria-hidden="true"]');
+    const titles = expectedTrends.map(([name]) => name);
+    await expect(original.locator('.trend-title')).toHaveText(titles);
+    await expect(copy.locator('.trend-title')).toHaveText(titles);
+    await imagesReady(page);
+    const geometry = await trends.locator('.trend-track').evaluate(async track => {
+      const animation = track.getAnimations()[0];
+      await animation.ready;
+      const duration = Number(animation.effect!.getTiming().duration);
+      animation.pause();
+      await animation.ready;
+      const [first, duplicate] = Array.from(track.children, cycle => cycle.firstElementChild!);
+      animation.currentTime = 0;
+      const start = first.getBoundingClientRect();
+      animation.currentTime = duration / 4;
+      const quarter = first.getBoundingClientRect().left;
+      animation.currentTime = duration / 2;
+      const half = first.getBoundingClientRect().left;
+      animation.currentTime = duration - 1;
+      const seam = duplicate.getBoundingClientRect().left;
+      animation.currentTime = duration;
+      const restart = first.getBoundingClientRect().left;
+      const cover = first.querySelector('.trend-banner')!.getBoundingClientRect();
+      return { start: start.left, quarter, half, seam, restart, ratio: cover.width / cover.height };
+    });
+    expect(geometry.quarter).toBeLessThan(geometry.start);
+    expect(geometry.half).toBeLessThan(geometry.quarter);
+    expect(geometry.start - geometry.quarter).toBeCloseTo(geometry.quarter - geometry.half, 0);
+    expect(geometry.seam).toBeCloseTo(geometry.restart, 0);
+    expect(geometry.ratio).toBeCloseTo(16 / 9, 1);
+    const button = trends.getByRole('button', { name: 'Pausar movimiento' });
+    await button.focus();
+    await button.press('Enter');
+    await expect(trends.locator('.trend-strip')).toHaveAttribute('data-paused', 'true');
   });
 }
 
@@ -113,7 +64,9 @@ test('movimiento reducido y fila táctil de Streaming', async ({ browser }) => {
   try {
     await page.goto('/');
     await imagesReady(page);
-    await expect(page.getByRole('button', { name: /Reanudar rotación/ })).toHaveCount(2);
+    await expect(page.locator('.trend-track')).toHaveCSS('animation-name', 'none');
+    await expect(page.locator('.trend-cycle[aria-hidden]')).toBeHidden();
+    expect(await page.locator('.trend-strip').evaluate(row => row.scrollWidth > row.clientWidth)).toBe(true);
 
     const streaming = page.getByRole('region', { name: 'Servicios de streaming' });
     const row = streaming.locator('.home-service-row');

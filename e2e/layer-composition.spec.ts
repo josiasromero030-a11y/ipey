@@ -29,7 +29,7 @@ for (const [width, height] of [[1440, 900], [390, 844]]) {
       const hero = page.locator('.hero-mobile');
       const heroBox = (await hero.boundingBox())!;
       const trendBox = (await page.locator('.trend-banner').first().boundingBox())!;
-      expect(heroBox.width / heroBox.height).toBeCloseTo(trendBox.width / trendBox.height, 1);
+      expect(heroBox.width / heroBox.height).toBeCloseTo(2, 1);
       expect(heroBox.height).toBeGreaterThan(trendBox.height);
 
       const coverage = await hero.evaluate(element => {

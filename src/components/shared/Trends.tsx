@@ -1,11 +1,8 @@
-import { useEffect, useState, type CSSProperties, type KeyboardEvent } from 'react';
+import { useState, type CSSProperties } from 'react';
 import { serviceVisual } from '../../data/visualAssets';
 import { ArtworkBackground } from './ArtworkBackground';
 import { ServiceIdentity } from './ServiceIdentity';
 
-const rotationDelay = 8_000;
-const titlesPerView = 2;
-const reducedMotion = '(prefers-reduced-motion: reduce)';
 const highlights = [
   { title: 'Un trabajo maldito', product: 'netflix', brand: 'Netflix', art: 'trabajo-maldito.jpg', focus: 'center' },
   { title: 'Lupin: Parte 4', product: 'netflix', brand: 'Netflix', art: 'lupin.jpg', focus: 'center 37%' },
@@ -19,73 +16,39 @@ const highlights = [
   { title: 'Black Clover · Temporada 2', product: 'crunchyroll', brand: 'Crunchyroll', art: 'clover.jpg', focus: 'center 37%' },
 ];
 
-const pairCount = Math.ceil(highlights.length / titlesPerView);
-
 export function Trends() {
-  const [pairIndex, setPairIndex] = useState(0);
-  const [paused, setPaused] = useState(() => matchMedia(reducedMotion).matches);
-  const [hidden, setHidden] = useState(() => document.hidden);
-  const rotating = !paused && !hidden;
-
-  useEffect(() => {
-    const motion = matchMedia(reducedMotion);
-    const pauseForMotion = (event: MediaQueryListEvent) => {
-      if (event.matches) setPaused(true);
-    };
-    const updateVisibility = () => setHidden(document.hidden);
-
-    motion.addEventListener('change', pauseForMotion);
-    document.addEventListener('visibilitychange', updateVisibility);
-    return () => {
-      motion.removeEventListener('change', pauseForMotion);
-      document.removeEventListener('visibilitychange', updateVisibility);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!rotating) return;
-    const advance = window.setTimeout(() => {
-      if (!document.hidden) setPairIndex(current => (current + 1) % pairCount);
-    }, rotationDelay);
-    return () => window.clearTimeout(advance);
-  }, [pairIndex, rotating]);
-
-  const firstTitle = pairIndex * titlesPerView;
-  const visibleHighlights = highlights.slice(firstTitle, firstTitle + titlesPerView);
-  const rotationAction = paused ? 'Reanudar rotación' : 'Pausar rotación';
-
-  function handleTitleKey(event: KeyboardEvent<HTMLButtonElement>) {
-    if (event.key !== 'ArrowLeft' && event.key !== 'ArrowRight') return;
-    event.preventDefault();
-    setPairIndex(current => (current + (event.key === 'ArrowRight' ? 1 : -1) + pairCount) % pairCount);
-  }
+  const [paused, setPaused] = useState(false);
+  const action = paused ? 'Reanudar movimiento' : 'Pausar movimiento';
 
   return (
     <section className="trends-section" aria-labelledby="trends-heading">
-      <div className="section-heading"><h2 id="trends-heading">Tendencias</h2></div>
-      <div className="trend-grid" aria-live={rotating ? 'off' : 'polite'} aria-atomic="true">
-        {visibleHighlights.map((highlight, slot) => (
-          // Keep each title's button in place while the pair changes.
-          <div className="trend-card" key={slot}>
-            <div className={`trend-banner trend-${highlight.product}`} style={{ '--trend-focus': highlight.focus } as CSSProperties}>
-              <ArtworkBackground src={`${import.meta.env.BASE_URL}recursos/destacados/${highlight.art}`} />
-              <ServiceIdentity key={highlight.product} name={highlight.brand} logo={serviceVisual(highlight.product)?.logo} />
+      <div className="section-heading">
+        <h2 id="trends-heading">Tendencias</h2>
+        <button type="button" className="trend-motion-control" onClick={() => setPaused(current => !current)}>
+          {action}
+        </button>
+      </div>
+      <div className="trend-strip" data-paused={paused}>
+        <div className="trend-track">
+          {[false, true].map(copy => (
+            <div className="trend-cycle" key={String(copy)} aria-hidden={copy || undefined}>
+              {highlights.map(highlight => {
+                const visual = serviceVisual(highlight.product);
+                return (
+                  <article className="trend-card service-card service-card-compact" key={highlight.art}>
+                    <div className={`trend-banner service-cover artwork artwork-${highlight.product}`}>
+                      <div className="service-artwork" style={{ '--focus': highlight.focus, '--tone': visual?.tone } as CSSProperties}>
+                        <ArtworkBackground src={`${import.meta.env.BASE_URL}recursos/destacados/${highlight.art}`} />
+                        <ServiceIdentity name={highlight.brand} logo={visual?.logo} />
+                      </div>
+                    </div>
+                    <h3 className="trend-title" onClick={() => setPaused(current => !current)}>{highlight.title}</h3>
+                  </article>
+                );
+              })}
             </div>
-            <p className="trend-caption">
-              <button
-                type="button"
-                className="trend-title"
-                title={rotationAction}
-                aria-label={`${highlight.title}. ${rotationAction}`}
-                aria-keyshortcuts="ArrowLeft ArrowRight"
-                onClick={() => setPaused(current => !current)}
-                onKeyDown={handleTitleKey}
-              >
-                {highlight.title}
-              </button>
-            </p>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
