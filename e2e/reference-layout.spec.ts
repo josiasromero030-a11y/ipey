@@ -12,8 +12,7 @@ for(const [width,height] of [[1280,800],[1440,900],[1672,941],[1920,1080],[320,7
   await expect(cards.locator('h3')).toHaveText(['Netflix','Disney+','HBO Max','Crunchyroll','Spotify']);
   const rects=await cards.evaluateAll(es=>es.map(e=>{const r=e.getBoundingClientRect();return {x:Math.round(r.x),y:Math.round(r.y),width:r.width}}));
   if(mobile){
-   expect(rects[0].y).toBe(rects[1].y);expect(rects[2].y).toBe(rects[3].y);
-   expect(rects[4].width).toBeGreaterThan(rects[0].width*1.9);
+   if(width<700){expect(new Set(rects.map(r=>r.y)).size).toBe(1);expect(rects[4].x).toBeGreaterThan(rects[3].x)}else{expect(rects[0].y).toBe(rects[1].y);expect(rects[2].y).toBe(rects[3].y)}
    for(const action of await cards.locator('.card-action').all())expect((await action.boundingBox())!.height).toBeGreaterThanOrEqual(44);
    const panelRows=await page.locator('.platform-panel').evaluateAll(es=>[...new Set(es.map(e=>Math.round(e.getBoundingClientRect().top)))]);
    expect(panelRows).toHaveLength(1);

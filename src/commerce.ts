@@ -10,4 +10,15 @@ export function orderMessage(p:Product,v:Variant,playerId='') {
  return [p.category==='gaming'?'Hola, quiero solicitar una recarga.':'Hola, quiero contratar un servicio.',`${p.category==='gaming'?'Juego':'Servicio'}: ${p.name}`,`${p.category==='gaming'?'Paquete':'Plan'}: ${v.name}`,v.duration?`Duración: ${v.duration} mes(es)`:null,`Precio: ${money(v.price)}`,p.category==='gaming'?`ID de jugador: ${playerId.trim()}`:null,'Quisiera confirmar la disponibilidad y continuar con la solicitud.'].filter(Boolean).join('\n\n');
 }
 export function whatsappUrl(message:string,phone=business.whatsapp){return validPhone(phone)?`https://wa.me/${phone}?text=${encodeURIComponent(message)}`:null;}
-export function promotion(p:Product){return p.offer&&p.variants.some(v=>purchasable(p,v)&&v.previousPrice!==undefined&&v.previousPrice>v.price!);}
+export function promotionalVariants(product: Product) {
+ return product.offer ? product.variants.filter(variant =>
+  purchasable(product, variant) &&
+  variant.previousPrice !== undefined &&
+  Number.isFinite(variant.previousPrice) &&
+  variant.previousPrice > variant.price!
+ ) : [];
+}
+
+export function promotion(product: Product) {
+ return promotionalVariants(product).length > 0;
+}

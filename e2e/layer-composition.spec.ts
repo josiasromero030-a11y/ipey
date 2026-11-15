@@ -47,7 +47,7 @@ for (const [width, height] of [[1440, 900], [390, 844]]) {
       expect(await logo.evaluate(e => getComputedStyle(e).objectFit)).toBe('contain');
     }
 
-    expect(requests.every(url => new URL(url).origin === 'http://127.0.0.1:5173')).toBe(true);
+    expect(requests.every(url => new URL(url).origin === new URL(page.url()).origin)).toBe(true);
     const card = page.locator('.service-card-netflix');
     const image = card.locator('.visual-background');
     const logo = card.locator('.service-wordmark');
