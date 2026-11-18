@@ -254,7 +254,7 @@
 
 .home-page .trend-card { background: var(--color-surface); }
 
-.home-page .service-card-compact:active { background: var(--color-border); }
+.home-page .service-card-compact:is(:active,:has(:focus-visible)) { background: var(--color-border); }
 
 @media (hover: hover) and (pointer: fine) {
   .home-page .service-card-compact:hover { background: var(--color-border); }

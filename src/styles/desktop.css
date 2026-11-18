@@ -1,15 +1,15 @@
 /* Reference 1: horizontal bands. These selectors never style the mobile layout. */
 .desktop-layout .shell {width:min(var(--content-width),88%)}
-.header-desktop {border-bottom:1px solid var(--color-border);background:var(--ipey-bg-secondary)}
+.header-desktop {border-bottom:1px solid var(--color-divider-quiet);background:var(--ipey-bg-secondary)}
 .desktop-header-row {display:flex;align-items:center;gap:22px;min-height:56px}
-.desktop-header-row .brand {font-size:31px;padding-right:50px;border-right:1px solid var(--color-border)}
+.desktop-header-row .brand {font-size:31px;padding-right:50px;border-right:1px solid var(--color-divider-quiet)}
 .desktop-header-row .brand-symbol {width:29px;height:33px}
 .header-desktop .primary-navigation {gap:26px;align-self:stretch}
 .header-desktop .primary-navigation a {padding-inline:9px;font-size:14px}
 .desktop-search {flex:1;max-width:450px;min-width:150px;margin-inline:auto;height:35px}
 .desktop-search input {font-size:12px}
-.whatsapp-contact {display:flex;align-items:center;gap:8px;border:1px solid var(--color-border);border-radius:var(--radius-small);min-height:36px;padding:5px 14px;font-size:13px;font-weight:600;white-space:nowrap}
-.contact-info {display:flex;align-items:center;gap:10px;font-size:13px;white-space:nowrap;padding-left:22px;border-left:1px solid var(--color-border);min-height:24px}
+.whatsapp-contact {display:flex;align-items:center;gap:8px;border:1px solid transparent;border-radius:var(--radius-small);min-height:36px;padding:5px 14px;font-size:13px;font-weight:600;white-space:nowrap}
+.contact-info {display:flex;align-items:center;gap:10px;font-size:13px;white-space:nowrap;padding-left:22px;border-left:1px solid var(--color-divider-quiet);min-height:24px}
 .desktop-layout .home-page {padding:14px 0 16px}
 .desktop-layout .section-heading h2 {font-size:28px}
 .desktop-layout .service-grid {grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}

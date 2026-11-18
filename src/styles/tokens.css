@@ -10,7 +10,9 @@
  --color-border:var(--ipey-border);
  --color-accent:var(--ipey-accent-text);
  --color-action:var(--ipey-accent);
- --color-focus:var(--color-accent);
+ --color-divider-quiet:var(--color-raised);
+ --color-border-hover:var(--ipey-border-hover);
+ --color-focus:var(--ipey-focus);
  --color-on-accent:var(--color-text);
  --color-art-overlay:color-mix(in srgb,var(--color-background) 24%,transparent);
  --color-hero-overlay:color-mix(in srgb,var(--color-background) 62%,transparent);

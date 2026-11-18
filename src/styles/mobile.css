@@ -1,15 +1,14 @@
 /* Reference 2: a distinct structure, shared data and assets. Tablet extends this layout. */
-.header-mobile {position:relative;z-index:10;border-bottom:1px solid var(--color-border);background:var(--ipey-bg-secondary)}
+.header-mobile {position:relative;z-index:10;border-bottom:1px solid var(--color-divider-quiet);background:var(--ipey-bg-secondary)}
 .mobile-header-row {display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:62px}
 .header-mobile .brand {font-size:29px;gap:6px}
 .header-mobile .brand-symbol {width:29px;height:34px}
 .mobile-header-actions {display:flex;align-items:center;gap:7px}
 .mobile-header-actions .search-toggle {border:1px solid transparent;width:44px}
-.mobile-navigation-row {border-top:1px solid var(--color-border)}
+.mobile-navigation-row {border-top:1px solid var(--color-divider-quiet)}
 .header-mobile .primary-navigation {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:min(900px,100%);margin:auto;padding:0 16px;gap:4px}
 .header-mobile .primary-navigation a {min-height:48px;font-size:14px;gap:8px}
-.header-mobile .primary-navigation a.active:after {height:3px}
-.mobile-menu {position:absolute;right:16px;top:62px;display:grid;gap:2px;z-index:20;width:min(290px,calc(100% - 32px));padding:8px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-card)}
+.mobile-menu {position:absolute;right:16px;top:62px;display:grid;gap:2px;z-index:20;width:min(290px,calc(100% - 32px));padding:8px;background:var(--color-surface);border:1px solid transparent;border-radius:var(--radius-card)}
 .mobile-menu a {display:flex;align-items:center;min-height:46px;padding:10px 12px;font-size:14px}
 .mobile-layout .home-page {padding:16px 0 28px}
 .mobile-layout .streaming-section {margin-top:20px}
@@ -27,7 +26,7 @@
 .mobile-layout .service-price.pending {font-size:11px}
 .mobile-layout .card-action {grid-column:2;min-height:44px;width:44px}
 .mobile-layout .service-card-wide {grid-column:1/-1;display:grid;grid-template-columns:43% minmax(0,1fr)}
-.mobile-layout .service-card-wide .service-cover {aspect-ratio:auto;height:100%;min-height:98px;border-bottom:0;border-right:1px solid var(--color-border)}
+.mobile-layout .service-card-wide .service-cover {aspect-ratio:auto;height:100%;min-height:98px;border-bottom:0;border-right:1px solid transparent}
 .mobile-layout .service-card-wide .service-card-body {padding:10px 12px}
 .mobile-layout .gaming-section {margin-top:21px}
 .gaming-banner-mobile {display:grid;grid-template-columns:47% minmax(0,1fr);min-height:174px}
@@ -39,7 +38,7 @@
 .gaming-banner-mobile .gaming-action-icon {display:none}
 .mobile-layout .process-strip {grid-template-columns:repeat(2,minmax(0,1fr));padding:0 8px;margin-top:16px;background:var(--ipey-surface);border:1px solid transparent;border-radius:var(--radius-card)}
 .mobile-layout .process-item {min-height:79px;padding:13px 7px;gap:9px;justify-content:flex-start}
-.mobile-layout .process-item:nth-child(odd) {border-right:1px solid var(--color-border)}
+.mobile-layout .process-item:nth-child(odd) {border-right:1px solid transparent}
 .mobile-layout .process-item:nth-child(-n+2) {border-bottom:1px solid var(--color-border)}
 .mobile-layout .process-item>svg,.mobile-layout .process-item>.whatsapp-icon {width:25px;height:27px;flex-shrink:0}
 .mobile-layout .process-item strong {font-size:12px;line-height:1.3}

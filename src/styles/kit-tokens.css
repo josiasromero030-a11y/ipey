@@ -1,18 +1,20 @@
 /* Ipey palette and surface tokens. */
 :root {
-  --ipey-bg: #070B14;
-  --ipey-bg-secondary: #0F1729;
-  --ipey-surface: #0F1729;
-  --ipey-surface-raised: #16213A;
-  --ipey-border: #1E2A44;
-  --ipey-accent: #1E40AF;
-  --ipey-accent-text: #4F7BE8;
-  --ipey-accent-hover: #183894;
+  --ipey-bg: #0B0B0C;
+  --ipey-bg-secondary: #151517;
+  --ipey-surface: #151517;
+  --ipey-surface-raised: #1D1D20;
+  --ipey-border: #252528;
+  --ipey-border-hover: #38383C;
+  --ipey-focus: #69696E;
+  --ipey-accent: #1F3FA8;
+  --ipey-accent-text: #5B80E0;
+  --ipey-accent-hover: #19358F;
   /* Original fills consumed by the brand symbol. */
   --ipey-blue: #2563EB;
   --ipey-blue-hover: #3B82F6;
-  --ipey-text: #E8ECF4;
-  --ipey-muted: #8C98B0;
+  --ipey-text: #ECECEC;
+  --ipey-muted: #8E8E93;
   --ipey-font: Arial, Roboto, sans-serif;
   --ipey-heading-font: Georgia, "Noto Serif", serif;
   --ipey-radius-button: 8px;

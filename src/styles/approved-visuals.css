@@ -53,12 +53,9 @@
   font-weight: 700;
 }
 
-.hero-actions .button.secondary {
-  border-color: var(--color-border);
-  background: var(--color-surface);
-}
+.hero-actions .button.secondary { background: var(--color-raised); }
 
-.hero-actions .button.secondary:is(:hover,:active) { background: var(--color-raised); }
+.hero-actions .button.secondary:is(:hover,:active) { background: var(--color-border); }
 
 .platform-panels {
   --stride: calc(100% / 6);
