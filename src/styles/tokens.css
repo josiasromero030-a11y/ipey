@@ -9,6 +9,8 @@
  --color-subtle:var(--ipey-muted);
  --color-border:var(--ipey-border);
  --color-accent:var(--ipey-accent-text);
+ --color-navigation:var(--ipey-navigation-text);
+ --color-selection:var(--ipey-selection);
  --color-action:var(--ipey-accent);
  --color-divider-quiet:var(--color-raised);
  --color-border-hover:var(--ipey-border-hover);

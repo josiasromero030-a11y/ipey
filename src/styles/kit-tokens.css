@@ -8,7 +8,9 @@
   --ipey-border-hover: #38383C;
   --ipey-focus: #69696E;
   --ipey-accent: #2345AF;
-  --ipey-accent-text: #A9A9AE;
+  --ipey-accent-text: #7799F7;
+  --ipey-navigation-text: #9AACD9;
+  --ipey-selection: #A9A9AE;
   --ipey-accent-hover: #1D3B99;
   /* Original fills consumed by the brand symbol. */
   --ipey-blue: #2563EB;

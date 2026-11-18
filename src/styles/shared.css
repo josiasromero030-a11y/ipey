@@ -2,8 +2,8 @@
 .brand {display:inline-flex;align-items:center;gap:8px;white-space:nowrap;font-size:32px;line-height:1;font-weight:700;letter-spacing:-1.4px;color:white}
 .brand-symbol {width:31px;height:36px;flex-shrink:0}
 .primary-navigation {display:flex;align-items:stretch}
-.primary-navigation a {display:flex;align-items:center;justify-content:center;gap:10px;position:relative;color:var(--color-muted);font-size:14px;font-weight:600;min-height:48px;transition:color var(--transition),background var(--transition)}
-.primary-navigation a:is(:hover,:active) {color:var(--color-text)}
+.primary-navigation a {display:flex;align-items:center;justify-content:center;gap:10px;position:relative;color:var(--color-navigation);font-size:14px;font-weight:600;min-height:48px;transition:color var(--transition),background var(--transition)}
+.primary-navigation a:is(:hover,:active) {color:var(--color-accent)}
 .primary-navigation a.active {color:var(--color-accent);background:var(--color-raised)}
 .primary-navigation a.active:after {content:"";position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--color-accent)}
 .primary-navigation a.active svg {color:var(--color-accent)}
@@ -16,6 +16,7 @@
 .section-heading h2 {font-size:28px;line-height:1.15}
 .section-heading p {font-size:13px;margin-top:4px}
 .section-heading>a {display:inline-flex;align-items:center;justify-content:flex-end;gap:9px;color:var(--color-accent);font-size:13px;font-weight:600;min-height:44px;flex-shrink:0}
+.section-heading>a svg.lucide {color:inherit}
 .service-grid {display:grid;gap:12px}
 .service-card {min-width:0;background:var(--ipey-surface);border:1px solid transparent;border-radius:var(--radius-card);overflow:hidden}
 .artwork {position:relative;isolation:isolate;overflow:hidden}

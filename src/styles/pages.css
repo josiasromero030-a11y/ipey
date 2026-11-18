@@ -19,8 +19,8 @@
 .variants {display:grid;gap:12px}
 .variant {display:grid;grid-template-columns:20px minmax(0,1fr) auto;align-items:start;gap:12px;padding:17px;background:var(--color-surface);border:1px solid transparent;border-radius:var(--radius-card);cursor:pointer;transition:background var(--transition),border-color var(--transition)}
 .variant:is(:hover,:has(:focus-visible)) {border-color:var(--color-border-hover);background:var(--color-raised)}
-.variant.selected {border-color:var(--color-accent);background:var(--color-raised)}
-.variant input {accent-color:var(--color-accent);width:18px;height:18px;margin:2px 0 0;padding:0}
+.variant.selected {border-color:var(--color-selection);background:var(--color-raised)}
+.variant input {accent-color:var(--color-selection);width:18px;height:18px;margin:2px 0 0;padding:0}
 .variant strong {font-size:15px;line-height:1.35;display:block}
 .variant span,.variant small {display:block;font-size:12px;color:var(--color-muted);line-height:1.5;margin-top:5px}
 .variant ul {padding:0;list-style:none;font-size:12px;line-height:1.6;color:var(--color-muted);margin:9px 0}
