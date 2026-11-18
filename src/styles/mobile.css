@@ -4,12 +4,12 @@
 .header-mobile .brand {font-size:29px;gap:6px}
 .header-mobile .brand-symbol {width:29px;height:34px}
 .mobile-header-actions {display:flex;align-items:center;gap:7px}
-.mobile-header-actions .search-toggle {border:1px solid var(--color-border);background:var(--ipey-surface);width:44px}
+.mobile-header-actions .search-toggle {border:1px solid transparent;width:44px}
 .mobile-navigation-row {border-top:1px solid var(--color-border)}
 .header-mobile .primary-navigation {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:min(900px,100%);margin:auto;padding:0 16px;gap:4px}
 .header-mobile .primary-navigation a {min-height:48px;font-size:14px;gap:8px}
 .header-mobile .primary-navigation a.active:after {height:3px}
-.mobile-menu {position:absolute;right:16px;top:62px;display:grid;gap:2px;z-index:20;width:min(290px,calc(100% - 32px));padding:8px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-card);box-shadow:0 8px 24px #0003}
+.mobile-menu {position:absolute;right:16px;top:62px;display:grid;gap:2px;z-index:20;width:min(290px,calc(100% - 32px));padding:8px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-card)}
 .mobile-menu a {display:flex;align-items:center;min-height:46px;padding:10px 12px;font-size:14px}
 .mobile-layout .home-page {padding:16px 0 28px}
 .mobile-layout .streaming-section {margin-top:20px}

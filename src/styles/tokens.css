@@ -1,10 +1,3 @@
-@font-face {
- font-family:Inter;
- font-style:normal;
- font-weight:100 900;
- font-display:swap;
- src:url('/fonts/inter/inter-latin-wght-normal.woff2') format('woff2');
-}
 /* Aliases for application surfaces, states and typography. */
 :root {
  --color-background:var(--ipey-bg);
@@ -15,12 +8,14 @@
  --color-muted:var(--ipey-muted);
  --color-subtle:var(--ipey-muted);
  --color-border:var(--ipey-border);
- --color-accent:var(--ipey-accent);
+ --color-accent:var(--ipey-accent-text);
  --color-action:var(--ipey-accent);
- --color-focus:var(--ipey-accent-hover);
- --color-on-accent:#25160E;
- --shadow-surface:0 3px 10px #09060440;
- --shadow-lift:0 6px 15px #09060480;
+ --color-focus:var(--color-accent);
+ --color-on-accent:var(--color-text);
+ --color-icon-on-accent:#C8D0DA;
+ --color-art-overlay:color-mix(in srgb,var(--color-background) 24%,transparent);
+ --color-hero-overlay:color-mix(in srgb,var(--color-background) 62%,transparent);
+ --color-backdrop:color-mix(in srgb,var(--color-background) 85%,transparent);
  --radius-small:var(--ipey-radius-button);
  --radius-card:var(--ipey-radius-card);
  --radius-large:var(--ipey-radius-hero);

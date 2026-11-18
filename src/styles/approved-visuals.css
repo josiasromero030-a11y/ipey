@@ -7,7 +7,6 @@
   border: 1px solid transparent;
   border-radius: var(--radius-large);
   background: var(--color-surface);
-  box-shadow: var(--shadow-surface);
   display: flex;
   align-items: center;
   min-height: 294px;
@@ -16,11 +15,6 @@
 .hero-copy {
   width: 36%;
   padding: 25px 16px 25px clamp(22px, 3.3vw, 62px);
-}
-
-.hero-copy > p,
-.hero-copy h1 {
-  text-shadow: 0 1px 3px #120d0a, 0 2px 8px #120d0ac9;
 }
 
 .hero-copy .eyebrow {
@@ -60,11 +54,11 @@
 }
 
 .hero-actions .button.secondary {
-  border-color: #fff1df26;
-  background: #241b14eb;
+  border-color: var(--color-border);
+  background: var(--color-surface);
 }
 
-.hero-actions .button.secondary:hover { background: var(--color-raised); }
+.hero-actions .button.secondary:is(:hover,:active) { background: var(--color-raised); }
 
 .platform-panels {
   --stride: calc(100% / 6);
@@ -101,8 +95,7 @@
   position: absolute;
   z-index: 1;
   inset: 0;
-  background: linear-gradient(90deg, #17100dd9 0%, #17100d66 35%, transparent 60%),
-    linear-gradient(0deg, #17100d80, transparent 70%);
+  background: var(--color-hero-overlay);
 }
 
 .service-artwork {
@@ -114,11 +107,6 @@
 .service-artwork .visual-background {
   object-position: var(--focus);
   filter: saturate(.92);
-}
-
-.service-artwork .visual-shade {
-  background: linear-gradient(90deg, #17120e 2%, #17120ef2 23%, #17120e88 51%, #17120e24 86%),
-    linear-gradient(0deg, #17120e90, transparent 55%);
 }
 
 .service-artwork .service-wordmark,
@@ -155,10 +143,6 @@
 
 @media (max-width: 680px) {
   .mobile-layout .service-cover { aspect-ratio: 4 / 5; }
-
-  .service-artwork .visual-shade {
-    background: linear-gradient(0deg, #17120e 4%, #17120ee0 29%, #17120e55 58%, #17120e12 90%);
-  }
 
   .service-artwork .service-wordmark,
   .service-artwork .product-name-fallback {

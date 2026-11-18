@@ -1,27 +1,28 @@
 /* Ipey palette and surface tokens. */
 :root {
-  --ipey-bg: #171411;
-  --ipey-bg-secondary: #1D1814;
-  --ipey-surface: #241F1A;
-  --ipey-surface-raised: #302821;
-  --ipey-border: #493D33;
-  --ipey-accent: #F29A5D;
-  --ipey-accent-hover: #FFC092;
+  --ipey-bg: #0D1117;
+  --ipey-bg-secondary: #151B23;
+  --ipey-surface: #151B23;
+  --ipey-surface-raised: #1C232D;
+  --ipey-border: #242C37;
+  --ipey-accent: #4A6A94;
+  --ipey-accent-text: #91AAC8;
+  --ipey-accent-hover: #45658E;
   /* Original fills consumed by the brand symbol. */
   --ipey-blue: #2563EB;
   --ipey-blue-hover: #3B82F6;
-  --ipey-text: #F7EFE5;
-  --ipey-muted: #C4B6A8;
+  --ipey-text: #E6E8EB;
+  --ipey-muted: #8B95A1;
   --ipey-font: Arial, Roboto, sans-serif;
   --ipey-heading-font: Georgia, "Noto Serif", serif;
   --ipey-radius-button: 8px;
-  --ipey-radius-card: 12px;
-  --ipey-radius-hero: 20px;
+  --ipey-radius-card: 9px;
+  --ipey-radius-hero: 10px;
 }
 /* PRODUCT COVER: NEVER flatten the logo into the background. */
 .ipey-cover { position: relative; isolation: isolate; overflow: hidden; border-radius: var(--ipey-radius-card); background: var(--ipey-surface); }
 .ipey-cover__background { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-.ipey-cover__shade { position: absolute; inset: 0; z-index: 1; background: linear-gradient(90deg,rgb(18 13 10 / .32),transparent 70%); pointer-events: none; }
-.ipey-cover__logo { position: relative; z-index: 2; display: block; max-width: 76%; max-height: 58%; width: auto; height: auto; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,.3)); }
+.ipey-cover__shade { position: absolute; inset: 0; z-index: 1; background: var(--color-art-overlay); pointer-events: none; }
+.ipey-cover__logo { position: relative; z-index: 2; display: block; max-width: 76%; max-height: 58%; width: auto; height: auto; object-fit: contain; }
 .ipey-card__content { position: relative; z-index: 3; }
 @media (max-width: 767px) { .ipey-cover__logo { max-width: 82%; } }

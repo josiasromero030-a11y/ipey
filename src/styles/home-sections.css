@@ -11,7 +11,6 @@
   border: 1px solid transparent;
   border-radius: var(--radius-large);
   background: var(--ipey-bg-secondary);
-  box-shadow: var(--shadow-surface);
 }
 
 .hero-mobile {
@@ -128,10 +127,6 @@
 
 .hero-mobile .platform-panels { overflow: clip; }
 
-.hero-mobile .platform-panels::after {
-  background: linear-gradient(0deg, #17100df2, #17100dac 37%, #17100d38 69%, transparent);
-}
-
 .hero-mobile .hero-copy {
   width: 100%;
   padding: clamp(10px, 3vw, 24px);
@@ -186,8 +181,7 @@
 }
 
 .home-offer .visual-shade {
-  background: linear-gradient(90deg, #17100deb, #17100d66 60%, transparent),
-    linear-gradient(0deg, #17100dd9, transparent 80%);
+  background: var(--color-hero-overlay);
 }
 
 .home-offer-copy {
@@ -240,11 +234,6 @@
   aspect-ratio: 16 / 9;
 }
 
-.mobile-layout :is(.home-service-row, .trend-strip) .service-artwork .visual-shade {
-  background: linear-gradient(90deg, #17120e 2%, #17120ef2 23%, #17120e88 51%, #17120e24 86%),
-    linear-gradient(0deg, #17120e90, transparent 55%);
-}
-
 .mobile-layout :is(.home-service-row, .trend-strip) .service-artwork .service-wordmark,
 .mobile-layout :is(.home-service-row, .trend-strip) .service-artwork .product-name-fallback {
   left: 8%;
@@ -265,16 +254,22 @@
 
 .home-page .trend-card { background: var(--color-surface); }
 
+.home-page .service-card-compact:active { background: var(--color-border); }
+
+@media (hover: hover) and (pointer: fine) {
+  .home-page .service-card-compact:hover { background: var(--color-border); }
+}
+
 .compact-service-link {
   display: block;
-  border-radius: 6px;
+  border-radius: var(--radius-small);
 }
 
 .home-page .service-card-compact .service-cover {
   height: auto;
   aspect-ratio: 16 / 9;
   border: 0;
-  border-radius: 7px;
+  border-radius: var(--radius-small);
 }
 
 .compact-service-details {
