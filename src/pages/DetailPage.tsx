@@ -1,5 +1,5 @@
 import {useRef,useState,type FormEvent} from 'react';
-import {ArrowRight,Check,ChevronRight,ShieldCheck} from 'lucide-react';
+import {Check,ChevronRight,ClipboardCheck,ShieldCheck} from 'lucide-react';
 import type {Product} from '../catalog';
 import {money,orderMessage,purchasable,validPlayerId} from '../commerce';
 import {ServiceArtwork} from '../components/shared/ServiceArtwork';
@@ -30,7 +30,7 @@ export function DetailPage({product:p,mobile}:{product:Product;mobile:boolean}){
     {p.category==='gaming'&&<label className="player-label">ID de jugador<input ref={playerInput} aria-label="ID de jugador" inputMode="numeric" autoComplete="off" maxLength={15} placeholder="Introduce tu ID de Free Fire" value={player} onChange={e=>setPlayer(e.target.value)} aria-invalid={Boolean(error)&&!validPlayerId(player)} aria-describedby={error?'player-help player-error':'player-help'}/><small id="player-help">De 6 a 15 dígitos. Comprueba el ID dentro del juego; no verificamos la cuenta con el proveedor.</small></label>}
     {mobile?<details className="conditions"><summary>Condiciones del servicio</summary><p>{p.conditions}</p></details>:<div className="conditions"><h2>Condiciones del servicio</h2><p>{p.conditions}</p></div>}
     {error&&<p role="alert" id="player-error" className="error">{error}</p>}
-    {v&&purchasable(p,v)?<button className="button full review-button" type="submit">Revisar solicitud<ArrowRight size={18}/></button>:<p className="notice">La contratación se habilitará cuando esta opción tenga precio y disponibilidad confirmados.</p>}
+    {v&&purchasable(p,v)?<button className="button full review-button" type="submit">Revisar solicitud<ClipboardCheck size={18} aria-hidden="true"/></button>:<p className="notice">La contratación se habilitará cuando esta opción tenga precio y disponibilidad confirmados.</p>}
     <p className="checkout-note">La solicitud no confirma una compra ni realiza un pago.</p>
    </form>
   </div></div>

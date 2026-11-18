@@ -1,5 +1,5 @@
 import {useRef,useState} from 'react';
-import {Search,SlidersHorizontal,X} from 'lucide-react';
+import {Filter,Search,X} from 'lucide-react';
 import {business,type Product} from '../../catalog';
 
 export type CatalogFilterValues={selected:string;duration:string;availability:string;max:string};
@@ -21,7 +21,7 @@ export function MobileCatalogTools({products,gaming,query,onQuery,sort,onSort,fi
  return <div className="mobile-catalog-tools">
   <label className="mobile-catalog-search"><Search size={19} aria-hidden="true"/><input type="search" aria-label="Buscar servicios" placeholder={gaming?'Buscar un juego':'Buscar un servicio'} value={query} onChange={e=>onQuery(e.target.value)}/></label>
   <div className="mobile-catalog-toolbar">
-   <button className="mobile-filter-trigger" onClick={open} aria-haspopup="dialog" aria-expanded={expanded} aria-controls="mobile-filter-dialog" aria-label={chips.length?`Filtros (${chips.length} activos)`:'Filtros'}><SlidersHorizontal size={18}/>Filtros{chips.length>0&&<span>{chips.length}</span>}</button>
+   <button className="mobile-filter-trigger" onClick={open} aria-haspopup="dialog" aria-expanded={expanded} aria-controls="mobile-filter-dialog" aria-label={chips.length?`Filtros (${chips.length} activos)`:'Filtros'}><Filter size={18} aria-hidden="true"/>Filtros{chips.length>0&&<span>{chips.length}</span>}</button>
    <label className="mobile-sort"><span>Ordenar</span><select aria-label="Ordenar" value={sort} onChange={e=>onSort(e.target.value)}><option value="name">Nombre A–Z</option><option value="asc">Menor precio</option><option value="desc">Mayor precio</option></select></label>
   </div>
   {chips.length>0&&<div className="mobile-filter-chips" aria-label="Filtros activos">{chips.map(({key,text})=><button key={key} onClick={()=>onChange({...filters,[key]:''})} aria-label={`Quitar filtro: ${text}`}>{text}<X size={14}/></button>)}</div>}

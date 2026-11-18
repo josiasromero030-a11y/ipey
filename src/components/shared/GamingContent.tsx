@@ -1,4 +1,4 @@
-import { Gem, MoveRight } from 'lucide-react';
+import { ArrowRight, Gem, Package } from 'lucide-react';
 import type { Product } from '../../catalog';
 import { ServiceArtwork } from './ServiceArtwork';
 
@@ -28,9 +28,9 @@ export function GamingCopy({ product, desktop = false }: { product: Product; des
 export function GamingAction({ product }: { product: Product }) {
   return (
     <a className="button gaming-action" href={`#/producto/${product.id}`} aria-label={`Ver paquetes de ${product.name}`}>
-      <Gem className="gaming-action-icon" size={18} aria-hidden="true" />
+      <Package className="gaming-action-icon" size={18} aria-hidden="true" />
       Ver paquetes
-      <MoveRight size={20} aria-hidden="true" />
+      <ArrowRight size={20} aria-hidden="true" />
     </a>
   );
 }

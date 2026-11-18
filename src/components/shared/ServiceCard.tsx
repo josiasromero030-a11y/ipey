@@ -1,4 +1,4 @@
-import { ArrowRight } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
 import type { Product } from '../../catalog';
 import { money, promotion, purchasable } from '../../commerce';
 import { ServiceArtwork } from './ServiceArtwork';
@@ -52,7 +52,7 @@ export function ServiceCard({
         <span className={lowestPrice === null ? 'service-price pending' : 'service-price'}>
           {lowestPrice !== null && <small>Desde</small>}{price}
         </span>
-        <a className="card-action" href={href} aria-label={action}><ArrowRight size={21} /></a>
+        <a className="card-action" href={href} aria-label={action}><ChevronRight size={21} aria-hidden="true" /></a>
       </div>
     </article>
   );
