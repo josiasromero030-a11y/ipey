@@ -130,7 +130,6 @@
 .hero-mobile .hero-copy {
   width: 100%;
   padding: clamp(10px, 3vw, 24px);
-  padding-block-end: calc(clamp(10px, 3vw, 24px) + clamp(37px, 9.5vw, 50px));
 }
 
 .hero-mobile .hero-copy h1 {
@@ -193,7 +192,6 @@
 
 @media (min-width: 700px) {
   .hero-mobile { aspect-ratio: 3 / 1; max-height: none; }
-  .hero-mobile .hero-copy { padding-block-end: calc(clamp(10px, 3vw, 24px) + 35px); }
   .home-offer { min-height: 240px; }
 }
 
@@ -217,6 +215,11 @@
   }
 
   .home-scroll-row > :only-child { flex-basis: 100%; }
+}
+
+.home-page :is(.trends-section, .streaming-section) .service-artwork .visual-shade {
+  background: linear-gradient(90deg, #080910 2%, #080910f2 23%, #08091088 51%, #08091024 86%),
+    linear-gradient(0deg, #08091090, transparent 55%);
 }
 
 .mobile-layout .home-service-row .service-cover {
