@@ -12,7 +12,6 @@
  --color-action:var(--ipey-accent);
  --color-focus:var(--color-accent);
  --color-on-accent:var(--color-text);
- --color-icon-on-accent:#C8D0DA;
  --color-art-overlay:color-mix(in srgb,var(--color-background) 24%,transparent);
  --color-hero-overlay:color-mix(in srgb,var(--color-background) 62%,transparent);
  --color-backdrop:color-mix(in srgb,var(--color-background) 85%,transparent);

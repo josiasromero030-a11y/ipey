@@ -28,7 +28,6 @@ main:focus {outline:none}
 .eyebrow {font-size:10px;font-weight:600;letter-spacing:2.4px;color:var(--color-muted)}
 .button {display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:10px 20px;background:var(--color-action);border:1px solid transparent;border-radius:var(--radius-small);color:var(--color-on-accent);font-size:13px;font-weight:700;line-height:1.3;text-align:center;transition:background var(--transition),color var(--transition),border-color var(--transition)}
 .button:is(:hover,:active) {background:var(--ipey-accent-hover);color:var(--color-on-accent)}
-.button:not(.secondary,:disabled) svg.lucide {color:var(--color-icon-on-accent)}
 .button.secondary {background:var(--ipey-surface);border-color:transparent;color:var(--color-text)}
 .button.secondary:is(:hover,:active) {background:var(--ipey-surface-raised)}
 .button:disabled,.button:disabled:is(:hover,:active) {background:var(--color-raised);color:var(--color-muted)}

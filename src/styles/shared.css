@@ -36,7 +36,6 @@
 .offer-badge {position:absolute;z-index:3;left:9px;bottom:8px;background:var(--color-raised);color:var(--color-text);font-size:10px;padding:4px 7px;border-radius:var(--radius-small)}
 .hero-copy {position:relative;z-index:2;min-width:0}
 .hero-copy h1 {font-weight:700;line-height:1.05}
-.hero-copy h1 span {color:var(--color-accent)}
 .hero-description {color:var(--color-muted);line-height:1.35}
 .hero-actions {display:flex;gap:16px}
 .gaming-banner {background:var(--color-surface);border:1px solid transparent;border-radius:var(--radius-large);overflow:hidden}
