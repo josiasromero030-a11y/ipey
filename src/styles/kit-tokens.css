@@ -7,18 +7,17 @@
   --ipey-border: #252528;
   --ipey-border-hover: #38383C;
   --ipey-focus: #69696E;
-  --ipey-accent: #2345AF;
-  --ipey-accent-text: #609DFF;
+  --ipey-accent: #265CEB;
+  --ipey-accent-text: #4987FF;
   --ipey-navigation-text: #9AACD9;
   --ipey-selection: #A9A9AE;
-  --ipey-accent-hover: #1D3B99;
+  --ipey-accent-hover: #214BC4;
   /* Original fills consumed by the brand symbol. */
   --ipey-blue: #2563EB;
   --ipey-blue-hover: #3B82F6;
   --ipey-text: #ECECEC;
   --ipey-muted: #8E8E93;
-  --ipey-font: Arial, Roboto, sans-serif;
-  --ipey-heading-font: Georgia, "Noto Serif", serif;
+  --ipey-font: Inter, ui-sans-serif, system-ui, sans-serif;
   --ipey-radius-button: 8px;
   --ipey-radius-card: 9px;
   --ipey-radius-hero: 10px;

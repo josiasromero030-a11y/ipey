@@ -6,7 +6,7 @@
 .mobile-header-actions {display:flex;align-items:center;gap:7px}
 .mobile-header-actions .search-toggle {border:1px solid transparent;width:44px}
 .mobile-navigation-row {border-top:1px solid var(--color-divider-quiet)}
-.header-mobile .primary-navigation {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:min(900px,100%);margin:auto;padding:0 16px;gap:4px}
+.header-mobile .primary-navigation {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));width:100%}
 .header-mobile .primary-navigation a {min-height:48px;font-size:14px;gap:8px}
 .mobile-menu {position:absolute;right:16px;top:62px;display:grid;gap:2px;z-index:20;width:min(290px,calc(100% - 32px));padding:8px;background:var(--color-surface);border:1px solid transparent;border-radius:var(--radius-card)}
 .mobile-menu a {display:flex;align-items:center;min-height:46px;padding:10px 12px;font-size:14px}
