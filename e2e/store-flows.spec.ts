@@ -1,14 +1,14 @@
 import {test,expect} from '@playwright/test';
 import {demoCatalog,imagesReady} from './helpers';
 
-test('la navegación principal y las dos acciones del hero llevan a destinos reales', async ({ page }) => {
+test('el hero destaca el texto y la navegación lleva a Streaming y Juegos', async ({ page }) => {
+  await page.goto('/');
+  const hero = page.locator('.hero-desktop,.hero-mobile');
+  await expect(hero.getByRole('heading', { level: 1 }).locator('.hero-accent')).toHaveText('digital');
+  await expect(hero.getByRole('link').or(hero.getByRole('button'))).toHaveCount(0);
+
   for (const [name, count] of [['Streaming', 5], ['Juegos', 1]] as const) {
-    await page.goto('/');
     await page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name, exact: true }).click();
-    await expect(page.locator('.product-card')).toHaveCount(count);
-    await page.goto('/');
-    const hero = page.locator('.hero-desktop,.hero-mobile');
-    await hero.getByRole('link', { name: name === 'Streaming' ? /Streaming|Explorar servicios/ : /Juegos|Ver recargas/ }).click();
     await expect(page.locator('.product-card')).toHaveCount(count);
   }
 });

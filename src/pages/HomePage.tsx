@@ -19,7 +19,7 @@ export function HomePage({ store, presentation }: { store: Store; presentation: 
 
   return (
     <div className="home-page">
-      {desktop ? <HeroDesktop store={store} /> : <HeroMobile store={store} />}
+      {desktop ? <HeroDesktop /> : <HeroMobile />}
       <Trends />
       <section className="streaming-section" aria-labelledby="streaming-heading">
         <div className="section-heading">

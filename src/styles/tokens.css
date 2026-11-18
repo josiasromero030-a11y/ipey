@@ -24,7 +24,8 @@
  --color-focus:var(--ipey-focus);
  --color-on-accent:var(--color-text);
  --color-art-overlay:color-mix(in srgb,var(--color-background) 24%,transparent);
- --color-hero-overlay:color-mix(in srgb,var(--color-background) 62%,transparent);
+ --color-hero-copy-overlay:color-mix(in srgb,var(--color-background) 88%,transparent);
+ --color-offer-overlay:color-mix(in srgb,var(--color-background) 62%,transparent);
  --color-backdrop:color-mix(in srgb,var(--color-background) 85%,transparent);
  --radius-small:var(--ipey-radius-button);
  --radius-card:var(--ipey-radius-card);

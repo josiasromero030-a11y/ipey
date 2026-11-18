@@ -8,13 +8,15 @@
   border-radius: var(--radius-large);
   background: var(--color-surface);
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   min-height: 294px;
 }
 
 .hero-copy {
   width: 36%;
-  padding: 25px 16px 25px clamp(22px, 3.3vw, 62px);
+  padding: 20px 18px 24px clamp(22px, 3.3vw, 62px);
+  border-start-end-radius: var(--radius-card);
+  background: var(--color-hero-copy-overlay);
 }
 
 .hero-copy .eyebrow {
@@ -31,31 +33,15 @@
   letter-spacing: -.045em;
 }
 
+.hero-accent { color: var(--color-accent); }
+
 .hero-copy .hero-description {
   max-width: 520px;
-  margin: 13px 0 17px;
+  margin-top: 9px;
   color: var(--color-text);
   font-size: clamp(.93rem, 1.2vw, 1.12rem);
   line-height: 1.4;
 }
-
-.hero-actions {
-  flex-wrap: wrap;
-  gap: clamp(8px, 1.1vw, 20px);
-}
-
-.hero-actions .button {
-  min-height: 44px;
-  padding: 9px clamp(12px, 1.55vw, 29px);
-  border-color: transparent;
-  border-radius: var(--radius-small);
-  font-size: .85rem;
-  font-weight: 700;
-}
-
-.hero-actions .button.secondary { background: var(--color-raised); }
-
-.hero-actions .button.secondary:is(:hover,:active) { background: var(--color-border); }
 
 .platform-panels {
   --stride: calc(100% / 6);
@@ -92,7 +78,7 @@
   position: absolute;
   z-index: 1;
   inset: 0;
-  background: var(--color-hero-overlay);
+  background: var(--color-art-overlay);
 }
 
 .service-artwork {

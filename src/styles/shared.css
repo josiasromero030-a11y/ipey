@@ -40,7 +40,6 @@
 .hero-copy {position:relative;z-index:2;min-width:0}
 .hero-copy h1 {font-weight:700;line-height:1.05}
 .hero-description {color:var(--color-muted);line-height:1.35}
-.hero-actions {display:flex;gap:16px}
 .gaming-banner {background:var(--color-surface);border:1px solid transparent;border-radius:var(--radius-large);overflow:hidden}
 .gaming-artwork {display:flex;align-items:center;justify-content:flex-start;overflow:hidden;padding:24px 40px;min-width:0}
 .gaming-artwork>.visual-background {object-position:72% 30%}
