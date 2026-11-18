@@ -33,7 +33,7 @@
 .trend-track {
   display: flex;
   width: max-content;
-  animation: trend-loop 56s linear infinite;
+  animation: trend-loop 68s linear infinite;
 }
 
 .trend-cycle {
@@ -96,11 +96,11 @@
 
 @media (min-width: 1024px) {
   .trend-strip { --trend-width: calc((100cqw - 2 * var(--trend-gap)) / 3); }
-  .trend-track { animation-duration: 90s; }
+  .trend-track { animation-duration: 108s; }
 }
 
 @media (min-width: 1024px) and (prefers-reduced-motion: reduce) {
-  .trend-track { animation-duration: 120s; }
+  .trend-track { animation-duration: 144s; }
 }
 
 @media (max-width: 699px) {
@@ -225,6 +225,9 @@
     scroll-snap-type: x mandatory;
     padding-block: 4px 8px;
   }
+
+  .streaming-section .home-service-row { scrollbar-width: none; }
+  .streaming-section .home-service-row::-webkit-scrollbar { display: none; }
 
   .home-scroll-row > * {
     flex: 0 0 calc((100% - 13px) * 2 / 3);
