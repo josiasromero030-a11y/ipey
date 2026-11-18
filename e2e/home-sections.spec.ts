@@ -76,6 +76,29 @@ for (const width of [1440, 390]) {
   });
 }
 
+test('la fila de Streaming se desplaza con el teclado en escritorio', async ({ page }) => {
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await page.goto('/');
+  const streaming = page.getByRole('region', { name: 'Servicios de streaming' });
+  const row = streaming.getByRole('group', { name: 'Tarjetas de streaming' });
+  const cards = row.locator('.service-card');
+  await expect(cards).toHaveCount(5);
+  const geometry = await row.evaluate(el => {
+    const bounds = el.getBoundingClientRect();
+    const fourth = el.children[3].getBoundingClientRect();
+    const fifth = el.children[4].getBoundingClientRect();
+    return { fourthFits: fourth.right <= bounds.right, fifthIsPartial: fifth.left < bounds.right && fifth.right > bounds.right };
+  });
+  expect(geometry).toEqual({ fourthFits: true, fifthIsPartial: true });
+
+  await row.focus();
+  await expect(row).toBeFocused();
+  await row.press('ArrowRight');
+  await expect.poll(() => row.evaluate(el => el.scrollLeft)).toBeGreaterThan(0);
+  await row.getByRole('link', { name: 'Ver planes de Spotify' }).click();
+  await expect(page.getByRole('heading', { level: 1, name: 'Spotify' })).toBeVisible();
+});
+
 test('movimiento reducido y fila táctil de Streaming', async ({ browser }) => {
   const page = await browser.newPage({
     viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true, reducedMotion: 'reduce',

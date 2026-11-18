@@ -29,7 +29,12 @@ export function HomePage({ store, presentation }: { store: Store; presentation: 
           </div>
           <a href="#/streaming" onClick={store.reset}>Ver todos<ArrowRight size={19} /></a>
         </div>
-        <div className="service-grid home-scroll-row home-service-row">
+        <div
+          className="service-grid home-scroll-row home-service-row"
+          role={desktop ? 'group' : undefined}
+          aria-label={desktop ? 'Tarjetas de streaming' : undefined}
+          tabIndex={desktop ? 0 : undefined}
+        >
           {streaming.map(product => <ServiceCard key={product.id} product={product} compact />)}
         </div>
       </section>

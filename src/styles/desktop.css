@@ -13,6 +13,26 @@
 .desktop-layout .home-page {padding:14px 0 16px}
 .desktop-layout .section-heading h2 {font-size:28px}
 .desktop-layout .service-grid {grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
+.desktop-layout .streaming-section .home-service-row {
+  --streaming-gap: 12px;
+  display: flex;
+  gap: var(--streaming-gap);
+  min-width: 0;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-focus) transparent;
+  padding-block: 4px 8px;
+}
+.desktop-layout .streaming-section .home-service-row > .service-card {
+  flex: 0 0 calc((100% - 4 * var(--streaming-gap)) / 4.5);
+  scroll-snap-align: start;
+}
+.desktop-layout .streaming-section .home-service-row:focus-visible {
+  outline: 1px solid var(--color-focus);
+  outline-offset: 3px;
+}
 .desktop-layout .service-cover {height:90px}
 .desktop-layout .service-card-body {height:58px;padding:8px 11px;grid-template-columns:minmax(0,1fr) 50px 34px;gap:6px}
 .desktop-layout .service-price {padding:4px 5px;border-radius:var(--radius-small);background:var(--ipey-surface)}
