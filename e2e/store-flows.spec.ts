@@ -13,6 +13,7 @@ test('el hero destaca el texto y la navegación lleva a Streaming y Juegos', asy
   for (const [name, count] of [['Streaming', 5], ['Juegos', 1]] as const) {
     await page.getByRole('navigation', { name: 'Principal' }).getByRole('link', { name, exact: true }).click();
     await expect(page.locator('.product-card')).toHaveCount(count);
+    await expect(page.locator('.catalog-page .breadcrumb')).toHaveCount(0);
   }
 });
 
@@ -38,7 +39,7 @@ test('catálogo único y enlaces reales a los seis productos',async({page})=>{
  await expect(page.getByRole('radio')).toHaveCount(5);
 });
 
-test('búsqueda, disponibilidad y limpieza conservan las reglas del catálogo',async({page},info)=>{
+test('búsqueda, disponibilidad y limpieza conservan las reglas del catálogo',async({page})=>{
  await page.goto('/#/streaming');
  await page.getByRole('searchbox',{name:'Buscar servicios',exact:true}).fill('Spotify');
  await expect(page.locator('.product-card')).toHaveCount(1);
@@ -48,9 +49,9 @@ test('búsqueda, disponibilidad y limpieza conservan las reglas del catálogo',a
  await expect(page.getByRole('button',{name:'Revisar solicitud'})).toHaveCount(0);
  await expect(page.locator('a[href*="wa.me"]')).toHaveCount(0);
  await page.getByRole('navigation',{name:'Principal',exact:true}).getByRole('link',{name:'Streaming',exact:true}).click();
- if(info.project.name!=='desktop')await page.getByRole('button',{name:'Filtros',exact:true}).click();
+ await page.getByRole('search',{name:'Buscar en esta sección'}).getByRole('button',{name:'Filtros',exact:true}).click();
  await page.getByRole('combobox',{name:'Disponibilidad',exact:true}).selectOption('yes');
- if(info.project.name!=='desktop')await page.getByRole('button',{name:'Aplicar filtros',exact:true}).click();
+ await page.getByRole('button',{name:'Aplicar filtros',exact:true}).click();
  await expect(page.getByRole('heading',{name:'No encontramos resultados',exact:true})).toBeVisible();
  await page.getByRole('button',{name:'Mostrar todo',exact:true}).click();
  await expect(page.locator('.product-card')).toHaveCount(5);

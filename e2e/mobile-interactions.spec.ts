@@ -31,7 +31,13 @@ test('filtros: borrador, cancelar, aplicar, etiquetas y limpieza',async({page})=
  await page.getByRole('button',{name:'Limpiar',exact:true}).click();
  await page.getByRole('button',{name:'Aplicar filtros',exact:true}).click();
  await expect(page.getByRole('button',{name:/Quitar filtro:/})).toHaveCount(0);
+ await page.getByRole('button',{name:'Filtros',exact:true}).click();
  await page.getByRole('combobox',{name:'Ordenar',exact:true}).selectOption('desc');
+ await page.getByRole('button',{name:'Aplicar filtros',exact:true}).click();
+ await page.getByRole('button',{name:'Filtros',exact:true}).click();
+ await expect(page.getByRole('combobox',{name:'Ordenar',exact:true})).toHaveValue('desc');
+ await page.keyboard.press('Escape');
+ await expect(page.getByRole('dialog',{name:'Filtros',exact:true})).not.toBeVisible();
  await page.getByRole('searchbox',{name:'Buscar servicios',exact:true}).fill('Spotify');
  await expect(page.locator('.product-card h3')).toHaveText('Spotify');
 });

@@ -3,7 +3,7 @@ import {catalog,type Product} from '../catalog';
 import {purchasable} from '../commerce';
 
 export type Filters={selected:string;duration:string;availability:string;max:string};
-const emptyFilters:Filters={selected:'',duration:'',availability:'',max:''};
+export const emptyFilters:Filters={selected:'',duration:'',availability:'',max:''};
 
 export function useStore(){
  const [route,setRoute]=useState(location.hash.slice(1)||'/');
