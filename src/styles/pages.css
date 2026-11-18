@@ -74,6 +74,9 @@
  .catalog-filter-trigger {padding-inline:9px}
 }
 @media(max-width:1023px) {
+ .catalog-page[data-category="streaming"] .service-cover .visual-shade {
+  background:linear-gradient(to top,rgb(0 0 0 / .92),rgb(0 0 0 / .66) 30%,rgb(0 0 0 / .18) 62%,transparent 88%);
+ }
  .catalog-page,.detail-page,.information-page {padding:24px 0 32px}
  .catalog-page h1,.detail-page h1,.information-page h1 {font-size:30px}
  .lead {font-size:14px}
