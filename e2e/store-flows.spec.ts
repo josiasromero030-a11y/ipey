@@ -4,7 +4,10 @@ import {demoCatalog,imagesReady} from './helpers';
 test('el hero destaca el texto y la navegación lleva a Streaming y Juegos', async ({ page }) => {
   await page.goto('/');
   const hero = page.locator('.hero-desktop,.hero-mobile');
-  await expect(hero.getByRole('heading', { level: 1 }).locator('.hero-accent')).toHaveText('digital');
+  const title = hero.getByRole('heading', { level: 1, name: 'Entretenimiento digital, simple y rápido' });
+  await expect(title.locator('.hero-accent')).toHaveText('digital');
+  await expect(hero.locator('.hero-description')).toHaveText('Explora tus plataformas de streaming favoritas y recargas de juegos en un solo lugar.');
+  await expect(hero.locator('.eyebrow')).toHaveCount(0);
   await expect(hero.getByRole('link').or(hero.getByRole('button'))).toHaveCount(0);
 
   for (const [name, count] of [['Streaming', 5], ['Juegos', 1]] as const) {
