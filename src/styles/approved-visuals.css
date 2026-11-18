@@ -8,15 +8,14 @@
   border-radius: var(--radius-large);
   background: var(--color-surface);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   min-height: 294px;
 }
 
 .hero-copy {
   width: 36%;
-  padding: 16px 18px 20px clamp(22px, 3.3vw, 62px);
-  border-start-end-radius: var(--radius-card);
-  background: var(--color-hero-copy-overlay);
+  padding: 25px 16px 71px clamp(22px, 3.3vw, 62px);
+  text-shadow: 0 1px 3px var(--color-background);
 }
 
 .hero-copy h1 {
@@ -71,7 +70,7 @@
   position: absolute;
   z-index: 1;
   inset: 0;
-  background: var(--color-art-overlay);
+  background: var(--color-hero-image-overlay);
 }
 
 .service-artwork {

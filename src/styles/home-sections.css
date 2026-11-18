@@ -120,6 +120,7 @@
 }
 
 .hero-mobile {
+  align-items: flex-end;
   overflow: clip;
   min-height: 0;
 }
@@ -129,7 +130,7 @@
 .hero-mobile .hero-copy {
   width: 100%;
   padding: clamp(10px, 3vw, 24px);
-  border-start-end-radius: 0;
+  padding-block-end: calc(clamp(10px, 3vw, 24px) + clamp(37px, 9.5vw, 50px));
 }
 
 .hero-mobile .hero-copy h1 {
@@ -192,6 +193,7 @@
 
 @media (min-width: 700px) {
   .hero-mobile { aspect-ratio: 3 / 1; max-height: none; }
+  .hero-mobile .hero-copy { padding-block-end: calc(clamp(10px, 3vw, 24px) + 35px); }
   .home-offer { min-height: 240px; }
 }
 
