@@ -5,19 +5,22 @@
  font-display:swap;
  src:url('/fonts/inter/inter-latin-wght-normal.woff2') format('woff2');
 }
-/* App aliases resolve to the unmodified v3 kit; palette has one source of truth. */
+/* Aliases for application surfaces, states and typography. */
 :root {
  --color-background:var(--ipey-bg);
  --color-surface:var(--ipey-surface);
- --color-card-neutral:#23262c;
+ --color-card-neutral:var(--ipey-surface-raised);
  --color-raised:var(--ipey-surface-raised);
  --color-text:var(--ipey-text);
  --color-muted:var(--ipey-muted);
  --color-subtle:var(--ipey-muted);
  --color-border:var(--ipey-border);
- --color-accent:var(--ipey-blue);
- --color-action:var(--ipey-blue);
- --color-focus:var(--ipey-blue-hover);
+ --color-accent:var(--ipey-accent);
+ --color-action:var(--ipey-accent);
+ --color-focus:var(--ipey-accent-hover);
+ --color-on-accent:#25160E;
+ --shadow-surface:0 3px 10px #09060440;
+ --shadow-lift:0 6px 15px #09060480;
  --radius-small:var(--ipey-radius-button);
  --radius-card:var(--ipey-radius-card);
  --radius-large:var(--ipey-radius-hero);
@@ -29,7 +32,8 @@
  --space-6:32px;
  --space-7:48px;
  --content-width:1468px;
- --transition:160ms ease;
+ --transition:180ms ease;
+ color-scheme:dark;
  font-family:var(--ipey-font);
  font-size:14px;
  font-synthesis:none;

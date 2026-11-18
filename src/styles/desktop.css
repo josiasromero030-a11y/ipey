@@ -8,7 +8,7 @@
 .header-desktop .primary-navigation a {padding-inline:9px;font-size:14px}
 .desktop-search {flex:1;max-width:450px;min-width:150px;margin-inline:auto;height:35px}
 .desktop-search input {font-size:12px}
-.whatsapp-contact {display:flex;align-items:center;gap:8px;border:1px solid var(--ipey-whatsapp);border-radius:22px;min-height:36px;padding:5px 14px;font-size:13px;font-weight:600;white-space:nowrap}
+.whatsapp-contact {display:flex;align-items:center;gap:8px;border:1px solid var(--color-border);border-radius:22px;min-height:36px;padding:5px 14px;font-size:13px;font-weight:600;white-space:nowrap}
 .contact-info {display:flex;align-items:center;gap:10px;font-size:13px;white-space:nowrap;padding-left:22px;border-left:1px solid var(--color-border);min-height:24px}
 .desktop-layout .home-page {padding:14px 0 16px}
 .desktop-layout .section-heading h2 {font-size:28px}
@@ -52,7 +52,7 @@
  .desktop-layout .card-action {grid-column:2;grid-row:1/3;width:30px;min-height:34px}
  .gaming-banner-desktop {grid-template-columns:42% minmax(0,1fr) auto;gap:16px;padding-right:16px}
  .gaming-banner-desktop .gaming-copy h3 {font-size:21px}
- .gaming-banner-desktop .gaming-copy p {font-size:12px}
+ .gaming-banner-desktop .gaming-copy p {font-size:12px;letter-spacing:.025em}
  .gaming-banner-desktop .gaming-action {font-size:11px;padding:10px 12px;gap:7px}
  .gaming-facts {gap:6px}.gaming-facts>span {font-size:10px;padding:4px 8px}
  .desktop-layout .process-item {gap:12px;padding:0 12px}

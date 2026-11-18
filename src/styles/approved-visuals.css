@@ -4,9 +4,10 @@
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  border: 1px solid #2c3747;
-  border-radius: 20px;
-  background: #0c1623;
+  border: 1px solid transparent;
+  border-radius: var(--radius-large);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-surface);
   display: flex;
   align-items: center;
   min-height: 294px;
@@ -19,28 +20,27 @@
 
 .hero-copy > p,
 .hero-copy h1 {
-  text-shadow: 0 1px 3px #05080e, 0 2px 8px #05080ec9;
+  text-shadow: 0 1px 3px #120d0a, 0 2px 8px #120d0ac9;
 }
 
 .hero-copy .eyebrow {
   margin: 0 0 12px;
-  color: #c8d6e8;
+  color: var(--color-muted);
   font-size: .73rem;
   font-weight: 750;
   letter-spacing: .20em;
 }
 
 .hero-copy h1 {
-  font-size: clamp(1.65rem, 2.45vw, 2.65rem);
+  font-size: clamp(1.65rem, 2.28vw, 2.5rem);
+  line-height: clamp(1.7325rem, 2.5725vw, 2.7825rem);
   letter-spacing: -.045em;
 }
-
-.hero-copy h1 span { color: #3978f3; }
 
 .hero-copy .hero-description {
   max-width: 520px;
   margin: 13px 0 17px;
-  color: #edf3fb;
+  color: var(--color-text);
   font-size: clamp(.93rem, 1.2vw, 1.12rem);
   line-height: 1.4;
 }
@@ -53,20 +53,18 @@
 .hero-actions .button {
   min-height: 44px;
   padding: 9px clamp(12px, 1.55vw, 29px);
-  border-color: #3978f3;
-  border-radius: 10px;
-  background: #174cbde6;
-  color: white;
+  border-color: transparent;
+  border-radius: var(--radius-small);
   font-size: .85rem;
   font-weight: 700;
 }
 
 .hero-actions .button.secondary {
-  border-color: #324057;
-  background: #101a2abf;
+  border-color: #fff1df26;
+  background: #241b14eb;
 }
 
-.hero-actions .button:hover { background: #174cbd; }
+.hero-actions .button.secondary:hover { background: var(--color-raised); }
 
 .platform-panels {
   --stride: calc(100% / 6);
@@ -103,7 +101,8 @@
   position: absolute;
   z-index: 1;
   inset: 0;
-  background: linear-gradient(0deg, #101c2b59 0%, #18314a14 38%, #15263b0d 100%);
+  background: linear-gradient(90deg, #17100dd9 0%, #17100d66 35%, transparent 60%),
+    linear-gradient(0deg, #17100d80, transparent 70%);
 }
 
 .service-artwork {
@@ -118,8 +117,8 @@
 }
 
 .service-artwork .visual-shade {
-  background: linear-gradient(90deg, #080910 2%, #080910f2 23%, #08091088 51%, #08091024 86%),
-    linear-gradient(0deg, #08091090, transparent 55%);
+  background: linear-gradient(90deg, #17120e 2%, #17120ef2 23%, #17120e88 51%, #17120e24 86%),
+    linear-gradient(0deg, #17120e90, transparent 55%);
 }
 
 .service-artwork .service-wordmark,
@@ -158,7 +157,7 @@
   .mobile-layout .service-cover { aspect-ratio: 4 / 5; }
 
   .service-artwork .visual-shade {
-    background: linear-gradient(0deg, #080910 4%, #080910e0 29%, #08091055 58%, #08091012 90%);
+    background: linear-gradient(0deg, #17120e 4%, #17120ee0 29%, #17120e55 58%, #17120e12 90%);
   }
 
   .service-artwork .service-wordmark,

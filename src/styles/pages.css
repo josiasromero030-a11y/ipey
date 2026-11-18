@@ -13,12 +13,13 @@
 .catalog-page>.notice {max-width:none}
 .detail-layout {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:50px}
 .detail-art {min-height:300px;aspect-ratio:1.6;border:1px solid var(--color-border);border-radius:var(--radius-large);display:flex;align-items:center;justify-content:center;overflow:hidden}
-.detail-art>.visual-shade {background:rgba(8,11,16,.32)}
+.detail-art>.visual-shade {background:rgb(18 13 10 / .32)}
 .privacy-reminder {display:flex;align-items:flex-start;gap:10px;margin-top:15px;font-size:12px;color:var(--color-muted);line-height:1.6}
 .detail-page .eyebrow {margin:0 0 12px}
 .variants {display:grid;gap:12px}
-.variant {display:grid;grid-template-columns:20px minmax(0,1fr) auto;align-items:start;gap:12px;padding:17px;background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-card);cursor:pointer}
-.variant.selected {border-color:var(--color-accent);background:color-mix(in srgb,var(--ipey-blue) 12%,var(--ipey-surface))}
+.variant {display:grid;grid-template-columns:20px minmax(0,1fr) auto;align-items:start;gap:12px;padding:17px;background:var(--color-surface);border:1px solid transparent;border-radius:var(--radius-card);cursor:pointer;transition:background var(--transition),border-color var(--transition)}
+.variant:hover {background:var(--color-raised)}
+.variant.selected {border-color:var(--color-accent);background:color-mix(in srgb,var(--color-accent) 12%,var(--ipey-surface))}
 .variant input {accent-color:var(--color-action);width:18px;height:18px;margin:2px 0 0;padding:0}
 .variant strong {font-size:15px;line-height:1.35;display:block}
 .variant span,.variant small {display:block;font-size:12px;color:var(--color-muted);line-height:1.5;margin-top:5px}
@@ -65,6 +66,7 @@
 .mobile-filter-actions {position:sticky;bottom:0;display:grid;grid-template-columns:.8fr 1.2fr;gap:12px;background:var(--color-surface);border-top:1px solid var(--color-border);padding:14px 16px max(16px,env(safe-area-inset-bottom))}
 .mobile-filter-actions button {min-height:48px;border-radius:var(--radius-small);font-size:14px;background:var(--ipey-surface-raised)}
 .mobile-filter-actions .button {background:var(--color-action)}
+.mobile-filter-actions .button:hover {background:var(--ipey-accent-hover)}
 @media(max-width:1023px) {
  .catalog-page,.detail-page,.information-page {padding:24px 0 32px}
  .catalog-page h1,.detail-page h1,.information-page h1 {font-size:30px}

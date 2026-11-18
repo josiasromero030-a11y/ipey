@@ -8,9 +8,10 @@
   isolation: isolate;
   overflow: hidden;
   min-width: 0;
-  border: 1px solid var(--color-border);
+  border: 1px solid transparent;
   border-radius: var(--radius-large);
   background: var(--ipey-bg-secondary);
+  box-shadow: var(--shadow-surface);
 }
 
 .hero-mobile {
@@ -66,7 +67,7 @@
   color: var(--color-text);
   text-align: center;
   font-size: clamp(.93rem, 1.45vw, 1.25rem);
-  font-weight: 750;
+  font-weight: 700;
   line-height: 1.2;
   text-wrap: balance;
   overflow-wrap: anywhere;
@@ -80,7 +81,7 @@
   height: 2px;
   margin-inline: auto;
   border-radius: 2px;
-  background: var(--color-accent);
+  background: var(--color-border);
   content: "";
 }
 
@@ -128,7 +129,7 @@
 .hero-mobile .platform-panels { overflow: clip; }
 
 .hero-mobile .platform-panels::after {
-  background: linear-gradient(0deg, #080d17f2, #080d17a6 37%, #080d1738 69%, transparent);
+  background: linear-gradient(0deg, #17100df2, #17100dac 37%, #17100d38 69%, transparent);
 }
 
 .hero-mobile .hero-copy {
@@ -140,8 +141,6 @@
   font-size: clamp(1.03rem, 4.9vw, 1.65rem);
   line-height: 1.08;
 }
-
-.hero-mobile .hero-copy h1 span { color: #83adff; }
 
 .hero-mobile .hero-description {
   margin: 5px 0 6px;
@@ -187,8 +186,8 @@
 }
 
 .home-offer .visual-shade {
-  background: linear-gradient(90deg, #060a14eb, #060a1466 60%, transparent),
-    linear-gradient(0deg, #060a14d9, transparent 80%);
+  background: linear-gradient(90deg, #17100deb, #17100d66 60%, transparent),
+    linear-gradient(0deg, #17100dd9, transparent 80%);
 }
 
 .home-offer-copy {
@@ -242,8 +241,8 @@
 }
 
 .mobile-layout :is(.home-service-row, .trend-strip) .service-artwork .visual-shade {
-  background: linear-gradient(90deg, #080910 2%, #080910f2 23%, #08091088 51%, #08091024 86%),
-    linear-gradient(0deg, #08091090, transparent 55%);
+  background: linear-gradient(90deg, #17120e 2%, #17120ef2 23%, #17120e88 51%, #17120e24 86%),
+    linear-gradient(0deg, #17120e90, transparent 55%);
 }
 
 .mobile-layout :is(.home-service-row, .trend-strip) .service-artwork .service-wordmark,
@@ -261,8 +260,10 @@
   background: var(--color-card-neutral);
   padding: 4px 4px 0;
   border: 0;
-  border-radius: 10px;
+  border-radius: var(--radius-card);
 }
+
+.home-page .trend-card { background: var(--color-surface); }
 
 .compact-service-link {
   display: block;
@@ -289,7 +290,8 @@
   min-width: 0;
   overflow: hidden;
   font-size: .78rem;
-  font-weight: 500;
+  font-family: var(--ipey-font);
+  font-weight: 600;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
