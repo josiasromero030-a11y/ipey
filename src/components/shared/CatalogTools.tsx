@@ -4,21 +4,19 @@ import { business } from '../../catalog';
 import { emptyFilters, type Store } from '../../hooks/useStore';
 
 export function CatalogTools({ store }: { store: Store }) {
-  const { category, filters, products, query, setFilters, setQuery, setSort, sort } = store;
+  const { category, filters, query, setFilters, setQuery, setSort, sort } = store;
   const gaming = category === 'gaming';
-  const platforms = products.filter(product => !category || product.category === category);
   const dialog = useRef<HTMLDialogElement>(null);
   const trigger = useRef<HTMLButtonElement>(null);
   const [draft, setDraft] = useState({ filters, sort });
   const [expanded, setExpanded] = useState(false);
 
   const chips = [
-    { key: 'selected', text: platforms.find(product => product.id === filters.selected)?.name || 'Plataforma seleccionada' },
-    { key: 'duration', text: `${filters.duration} mes${filters.duration === '1' ? '' : 'es'}` },
+    { key: 'category', text: filters.category === 'gaming' ? 'Juegos' : 'Streaming' },
     { key: 'availability', text: 'Disponibles' },
     { key: 'max', text: `Hasta ${filters.max} ${business.currency}` },
   ] as const;
-  const activeChips = chips.filter(({ key }) => filters[key]);
+  const activeChips = chips.filter(({ key }) => filters[key] && (key !== 'category' || !category));
 
   function openFilters() {
     setDraft({ filters, sort });
@@ -92,20 +90,12 @@ export function CatalogTools({ store }: { store: Store }) {
           dialog.current?.close();
         }}>
           <div className="catalog-filter-fields">
-            {platforms.length > 1 && (
-              <label>Plataforma
-                <select value={draft.filters.selected} onChange={event => updateFilter('selected', event.target.value)}>
-                  <option value="">Todas las plataformas</option>
-                  {platforms.map(product => <option key={product.id} value={product.id}>{product.name}</option>)}
-                </select>
-              </label>
-            )}
-            {!gaming && (
-              <label>Duración
-                <select value={draft.filters.duration} onChange={event => updateFilter('duration', event.target.value)}>
-                  <option value="">Todas las duraciones</option>
-                  <option value="1">1 mes</option>
-                  <option value="3">3 meses</option>
+            {!category && (
+              <label>Categoría
+                <select aria-label="Categoría" value={draft.filters.category} onChange={event => updateFilter('category', event.target.value)}>
+                  <option value="">Todas las categorías</option>
+                  <option value="streaming">Streaming</option>
+                  <option value="gaming">Juegos</option>
                 </select>
               </label>
             )}

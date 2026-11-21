@@ -1,5 +1,5 @@
-import {useRef,useState,type FormEvent} from 'react';
-import {Check,ChevronRight,ClipboardCheck,ShieldCheck} from 'lucide-react';
+import {useRef,useState,type FormEvent,type CSSProperties} from 'react';
+import {Check,ClipboardCheck,ShieldCheck} from 'lucide-react';
 import type {Product} from '../catalog';
 import {money,orderMessage,purchasable,validPlayerId} from '../commerce';
 import {ServiceArtwork} from '../components/shared/ServiceArtwork';
@@ -23,7 +23,7 @@ export function DetailPage({product:p,mobile}:{product:Product;mobile:boolean}){
    if(p.category==='gaming'&&!validPlayerId(player)){playerInput.current?.focus();playerInput.current?.scrollIntoView({block:'center'})}
   }
  }
- return <section className="detail-page"><div className="breadcrumb"><a href="#/">Inicio</a><ChevronRight size={14}/><a href={p.category==='gaming'?'#/juegos':'#/streaming'}>{p.category==='gaming'?'Juegos':'Streaming'}</a><ChevronRight size={14}/>{p.name}</div>
+ return <section className="detail-page" style={{ '--color-selection': p.color } as CSSProperties}>
   <div className="detail-layout"><div><div className={`detail-art artwork artwork-${p.id}`}><ServiceArtwork id={p.id} name={p.name}/></div><p className="privacy-reminder"><ShieldCheck size={20}/>No te pediremos contraseñas ni códigos de verificación.</p></div><div>
    <p className="eyebrow">{p.category==='gaming'?'RECARGAS GAMING':'CATÁLOGO DE STREAMING'}</p><h1>{p.name}</h1><p className="lead">{p.description}</p>
    <form onSubmit={review} noValidate><fieldset><legend>{p.category==='gaming'?'Elige tu paquete':'Compara y elige una modalidad'}</legend><div className="variants">{p.variants.map(option=><label className={chosen===option.id?'variant selected':'variant'} key={option.id}><input type="radio" name="variant" value={option.id} checked={chosen===option.id} onChange={()=>{setChosen(option.id);setError('')}}/><div><strong>{option.name}</strong><span>{option.duration?`${option.duration} mes(es)`:'Recarga por ID'}</span><ul>{option.features.map(f=><li key={f}><Check size={13}/>{f}</li>)}</ul><small>{option.available?'Disponible':'Disponibilidad pendiente'}</small></div><b>{money(option.price)}</b></label>)}</div></fieldset>

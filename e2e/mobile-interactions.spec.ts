@@ -13,33 +13,59 @@ test('menú informativo: Escape devuelve el foco y los destinos principales sigu
  await expect(trigger).toHaveAttribute('aria-expanded','false');
 });
 
-test('filtros: borrador, cancelar, aplicar, etiquetas y limpieza',async({page})=>{
- await page.goto('/#/streaming');
- await page.getByRole('button',{name:'Filtros',exact:true}).click();
- await page.getByRole('combobox',{name:'Plataforma',exact:true}).selectOption('netflix');
- await page.keyboard.press('Escape');await expect(page.locator('.product-card')).toHaveCount(5);
- await page.getByRole('button',{name:'Filtros',exact:true}).click();
- await expect(page.getByRole('combobox',{name:'Plataforma',exact:true})).toHaveValue('');
- await page.getByRole('combobox',{name:'Plataforma',exact:true}).selectOption('netflix');
- await page.getByRole('combobox',{name:'Duración',exact:true}).selectOption('3');
- await page.getByRole('button',{name:'Aplicar filtros',exact:true}).click();
- await expect(page.locator('.product-card')).toHaveCount(1);
- await expect(page.getByRole('button',{name:/^Filtros/})).toBeFocused();
- await page.getByRole('button',{name:'Quitar filtro: Netflix',exact:true}).click();
- await expect(page.locator('.product-card')).toHaveCount(5);
- await page.getByRole('button',{name:/^Filtros/}).click();
- await page.getByRole('button',{name:'Limpiar',exact:true}).click();
- await page.getByRole('button',{name:'Aplicar filtros',exact:true}).click();
- await expect(page.getByRole('button',{name:/Quitar filtro:/})).toHaveCount(0);
- await page.getByRole('button',{name:'Filtros',exact:true}).click();
- await page.getByRole('combobox',{name:'Ordenar',exact:true}).selectOption('desc');
- await page.getByRole('button',{name:'Aplicar filtros',exact:true}).click();
- await page.getByRole('button',{name:'Filtros',exact:true}).click();
- await expect(page.getByRole('combobox',{name:'Ordenar',exact:true})).toHaveValue('desc');
+test('filtros: categoría global, borrador, cancelar y limpiar', async ({ page }) => {
+ await page.goto('/#/buscar');
+ await page.getByRole('button', {name: 'Filtros', exact: true}).click();
+ const category = page.getByRole('combobox', {name: 'Categoría', exact: true});
+ await expect(category.locator('option')).toHaveText(['Todas las categorías', 'Streaming', 'Juegos']);
+ await expect(page.getByRole('combobox', {name: 'Duración', exact: true})).toHaveCount(0);
+ await category.selectOption('gaming');
  await page.keyboard.press('Escape');
- await expect(page.getByRole('dialog',{name:'Filtros',exact:true})).not.toBeVisible();
- await page.getByRole('searchbox',{name:'Buscar servicios',exact:true}).fill('Spotify');
- await expect(page.locator('.product-card h3')).toHaveText('Spotify');
+ await expect(page.locator('.product-card')).toHaveCount(6);
+ await page.getByRole('button', {name: 'Filtros', exact: true}).click();
+ await expect(category).toHaveValue('');
+ await category.selectOption('gaming');
+ await page.getByRole('button', {name: 'Aplicar filtros', exact: true}).click();
+ await expect(page.locator('.product-card')).toHaveCount(1);
+ await page.getByRole('button', {name: 'Quitar filtro: Juegos', exact: true}).click();
+ await expect(page.locator('.product-card')).toHaveCount(6);
+ await page.getByRole('button', {name: 'Filtros', exact: true}).click();
+ await category.selectOption('streaming');
+ await page.getByRole('button', {name: 'Aplicar filtros', exact: true}).click();
+ await expect(page.locator('.product-card')).toHaveCount(5);
+ for (const route of ['streaming','juegos']) {
+  await page.goto('/#/'+route);
+  await page.getByRole('button', {name: /^Filtros/}).click();
+  await expect(page.getByRole('combobox', {name: /Categoría|Plataforma|Duración/})).toHaveCount(0);
+  await page.getByRole('combobox', {name: 'Disponibilidad', exact: true}).selectOption('yes');
+  await page.getByRole('button', {name: 'Aplicar filtros', exact: true}).click();
+  await expect(page.locator('.product-card')).toHaveCount(0);
+  await page.getByRole('button', {name: 'Mostrar todo', exact: true}).click();
+  await expect(page.locator('.product-card')).toHaveCount(route === 'streaming' ? 5 : 1);
+ }
+});
+
+test('cada ficha usa el acento de su plataforma y omite la ruta pequeña', async ({page}) => {
+ await page.emulateMedia({reducedMotion:'reduce'});
+ for (const [id, color] of [['netflix','#da2335'],['spotify','#1bba68'],['disney','#1c64df'],['max','#6444ce'],['crunchyroll','#ed781b'],['free-fire','#dc8c27']]) {
+  await page.goto('/#/producto/'+id);
+  await expect(page.locator('.detail-page .breadcrumb')).toHaveCount(0);
+  const radios = page.getByRole('radio');
+  await expect(radios.first()).toBeChecked();
+  await radios.nth(1).check();
+  await expect(page.locator('.variant.selected')).toHaveCount(1);
+  const style = await page.locator('.variant.selected').evaluate(element => {
+   const color = getComputedStyle(element).getPropertyValue('--color-selection').trim();
+   const border = getComputedStyle(element).borderTopColor;
+   const radio = getComputedStyle(element.querySelector('input')!).accentColor;
+   const canvas = document.createElement('canvas').getContext('2d')!;
+   canvas.fillStyle = color;
+   const hex = canvas.fillStyle;
+   return { color, hex, same: border === radio, tinted: getComputedStyle(element).backgroundColor };
+  });
+  expect(style.hex).toBe(color);
+  expect(style.same).toBe(true);
+ }
 });
 
 test('ID, condiciones y acción del resumen siguen accesibles con menos altura',async({page})=>{
