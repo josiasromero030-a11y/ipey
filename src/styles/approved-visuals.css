@@ -82,6 +82,10 @@
 .service-artwork .visual-background {
   object-position: var(--focus);
   filter: saturate(.92);
+  /* Bleed only the photo past fractional bounds; keep the logo and shade aligned. */
+  inset: -1px;
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
 }
 
 .service-artwork .service-wordmark,

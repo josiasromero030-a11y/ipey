@@ -239,7 +239,7 @@
 
 .home-page .service-card-compact {
   background: var(--color-card-neutral);
-  padding: 4px 4px 0;
+  padding: 0;
   border: 0;
   border-radius: var(--radius-card);
 }
@@ -262,13 +262,15 @@
   aspect-ratio: 16 / 9;
   border: 0;
   border-radius: var(--radius-small);
+  clip-path: inset(0 round var(--radius-small));
+  background: #080910;
 }
 
 .compact-service-details {
   display: flex;
   align-items: baseline;
   gap: 8px;
-  padding: 7px 2px 8px;
+  padding: 7px 6px 8px;
   color: var(--color-muted);
 }
 
