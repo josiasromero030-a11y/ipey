@@ -239,7 +239,7 @@
 
 .home-page .service-card-compact {
   background: var(--color-card-neutral);
-  padding: 0;
+  padding: 4px 4px 0;
   border: 0;
   border-radius: var(--radius-card);
 }
@@ -266,11 +266,22 @@
   background: #080910;
 }
 
+/* Cover the bright anti-aliased rim without changing the artwork dimensions. */
+.home-page .service-card-compact .service-cover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px #080910;
+  pointer-events: none;
+}
+
 .compact-service-details {
   display: flex;
   align-items: baseline;
   gap: 8px;
-  padding: 7px 6px 8px;
+  padding: 7px 2px 8px;
   color: var(--color-muted);
 }
 
