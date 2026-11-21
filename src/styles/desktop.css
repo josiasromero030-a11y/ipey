@@ -91,26 +91,48 @@
 
 .streaming-scroll-controls {
   position: absolute;
-  inset: 0;
+  inset: 4px 0 8px;
   pointer-events: none;
 }
 
+.streaming-scroll-controls::before,
+.streaming-scroll-controls::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 76px;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.streaming-scroll-controls::before { left: 0; background: linear-gradient(90deg, #090b0ee6, transparent); }
+.streaming-scroll-controls::after { right: 0; background: linear-gradient(270deg, #090b0ee6, transparent); }
+.streaming-scroll-controls:has(.previous:not(:disabled))::before,
+.streaming-scroll-controls:has(.next:not(:disabled))::after { opacity: 1; }
+
 .streaming-scroll-arrow {
   position: absolute;
-  top: calc(50% - 22px);
+  z-index: 1;
+  top: calc(50% - 18px);
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  border: 1px solid var(--color-border);
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid #ffffff24;
   border-radius: 50%;
-  background: var(--color-surface);
-  box-shadow: 0 3px 14px #0008;
+  background: #15181dbc;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px #0003;
   pointer-events: auto;
+  transition: background .2s ease, border-color .2s ease, transform .2s ease, opacity .2s ease;
 }
-
-.streaming-scroll-arrow.previous { left: -15px; }
-.streaming-scroll-arrow.next { right: -15px; }
-.streaming-scroll-arrow svg.lucide { color: var(--color-text); }
-.streaming-scroll-arrow:not(:disabled):hover { background: var(--color-raised); }
-.streaming-scroll-arrow:disabled { opacity: .3; }
+.streaming-scroll-arrow.previous { left: 12px; }
+.streaming-scroll-arrow.next { right: 12px; }
+.streaming-scroll-arrow svg.lucide { width: 18px; height: 18px; color: #fff; }
+.streaming-scroll-arrow:not(:disabled):hover { background: #292e36ed; border-color: #ffffff60; transform: scale(1.08); }
+.streaming-scroll-arrow:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+.streaming-scroll-arrow:disabled { opacity: 0; visibility: hidden; pointer-events: none; }
+@media (prefers-reduced-motion: reduce) {
+  .streaming-scroll-arrow, .streaming-scroll-controls::before, .streaming-scroll-controls::after { transition: none; }
+}
