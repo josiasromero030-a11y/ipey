@@ -21,8 +21,7 @@
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   scroll-snap-type: x mandatory;
-  scrollbar-width: thin;
-  scrollbar-color: var(--color-focus) transparent;
+  scrollbar-width: none;
   padding-block: 4px 8px;
 }
 .desktop-layout .streaming-section .home-service-row > .service-card {
@@ -81,3 +80,37 @@
  .footer-desktop .footer-columns {gap:20px}
  .footer-desktop .footer-contact-group {padding-left:20px}
 }
+
+.streaming-carousel { position: relative; min-width: 0; }
+
+.desktop-layout .streaming-section .home-service-row::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+.streaming-scroll-controls {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.streaming-scroll-arrow {
+  position: absolute;
+  top: calc(50% - 22px);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: 0 3px 14px #0008;
+  pointer-events: auto;
+}
+
+.streaming-scroll-arrow.previous { left: -15px; }
+.streaming-scroll-arrow.next { right: -15px; }
+.streaming-scroll-arrow svg.lucide { color: var(--color-text); }
+.streaming-scroll-arrow:not(:disabled):hover { background: var(--color-raised); }
+.streaming-scroll-arrow:disabled { opacity: .3; }

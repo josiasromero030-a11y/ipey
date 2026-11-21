@@ -5,6 +5,7 @@ import { HeroMobile } from '../components/mobile/HeroMobile';
 import { GamingBannerDesktop } from '../components/desktop/GamingBannerDesktop';
 import { GamingBannerMobile } from '../components/mobile/GamingBannerMobile';
 import { ServiceCard } from '../components/shared/ServiceCard';
+import { StreamingRow } from '../components/shared/StreamingRow';
 import { Trends } from '../components/shared/Trends';
 import { HomeOffers } from '../components/shared/HomeOffers';
 import { ProcessStrip } from '../components/shared/ProcessStrip';
@@ -29,14 +30,7 @@ export function HomePage({ store, presentation }: { store: Store; presentation: 
           </div>
           <a href="#/streaming" onClick={store.reset}>Ver todos<ArrowRight size={19} /></a>
         </div>
-        <div
-          className="service-grid home-scroll-row home-service-row"
-          role={desktop ? 'group' : undefined}
-          aria-label={desktop ? 'Tarjetas de streaming' : undefined}
-          tabIndex={desktop ? 0 : undefined}
-        >
-          {streaming.map(product => <ServiceCard key={product.id} product={product} compact />)}
-        </div>
+        <StreamingRow products={streaming} desktop={desktop} />
       </section>
       {game && (
         <section className="gaming-section" aria-labelledby="gaming-heading">
