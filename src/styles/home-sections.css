@@ -219,9 +219,11 @@
 
 .home-page :is(.trends-section, .streaming-section) .service-artwork .visual-shade {
   background:
-    radial-gradient(ellipse 125% 155% at -14% 58%,
-      #080910fa 0%, #080910ed 21%, #080910cc 39%, #08091080 58%, #08091028 77%, transparent 100%),
-    linear-gradient(0deg, #08091066, #08091020 38%, transparent 72%);
+    linear-gradient(108deg,
+      #080910ed -25%, #080910cc 0%, #080910a8 24%, #08091073 48%, #08091040 74%, #0809101a 100%, #08091000 125%),
+    radial-gradient(ellipse 115% 180% at -12% 68%,
+      #08091080 0%, #08091040 48%, #08091000 110%),
+    linear-gradient(176deg, #0809100d -20%, #08091018 38%, #08091066 125%);
 }
 
 .mobile-layout .home-service-row .service-cover {
